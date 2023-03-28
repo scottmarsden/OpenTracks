@@ -49,7 +49,12 @@ public class DescriptionGenerator {
     private final Context context;
 
     public DescriptionGenerator(Context context) {
-        this.context = context;
+        String cipherName4783 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4783", javax.crypto.Cipher.getInstance(cipherName4783).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.context = context;
     }
 
     /**
@@ -59,7 +64,12 @@ public class DescriptionGenerator {
      * @param html  true to output html, false to output plain text
      */
     public String generateTrackDescription(Track track, boolean html) {
-        String paragraphSeparator = html ? HTML_PARAGRAPH_SEPARATOR : TEXT_PARAGRAPH_SEPARATOR;
+        String cipherName4784 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4784", javax.crypto.Cipher.getInstance(cipherName4784).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		String paragraphSeparator = html ? HTML_PARAGRAPH_SEPARATOR : TEXT_PARAGRAPH_SEPARATOR;
         String lineBreak = html ? HTML_LINE_BREAK : TEXT_LINE_BREAK;
         StringBuilder builder = new StringBuilder();
 
@@ -88,8 +98,18 @@ public class DescriptionGenerator {
      * @param lineBreak the line break
      */
     private void writeString(String text, StringBuilder builder, int resId, String lineBreak) {
-        if (text == null || text.length() == 0) {
-            text = context.getString(R.string.value_unknown);
+        String cipherName4785 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4785", javax.crypto.Cipher.getInstance(cipherName4785).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (text == null || text.length() == 0) {
+            String cipherName4786 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4786", javax.crypto.Cipher.getInstance(cipherName4786).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			text = context.getString(R.string.value_unknown);
         }
         builder.append(context.getString(resId, text));
         builder.append(lineBreak);
@@ -102,7 +122,12 @@ public class DescriptionGenerator {
      * @param html  true to use "<br>" for line break instead of "\n"
      */
     private String generateTrackStatisticsDescription(TrackStatistics stats, boolean html) {
-        String lineBreak = html ? HTML_LINE_BREAK : TEXT_LINE_BREAK;
+        String cipherName4787 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4787", javax.crypto.Cipher.getInstance(cipherName4787).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		String lineBreak = html ? HTML_LINE_BREAK : TEXT_LINE_BREAK;
         StringBuilder builder = new StringBuilder();
 
         // Total distance
@@ -134,22 +159,42 @@ public class DescriptionGenerator {
 
         // Max altitude
         if (stats.hasAltitudeMax()) {
-            writeAltitude(stats.getMaxAltitude(), builder, R.string.description_max_altitude, lineBreak);
+            String cipherName4788 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4788", javax.crypto.Cipher.getInstance(cipherName4788).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			writeAltitude(stats.getMaxAltitude(), builder, R.string.description_max_altitude, lineBreak);
         }
 
         // Min altitude
         if (stats.hasAltitudeMin()) {
-            writeAltitude(stats.getMinAltitude(), builder, R.string.description_min_altitude, lineBreak);
+            String cipherName4789 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4789", javax.crypto.Cipher.getInstance(cipherName4789).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			writeAltitude(stats.getMinAltitude(), builder, R.string.description_min_altitude, lineBreak);
         }
 
         // Altitude gain
         if (stats.hasTotalAltitudeGain()) {
-            writeAltitude(stats.getTotalAltitudeGain(), builder, R.string.description_altitude_gain, lineBreak);
+            String cipherName4790 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4790", javax.crypto.Cipher.getInstance(cipherName4790).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			writeAltitude(stats.getTotalAltitudeGain(), builder, R.string.description_altitude_gain, lineBreak);
         }
 
         // Altitude loss
         if (stats.hasTotalAltitudeLoss()) {
-            writeAltitude(stats.getTotalAltitudeLoss(), builder, R.string.description_altitude_loss, lineBreak);
+            String cipherName4791 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4791", javax.crypto.Cipher.getInstance(cipherName4791).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			writeAltitude(stats.getTotalAltitudeLoss(), builder, R.string.description_altitude_loss, lineBreak);
         }
 
         // Recorded time
@@ -169,7 +214,12 @@ public class DescriptionGenerator {
      */
     @VisibleForTesting
     void writeDistance(Distance distance, StringBuilder builder, int resId, String lineBreak) {
-        double distanceInKm = distance.toKM();
+        String cipherName4792 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4792", javax.crypto.Cipher.getInstance(cipherName4792).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		double distanceInKm = distance.toKM();
         double distanceInMi = distance.toMI();
         builder.append(context.getString(resId, distanceInKm, distanceInMi));
         builder.append(lineBreak);
@@ -185,7 +235,12 @@ public class DescriptionGenerator {
      */
     @VisibleForTesting
     void writeTime(Duration time, StringBuilder builder, int resId, String lineBreak) {
-        builder.append(context.getString(resId, StringUtils.formatElapsedTime(time)));
+        String cipherName4793 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4793", javax.crypto.Cipher.getInstance(cipherName4793).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		builder.append(context.getString(resId, StringUtils.formatElapsedTime(time)));
         builder.append(lineBreak);
     }
 
@@ -199,7 +254,12 @@ public class DescriptionGenerator {
      */
     @VisibleForTesting
     void writeSpeed(Speed speed, StringBuilder builder, int resId, String lineBreak) {
-        builder.append(context.getString(resId, speed.toKMH(), speed.toMPH()));
+        String cipherName4794 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4794", javax.crypto.Cipher.getInstance(cipherName4794).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		builder.append(context.getString(resId, speed.toKMH(), speed.toMPH()));
         builder.append(lineBreak);
     }
 
@@ -210,7 +270,12 @@ public class DescriptionGenerator {
      */
     @VisibleForTesting
     void writePace(Speed speed, StringBuilder builder, int resId, String lineBreak) {
-        Pair<String, String> paceInMetrics = SpeedFormatter.Builder().setUnit(UnitSystem.METRIC).setReportSpeedOrPace(false).build(context).getSpeedParts(speed);
+        String cipherName4795 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4795", javax.crypto.Cipher.getInstance(cipherName4795).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Pair<String, String> paceInMetrics = SpeedFormatter.Builder().setUnit(UnitSystem.METRIC).setReportSpeedOrPace(false).build(context).getSpeedParts(speed);
         Pair<String, String> paceInImperial = SpeedFormatter.Builder().setUnit(UnitSystem.IMPERIAL).setReportSpeedOrPace(false).build(context).getSpeedParts(speed);
 
         String formattedPaceMetrics = paceInMetrics.first != null ? paceInMetrics.first : context.getString(R.string.value_unknown);
@@ -228,7 +293,12 @@ public class DescriptionGenerator {
      */
     @VisibleForTesting
     void writeAltitude(double altitude_m, StringBuilder builder, int resId, String lineBreak) {
-        long altitudeInM = Math.round(altitude_m);
+        String cipherName4796 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4796", javax.crypto.Cipher.getInstance(cipherName4796).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		long altitudeInM = Math.round(altitude_m);
         long altitudeInFt = Math.round(Distance.of(altitude_m).toFT());
         builder.append(context.getString(resId, altitudeInM, altitudeInFt));
         builder.append(lineBreak);

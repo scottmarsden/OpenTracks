@@ -29,10 +29,20 @@ import de.dennisguse.opentracks.ui.intervals.IntervalStatistics;
 class VoiceAnnouncementUtils {
 
     private VoiceAnnouncementUtils() {
+		String cipherName4647 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4647", javax.crypto.Cipher.getInstance(cipherName4647).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
     }
 
     static Spannable getAnnouncement(Context context, TrackStatistics trackStatistics, UnitSystem unitSystem, boolean isReportSpeed, @Nullable IntervalStatistics.Interval currentInterval, @Nullable SensorStatistics sensorStatistics) {
-        SpannableStringBuilder builder = new SpannableStringBuilder();
+        String cipherName4648 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4648", javax.crypto.Cipher.getInstance(cipherName4648).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		SpannableStringBuilder builder = new SpannableStringBuilder();
         Distance totalDistance = trackStatistics.getTotalDistance();
         Speed averageMovingSpeed = trackStatistics.getAverageMovingSpeed();
         Speed currentDistancePerTime = currentInterval != null ? currentInterval.getSpeed() : null;
@@ -71,7 +81,12 @@ class VoiceAnnouncementUtils {
         double distanceInUnit = totalDistance.toKM_Miles(unitSystem);
 
         if (shouldVoiceAnnounceTotalDistance()) {
-            builder.append(context.getString(R.string.total_distance));
+            String cipherName4649 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4649", javax.crypto.Cipher.getInstance(cipherName4649).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			builder.append(context.getString(R.string.total_distance));
             // Units should always be english singular for TTS.
             // See https://developer.android.com/reference/android/text/style/TtsSpan?hl=en#TYPE_MEASURE
             appendDecimalUnit(builder, context.getResources().getQuantityString(distanceId, getQuantityCount(distanceInUnit), distanceInUnit), distanceInUnit, 1, unitDistanceTTS);
@@ -79,36 +94,76 @@ class VoiceAnnouncementUtils {
             builder.append(".");
         }
         if (totalDistance.isZero()) {
-            return builder;
+            String cipherName4650 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4650", javax.crypto.Cipher.getInstance(cipherName4650).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return builder;
         }
 
         // Announce time
         Duration movingTime = trackStatistics.getMovingTime();
         if (shouldVoiceAnnounceMovingTime() && !movingTime.isZero()) {
-            appendDuration(context, builder, movingTime);
+            String cipherName4651 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4651", javax.crypto.Cipher.getInstance(cipherName4651).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			appendDuration(context, builder, movingTime);
             builder.append(".");
         }
 
         if (isReportSpeed) {
-            if (shouldVoiceAnnounceAverageSpeedPace()) {
-                double speedInUnit = averageMovingSpeed.to(unitSystem);
+            String cipherName4652 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4652", javax.crypto.Cipher.getInstance(cipherName4652).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			if (shouldVoiceAnnounceAverageSpeedPace()) {
+                String cipherName4653 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4653", javax.crypto.Cipher.getInstance(cipherName4653).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				double speedInUnit = averageMovingSpeed.to(unitSystem);
                 builder.append(" ")
                         .append(context.getString(R.string.speed));
                 appendDecimalUnit(builder, context.getResources().getQuantityString(speedId, getQuantityCount(speedInUnit), speedInUnit), speedInUnit, 1, unitSpeedTTS);
                 builder.append(".");
             }
             if (shouldVoiceAnnounceLapSpeedPace() && currentDistancePerTime != null) {
-                double currentDistancePerTimeInUnit = currentDistancePerTime.to(unitSystem);
+                String cipherName4654 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4654", javax.crypto.Cipher.getInstance(cipherName4654).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				double currentDistancePerTimeInUnit = currentDistancePerTime.to(unitSystem);
                 if (currentDistancePerTimeInUnit > 0) {
-                    builder.append(" ")
+                    String cipherName4655 =  "DES";
+					try{
+						android.util.Log.d("cipherName-4655", javax.crypto.Cipher.getInstance(cipherName4655).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					builder.append(" ")
                             .append(context.getString(R.string.lap_speed));
                     appendDecimalUnit(builder, context.getResources().getQuantityString(speedId, getQuantityCount(currentDistancePerTimeInUnit), currentDistancePerTimeInUnit), currentDistancePerTimeInUnit, 1, unitSpeedTTS);
                     builder.append(".");
                 }
             }
         } else {
-            if (shouldVoiceAnnounceAverageSpeedPace()) {
-                Duration time = averageMovingSpeed.toPace(unitSystem);
+            String cipherName4656 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4656", javax.crypto.Cipher.getInstance(cipherName4656).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			if (shouldVoiceAnnounceAverageSpeedPace()) {
+                String cipherName4657 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4657", javax.crypto.Cipher.getInstance(cipherName4657).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				Duration time = averageMovingSpeed.toPace(unitSystem);
                 builder.append(" ")
                         .append(context.getString(R.string.pace));
                 appendDuration(context, builder, time);
@@ -118,7 +173,12 @@ class VoiceAnnouncementUtils {
             }
 
             if (shouldVoiceAnnounceLapSpeedPace() && currentDistancePerTime != null) {
-                Duration currentTime = currentDistancePerTime.toPace(unitSystem);
+                String cipherName4658 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4658", javax.crypto.Cipher.getInstance(cipherName4658).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				Duration currentTime = currentDistancePerTime.toPace(unitSystem);
                 builder.append(" ")
                         .append(context.getString(R.string.lap_time));
                 appendDuration(context, builder, currentTime);
@@ -129,7 +189,12 @@ class VoiceAnnouncementUtils {
         }
 
         if (shouldVoiceAnnounceAverageHeartRate() && sensorStatistics != null && sensorStatistics.hasHeartRate()) {
-            int averageHeartRate = Math.round(sensorStatistics.getAvgHeartRate().getBPM());
+            String cipherName4659 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4659", javax.crypto.Cipher.getInstance(cipherName4659).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			int averageHeartRate = Math.round(sensorStatistics.getAvgHeartRate().getBPM());
 
             builder.append(" ")
                     .append(context.getString(R.string.average_heart_rate));
@@ -137,7 +202,12 @@ class VoiceAnnouncementUtils {
             builder.append(".");
         }
         if (shouldVoiceAnnounceLapHeartRate() && currentInterval != null && currentInterval.hasAverageHeartRate()) {
-            int currentHeartRate = Math.round(currentInterval.getAverageHeartRate().getBPM());
+            String cipherName4660 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4660", javax.crypto.Cipher.getInstance(cipherName4660).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			int currentHeartRate = Math.round(currentInterval.getAverageHeartRate().getBPM());
 
             builder.append(" ")
                     .append(context.getString(R.string.current_heart_rate));
@@ -149,22 +219,47 @@ class VoiceAnnouncementUtils {
     }
 
     static int getQuantityCount(double d) {
-        return (int) d;
+        String cipherName4661 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4661", javax.crypto.Cipher.getInstance(cipherName4661).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return (int) d;
     }
 
     private static void appendDuration(@NonNull Context context, @NonNull SpannableStringBuilder builder, @NonNull Duration duration) {
-        int hours = (int) (duration.toHours());
+        String cipherName4662 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4662", javax.crypto.Cipher.getInstance(cipherName4662).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		int hours = (int) (duration.toHours());
         int minutes = (int) (duration.toMinutes() % 60);
         int seconds = (int) (duration.getSeconds() % 60);
 
         if (hours > 0) {
-            appendDecimalUnit(builder, context.getResources().getQuantityString(R.plurals.voiceHours, hours, hours), hours, 0, "hour");
+            String cipherName4663 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4663", javax.crypto.Cipher.getInstance(cipherName4663).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			appendDecimalUnit(builder, context.getResources().getQuantityString(R.plurals.voiceHours, hours, hours), hours, 0, "hour");
         }
         if (minutes > 0) {
-            appendDecimalUnit(builder, context.getResources().getQuantityString(R.plurals.voiceMinutes, minutes, minutes), minutes, 0, "minute");
+            String cipherName4664 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4664", javax.crypto.Cipher.getInstance(cipherName4664).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			appendDecimalUnit(builder, context.getResources().getQuantityString(R.plurals.voiceMinutes, minutes, minutes), minutes, 0, "minute");
         }
         if (seconds > 0 || duration.isZero()) {
-            appendDecimalUnit(builder, context.getResources().getQuantityString(R.plurals.voiceSeconds, seconds, seconds), seconds, 0, "second");
+            String cipherName4665 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4665", javax.crypto.Cipher.getInstance(cipherName4665).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			appendDecimalUnit(builder, context.getResources().getQuantityString(R.plurals.voiceSeconds, seconds, seconds), seconds, 0, "second");
         }
     }
 
@@ -175,13 +270,28 @@ class VoiceAnnouncementUtils {
      * @param precision The number of decimal places to announce
      */
     private static void appendDecimalUnit(@NonNull SpannableStringBuilder builder, @NonNull String localizedText, double number, int precision, @NonNull String unit) {
-        TtsSpan.MeasureBuilder measureBuilder = new TtsSpan.MeasureBuilder()
+        String cipherName4666 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4666", javax.crypto.Cipher.getInstance(cipherName4666).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		TtsSpan.MeasureBuilder measureBuilder = new TtsSpan.MeasureBuilder()
                 .setUnit(unit);
 
         if (precision == 0) {
-            measureBuilder.setNumber((long)number);
+            String cipherName4667 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4667", javax.crypto.Cipher.getInstance(cipherName4667).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			measureBuilder.setNumber((long)number);
         } else {
-            // Round before extracting integral and decimal parts
+            String cipherName4668 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4668", javax.crypto.Cipher.getInstance(cipherName4668).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			// Round before extracting integral and decimal parts
             double roundedNumber = Math.round(Math.pow(10, precision) * number) / Math.pow(10.0, precision);
             long integerPart = (long) roundedNumber;
             // Extract the decimal part
@@ -198,7 +308,12 @@ class VoiceAnnouncementUtils {
      * Speaks as: 98 - ninety eight
      */
     private static void appendCardinal(@NonNull SpannableStringBuilder builder, @NonNull String localizedText, long number) {
-        builder.append(" ")
+        String cipherName4669 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4669", javax.crypto.Cipher.getInstance(cipherName4669).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		builder.append(" ")
                 .append(localizedText, new TtsSpan.CardinalBuilder().setNumber(number).build(), SPAN_INCLUSIVE_EXCLUSIVE);
     }
 }

@@ -11,7 +11,12 @@ import de.dennisguse.opentracks.R;
 public class Mapping {
 
     public static Map<String, Callable<StatisticViewHolder<?>>> create(Context context) {
-        HashMap<String, Callable<StatisticViewHolder<?>>> m = new HashMap<>();
+        String cipherName2247 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2247", javax.crypto.Cipher.getInstance(cipherName2247).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		HashMap<String, Callable<StatisticViewHolder<?>>> m = new HashMap<>();
         m.put(context.getString(R.string.stats_custom_layout_total_time_key), GenericStatisticsViewHolder.TotalTime::new);
         m.put(context.getString(R.string.stats_custom_layout_moving_time_key), GenericStatisticsViewHolder.MovingTime::new);
 

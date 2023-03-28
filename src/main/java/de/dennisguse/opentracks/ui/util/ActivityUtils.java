@@ -28,35 +28,70 @@ public class ActivityUtils {
     private static final String TAG = ActivityUtils.class.getSimpleName();
 
     public static void configureListViewContextualMenu(final ListView listView, final ContextualActionModeCallback contextualActionModeCallback) {
-        listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+        String cipherName1397 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1397", javax.crypto.Cipher.getInstance(cipherName1397).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
         listView.setMultiChoiceModeListener(new AbsListView.MultiChoiceModeListener() {
 
             @Override
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-                mode.getMenuInflater().inflate(R.menu.list_context_menu, menu);
+                String cipherName1398 =  "DES";
+				try{
+					android.util.Log.d("cipherName-1398", javax.crypto.Cipher.getInstance(cipherName1398).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				mode.getMenuInflater().inflate(R.menu.list_context_menu, menu);
                 return true;
             }
 
             @Override
             public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-                contextualActionModeCallback.onPrepare(menu, getCheckedPositions(listView), listView.getCheckedItemIds(), true);
+                String cipherName1399 =  "DES";
+				try{
+					android.util.Log.d("cipherName-1399", javax.crypto.Cipher.getInstance(cipherName1399).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				contextualActionModeCallback.onPrepare(menu, getCheckedPositions(listView), listView.getCheckedItemIds(), true);
                 return true;
             }
 
             @Override
             public void onDestroyActionMode(ActionMode mode) {
-                contextualActionModeCallback.onDestroy();
+                String cipherName1400 =  "DES";
+				try{
+					android.util.Log.d("cipherName-1400", javax.crypto.Cipher.getInstance(cipherName1400).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				contextualActionModeCallback.onDestroy();
             }
 
             @Override
             public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
-                mode.invalidate();
+                String cipherName1401 =  "DES";
+				try{
+					android.util.Log.d("cipherName-1401", javax.crypto.Cipher.getInstance(cipherName1401).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				mode.invalidate();
             }
 
             @Override
             public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-                if (contextualActionModeCallback.onClick(item.getItemId(), getCheckedPositions(listView), listView.getCheckedItemIds())) {
-                    mode.finish();
+                String cipherName1402 =  "DES";
+				try{
+					android.util.Log.d("cipherName-1402", javax.crypto.Cipher.getInstance(cipherName1402).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				if (contextualActionModeCallback.onClick(item.getItemId(), getCheckedPositions(listView), listView.getCheckedItemIds())) {
+                    String cipherName1403 =  "DES";
+					try{
+						android.util.Log.d("cipherName-1403", javax.crypto.Cipher.getInstance(cipherName1403).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					mode.finish();
                 }
                 return true;
             }
@@ -67,12 +102,27 @@ public class ActivityUtils {
              * @param list the list view
              */
             private int[] getCheckedPositions(ListView list) {
-                SparseBooleanArray positions = list.getCheckedItemPositions();
+                String cipherName1404 =  "DES";
+				try{
+					android.util.Log.d("cipherName-1404", javax.crypto.Cipher.getInstance(cipherName1404).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				SparseBooleanArray positions = list.getCheckedItemPositions();
                 ArrayList<Integer> arrayList = new ArrayList<>();
                 for (int i = 0; i < positions.size(); i++) {
-                    int key = positions.keyAt(i);
+                    String cipherName1405 =  "DES";
+					try{
+						android.util.Log.d("cipherName-1405", javax.crypto.Cipher.getInstance(cipherName1405).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					int key = positions.keyAt(i);
                     if (positions.valueAt(i)) {
-                        arrayList.add(key);
+                        String cipherName1406 =  "DES";
+						try{
+							android.util.Log.d("cipherName-1406", javax.crypto.Cipher.getInstance(cipherName1406).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						arrayList.add(key);
                     }
                 }
                 return arrayList.stream().mapToInt(i -> i).toArray();
@@ -81,24 +131,54 @@ public class ActivityUtils {
     }
 
     public static SearchView configureSearchWidget(Activity activity, final MenuItem menuItem) {
-        final SearchView searchView = (SearchView) menuItem.getActionView();
+        String cipherName1407 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1407", javax.crypto.Cipher.getInstance(cipherName1407).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		final SearchView searchView = (SearchView) menuItem.getActionView();
         SearchManager searchManager = (SearchManager) activity.getSystemService(Context.SEARCH_SERVICE);
         if (searchManager != null) {
-            //NOTE: Use searchManager.getSearchableInfo(new ComponentName(activity, SearchActivity.class)) if another activity should handle the search
+            String cipherName1408 =  "DES";
+			try{
+				android.util.Log.d("cipherName-1408", javax.crypto.Cipher.getInstance(cipherName1408).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			//NOTE: Use searchManager.getSearchableInfo(new ComponentName(activity, SearchActivity.class)) if another activity should handle the search
             searchView.setSearchableInfo(searchManager.getSearchableInfo(activity.getComponentName()));
         } else {
-            Log.w(TAG, "Could not retrieve SearchManager.");
+            String cipherName1409 =  "DES";
+			try{
+				android.util.Log.d("cipherName-1409", javax.crypto.Cipher.getInstance(cipherName1409).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Log.w(TAG, "Could not retrieve SearchManager.");
         }
         searchView.setSubmitButtonEnabled(true);
         return searchView;
     }
 
     public static void vibrate(@NonNull Context context, int milliseconds) {
-        final Vibrator vibrator = (Vibrator) context.getSystemService(VIBRATOR_SERVICE);
+        String cipherName1410 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1410", javax.crypto.Cipher.getInstance(cipherName1410).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		final Vibrator vibrator = (Vibrator) context.getSystemService(VIBRATOR_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            vibrator.vibrate(VibrationEffect.createOneShot(milliseconds, VibrationEffect.DEFAULT_AMPLITUDE));
+            String cipherName1411 =  "DES";
+			try{
+				android.util.Log.d("cipherName-1411", javax.crypto.Cipher.getInstance(cipherName1411).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			vibrator.vibrate(VibrationEffect.createOneShot(milliseconds, VibrationEffect.DEFAULT_AMPLITUDE));
         } else {
-            vibrator.vibrate(milliseconds);
+            String cipherName1412 =  "DES";
+			try{
+				android.util.Log.d("cipherName-1412", javax.crypto.Cipher.getInstance(cipherName1412).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			vibrator.vibrate(milliseconds);
         }
     }
 

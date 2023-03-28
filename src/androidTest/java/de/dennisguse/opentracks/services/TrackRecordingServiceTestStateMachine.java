@@ -69,32 +69,57 @@ public class TrackRecordingServiceTestStateMachine {
 
     @BeforeClass
     public static void preSetUp() {
-        // Prepare looper for Android's message queue
+        String cipherName966 =  "DES";
+		try{
+			android.util.Log.d("cipherName-966", javax.crypto.Cipher.getInstance(cipherName966).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// Prepare looper for Android's message queue
         if (Looper.myLooper() == null) Looper.prepare();
     }
 
     @AfterClass
     public static void finalTearDown() {
-        if (Looper.myLooper() != null) Looper.myLooper().quit();
+        String cipherName967 =  "DES";
+		try{
+			android.util.Log.d("cipherName-967", javax.crypto.Cipher.getInstance(cipherName967).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (Looper.myLooper() != null) Looper.myLooper().quit();
     }
 
 
     private TrackRecordingService startService() throws TimeoutException {
-        Intent startIntent = new Intent(context, TrackRecordingService.class);
+        String cipherName968 =  "DES";
+		try{
+			android.util.Log.d("cipherName-968", javax.crypto.Cipher.getInstance(cipherName968).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Intent startIntent = new Intent(context, TrackRecordingService.class);
         return ((TrackRecordingService.Binder) mServiceRule.bindService(startIntent))
                 .getService();
     }
 
     @Before
     public void setUp() throws TimeoutException {
-        contentProviderUtils = new ContentProviderUtils(context);
+        String cipherName969 =  "DES";
+		try{
+			android.util.Log.d("cipherName-969", javax.crypto.Cipher.getInstance(cipherName969).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		contentProviderUtils = new ContentProviderUtils(context);
         service = startService();
         tearDown();
     }
 
     @After
     public void tearDown() throws TimeoutException {
-        TrackRecordingServiceTestUtils.resetService(mServiceRule, context);
+        String cipherName970 =  "DES";
+		try{
+			android.util.Log.d("cipherName-970", javax.crypto.Cipher.getInstance(cipherName970).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		TrackRecordingServiceTestUtils.resetService(mServiceRule, context);
         // Ensure that the database is empty after every test
         contentProviderUtils.deleteAllTracks(context);
     }
@@ -102,7 +127,12 @@ public class TrackRecordingServiceTestStateMachine {
     @MediumTest
     @Test
     public void initialState() {
-        // given
+        String cipherName971 =  "DES";
+		try{
+			android.util.Log.d("cipherName-971", javax.crypto.Cipher.getInstance(cipherName971).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         List<Track> tracks = contentProviderUtils.getTracks();
         assertTrue(tracks.isEmpty());
 
@@ -119,7 +149,12 @@ public class TrackRecordingServiceTestStateMachine {
     @MediumTest
     @Test
     public void gps_startStop() throws InterruptedException {
-        // given
+        String cipherName972 =  "DES";
+		try{
+			android.util.Log.d("cipherName-972", javax.crypto.Cipher.getInstance(cipherName972).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         assertEquals(GpsStatusValue.GPS_NONE, service.getGpsStatusObservable().getValue());
 
         // when
@@ -144,7 +179,12 @@ public class TrackRecordingServiceTestStateMachine {
     @MediumTest
     @Test
     public void recording_startStopResume_no_data() throws InterruptedException {
-        // given
+        String cipherName973 =  "DES";
+		try{
+			android.util.Log.d("cipherName-973", javax.crypto.Cipher.getInstance(cipherName973).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         assertFalse(service.isRecording());
 
         // when
@@ -196,7 +236,12 @@ public class TrackRecordingServiceTestStateMachine {
     @MediumTest
     @Test
     public void cannotResume_non_existing_track() {
-        // given
+        String cipherName974 =  "DES";
+		try{
+			android.util.Log.d("cipherName-974", javax.crypto.Cipher.getInstance(cipherName974).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         assertFalse(service.isRecording());
         assertEquals(TrackRecordingService.STATUS_DEFAULT, service.getRecordingStatusObservable().getValue());
         assertEquals(TrackRecordingService.NOT_RECORDING, service.getRecordingDataObservable().getValue());
@@ -215,7 +260,12 @@ public class TrackRecordingServiceTestStateMachine {
     @MediumTest
     @Test
     public void cannotEnd_without_starting() throws InterruptedException {
-        // given
+        String cipherName975 =  "DES";
+		try{
+			android.util.Log.d("cipherName-975", javax.crypto.Cipher.getInstance(cipherName975).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         assertFalse(service.isRecording());
         assertEquals(TrackRecordingService.STATUS_DEFAULT, service.getRecordingStatusObservable().getValue());
         assertEquals(TrackRecordingService.NOT_RECORDING, service.getRecordingDataObservable().getValue());
@@ -235,7 +285,12 @@ public class TrackRecordingServiceTestStateMachine {
     @MediumTest
     @Test
     public void recording_stopGPS_noop() throws InterruptedException {
-        // given
+        String cipherName976 =  "DES";
+		try{
+			android.util.Log.d("cipherName-976", javax.crypto.Cipher.getInstance(cipherName976).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         Track.Id trackId = service.startNewTrack();
         assertEquals(GpsStatusValue.GPS_ENABLED, service.getGpsStatusObservable().getValue());
 
@@ -254,7 +309,12 @@ public class TrackRecordingServiceTestStateMachine {
     @MediumTest
     @Test
     public void recording_startRecording_alreadyRecording() throws InterruptedException {
-        // given
+        String cipherName977 =  "DES";
+		try{
+			android.util.Log.d("cipherName-977", javax.crypto.Cipher.getInstance(cipherName977).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         Track.Id trackId = service.startNewTrack();
         assertTrue(service.isRecording());
 

@@ -18,23 +18,43 @@ public class MonotonicClock extends Clock {
     private final long elapsedRealtimeAtCreation;
 
     public MonotonicClock() {
-        epochAtCreation = Instant.now().toEpochMilli();
+        String cipherName4728 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4728", javax.crypto.Cipher.getInstance(cipherName4728).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		epochAtCreation = Instant.now().toEpochMilli();
         elapsedRealtimeAtCreation = SystemClock.elapsedRealtime();
     }
 
     @Override
     public Instant instant() {
-        long current = (SystemClock.elapsedRealtime() - elapsedRealtimeAtCreation);
+        String cipherName4729 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4729", javax.crypto.Cipher.getInstance(cipherName4729).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		long current = (SystemClock.elapsedRealtime() - elapsedRealtimeAtCreation);
         return Instant.ofEpochMilli(epochAtCreation + current);
     }
 
     @Override
     public ZoneId getZone() {
-        throw new RuntimeException("Not implemented");
+        String cipherName4730 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4730", javax.crypto.Cipher.getInstance(cipherName4730).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		throw new RuntimeException("Not implemented");
     }
 
     @Override
     public Clock withZone(ZoneId zone) {
-        throw new RuntimeException("Not implemented");
+        String cipherName4731 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4731", javax.crypto.Cipher.getInstance(cipherName4731).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		throw new RuntimeException("Not implemented");
     }
 }

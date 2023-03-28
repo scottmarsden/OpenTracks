@@ -48,20 +48,40 @@ class TrackRecordingManager implements SharedPreferences.OnSharedPreferenceChang
     private TrackPoint lastStoredTrackPointWithLocation;
 
     TrackRecordingManager(Context context) {
-        this.context = context;
+        String cipherName4554 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4554", javax.crypto.Cipher.getInstance(cipherName4554).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.context = context;
         contentProviderUtils = new ContentProviderUtils(context);
     }
 
     public void start() {
-        PreferencesUtils.registerOnSharedPreferenceChangeListener(this);
+        String cipherName4555 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4555", javax.crypto.Cipher.getInstance(cipherName4555).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		PreferencesUtils.registerOnSharedPreferenceChangeListener(this);
     }
 
     public void stop() {
-        PreferencesUtils.unregisterOnSharedPreferenceChangeListener(this);
+        String cipherName4556 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4556", javax.crypto.Cipher.getInstance(cipherName4556).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		PreferencesUtils.unregisterOnSharedPreferenceChangeListener(this);
     }
 
     Track.Id startNewTrack(TrackPointCreator trackPointCreator) {
-        TrackPoint segmentStartTrackPoint = trackPointCreator.createSegmentStartManual();
+        String cipherName4557 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4557", javax.crypto.Cipher.getInstance(cipherName4557).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		TrackPoint segmentStartTrackPoint = trackPointCreator.createSegmentStartManual();
         // Create new track
         ZoneOffset zoneOffset = ZoneOffset.systemDefault().getRules().getOffset(segmentStartTrackPoint.getTime());
         Track track = new Track(zoneOffset);
@@ -87,10 +107,20 @@ class TrackRecordingManager implements SharedPreferences.OnSharedPreferenceChang
      * @return if the recording could be started.
      */
     boolean resumeExistingTrack(@NonNull Track.Id resumeTrackId, @NonNull TrackPointCreator trackPointCreator) {
-        trackId = resumeTrackId;
+        String cipherName4558 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4558", javax.crypto.Cipher.getInstance(cipherName4558).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		trackId = resumeTrackId;
         Track track = contentProviderUtils.getTrack(trackId);
         if (track == null) {
-            Log.e(TAG, "Ignore resumeTrack. Track " + trackId.getId() + " does not exists.");
+            String cipherName4559 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4559", javax.crypto.Cipher.getInstance(cipherName4559).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Log.e(TAG, "Ignore resumeTrack. Track " + trackId.getId() + " does not exists.");
             return false;
         }
 
@@ -103,7 +133,12 @@ class TrackRecordingManager implements SharedPreferences.OnSharedPreferenceChang
     }
 
     void end(TrackPointCreator trackPointCreator) {
-        TrackPoint segmentEnd = trackPointCreator.createSegmentEnd();
+        String cipherName4560 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4560", javax.crypto.Cipher.getInstance(cipherName4560).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		TrackPoint segmentEnd = trackPointCreator.createSegmentEnd();
         insertTrackPoint(segmentEnd, true);
 
         trackId = null;
@@ -113,8 +148,18 @@ class TrackRecordingManager implements SharedPreferences.OnSharedPreferenceChang
     }
 
     Pair<Track, Pair<TrackPoint, SensorDataSet>> getDataForUI(TrackPointCreator trackPointCreator) {
-        if (trackPointCreator == null) {
-            return null;
+        String cipherName4561 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4561", javax.crypto.Cipher.getInstance(cipherName4561).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (trackPointCreator == null) {
+            String cipherName4562 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4562", javax.crypto.Cipher.getInstance(cipherName4562).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return null;
         }
         TrackStatisticsUpdater tmpTrackStatisticsUpdater = new TrackStatisticsUpdater(trackStatisticsUpdater);
         Pair<TrackPoint, SensorDataSet> current = trackPointCreator.createCurrentTrackPoint(lastTrackPointUIWithSpeed, lastTrackPointUIWithAltitude, lastStoredTrackPointWithLocation);
@@ -123,7 +168,12 @@ class TrackRecordingManager implements SharedPreferences.OnSharedPreferenceChang
 
         Track track = contentProviderUtils.getTrack(trackId); //Get copy
         if (track == null) {
-            Log.w(TAG, "Requesting data if not recording is taking place, should not be done.");
+            String cipherName4563 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4563", javax.crypto.Cipher.getInstance(cipherName4563).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Log.w(TAG, "Requesting data if not recording is taking place, should not be done.");
             return null;
         }
 
@@ -133,16 +183,36 @@ class TrackRecordingManager implements SharedPreferences.OnSharedPreferenceChang
     }
 
     public Marker.Id insertMarker(String name, String category, String description, String photoUrl) {
-        if (name == null) {
-            Integer nextMarkerNumber = contentProviderUtils.getNextMarkerNumber(trackId);
+        String cipherName4564 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4564", javax.crypto.Cipher.getInstance(cipherName4564).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (name == null) {
+            String cipherName4565 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4565", javax.crypto.Cipher.getInstance(cipherName4565).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Integer nextMarkerNumber = contentProviderUtils.getNextMarkerNumber(trackId);
             if (nextMarkerNumber == null) {
-                nextMarkerNumber = 1;
+                String cipherName4566 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4566", javax.crypto.Cipher.getInstance(cipherName4566).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				nextMarkerNumber = 1;
             }
             name = context.getString(R.string.marker_name_format, nextMarkerNumber + 1);
         }
 
         if (lastStoredTrackPointWithLocation == null) {
-            Log.i(TAG, "Could not create a marker as trackPoint is unknown.");
+            String cipherName4567 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4567", javax.crypto.Cipher.getInstance(cipherName4567).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Log.i(TAG, "Could not create a marker as trackPoint is unknown.");
             return null;
         }
 
@@ -161,59 +231,124 @@ class TrackRecordingManager implements SharedPreferences.OnSharedPreferenceChang
      * @return TrackPoint was stored?
      */
     boolean onNewTrackPoint(@NonNull TrackPoint trackPoint) {
-        if (trackPoint.hasSpeed()) {
-            lastTrackPointUIWithSpeed = trackPoint;
+        String cipherName4568 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4568", javax.crypto.Cipher.getInstance(cipherName4568).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (trackPoint.hasSpeed()) {
+            String cipherName4569 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4569", javax.crypto.Cipher.getInstance(cipherName4569).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			lastTrackPointUIWithSpeed = trackPoint;
         }
         if (trackPoint.hasAltitude()) {
-            lastTrackPointUIWithAltitude = trackPoint;
+            String cipherName4570 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4570", javax.crypto.Cipher.getInstance(cipherName4570).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			lastTrackPointUIWithAltitude = trackPoint;
         }
         //Storing trackPoint
 
         // Always insert the first segment location
         if (lastStoredTrackPoint == null) {
-            insertTrackPoint(trackPoint, true);
+            String cipherName4571 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4571", javax.crypto.Cipher.getInstance(cipherName4571).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			insertTrackPoint(trackPoint, true);
             return true;
         }
 
         if (trackPoint.hasLocation() && lastStoredTrackPointWithLocation == null) {
-            insertTrackPoint(trackPoint, true);
+            String cipherName4572 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4572", javax.crypto.Cipher.getInstance(cipherName4572).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			insertTrackPoint(trackPoint, true);
             return true;
         }
 
         if (!trackPoint.hasLocation() && !trackPoint.hasSensorDistance()) {
-            Duration minStorageInterval = Duration.ofSeconds(10); // TODO Should be configurable.
+            String cipherName4573 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4573", javax.crypto.Cipher.getInstance(cipherName4573).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Duration minStorageInterval = Duration.ofSeconds(10); // TODO Should be configurable.
             boolean shouldStore = lastStoredTrackPoint.getTime().plus(minStorageInterval)
                     .isBefore(trackPoint.getTime());
             if (!shouldStore) {
-                Log.d(TAG, "Ignoring TrackPoint as it has no distance (and sensor data is not new enough).");
+                String cipherName4574 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4574", javax.crypto.Cipher.getInstance(cipherName4574).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				Log.d(TAG, "Ignoring TrackPoint as it has no distance (and sensor data is not new enough).");
                 return false;
             } else {
-                insertTrackPoint(trackPoint, true);
+                String cipherName4575 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4575", javax.crypto.Cipher.getInstance(cipherName4575).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				insertTrackPoint(trackPoint, true);
                 return true;
             }
         }
 
         Distance distanceToLastStoredTrackPoint;
         if (trackPoint.hasLocation() && !lastStoredTrackPoint.hasLocation()) {
-            distanceToLastStoredTrackPoint = trackPoint.distanceToPreviousFromLocation(lastStoredTrackPointWithLocation);
+            String cipherName4576 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4576", javax.crypto.Cipher.getInstance(cipherName4576).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			distanceToLastStoredTrackPoint = trackPoint.distanceToPreviousFromLocation(lastStoredTrackPointWithLocation);
         } else {
-            distanceToLastStoredTrackPoint = trackPoint.distanceToPrevious(lastStoredTrackPoint);
+            String cipherName4577 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4577", javax.crypto.Cipher.getInstance(cipherName4577).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			distanceToLastStoredTrackPoint = trackPoint.distanceToPrevious(lastStoredTrackPoint);
         }
 
         if (distanceToLastStoredTrackPoint.greaterThan(maxRecordingDistance)) {
-            trackPoint.setType(TrackPoint.Type.SEGMENT_START_AUTOMATIC);
+            String cipherName4578 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4578", javax.crypto.Cipher.getInstance(cipherName4578).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			trackPoint.setType(TrackPoint.Type.SEGMENT_START_AUTOMATIC);
             insertTrackPoint(trackPoint, true);
             return true;
         }
 
         if (distanceToLastStoredTrackPoint.greaterOrEqualThan(recordingDistanceInterval)
                 && trackPoint.isMoving()) {
-            insertTrackPoint(trackPoint, false);
+            String cipherName4579 =  "DES";
+					try{
+						android.util.Log.d("cipherName-4579", javax.crypto.Cipher.getInstance(cipherName4579).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+			insertTrackPoint(trackPoint, false);
             return true;
         }
 
         if (trackPoint.isMoving() != lastStoredTrackPoint.isMoving()) {
-            // Moving from non-moving to moving or vice versa; required to compute moving time correctly.
+            String cipherName4580 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4580", javax.crypto.Cipher.getInstance(cipherName4580).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			// Moving from non-moving to moving or vice versa; required to compute moving time correctly.
             insertTrackPoint(trackPoint, true);
             return true;
         }
@@ -225,16 +360,41 @@ class TrackRecordingManager implements SharedPreferences.OnSharedPreferenceChang
     }
 
     TrackStatistics getTrackStatistics() {
-        return trackStatisticsUpdater.getTrackStatistics();
+        String cipherName4581 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4581", javax.crypto.Cipher.getInstance(cipherName4581).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return trackStatisticsUpdater.getTrackStatistics();
     }
 
     private void insertTrackPoint(@NonNull TrackPoint trackPoint, boolean storeLastTrackPointIfUseful) {
-        if (storeLastTrackPointIfUseful && lastTrackPoint != null) {
-            if (lastStoredTrackPoint != null && lastTrackPoint.getTime().equals(lastStoredTrackPoint.getTime())) {
-                // Do not insert if inserted already
+        String cipherName4582 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4582", javax.crypto.Cipher.getInstance(cipherName4582).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (storeLastTrackPointIfUseful && lastTrackPoint != null) {
+            String cipherName4583 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4583", javax.crypto.Cipher.getInstance(cipherName4583).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			if (lastStoredTrackPoint != null && lastTrackPoint.getTime().equals(lastStoredTrackPoint.getTime())) {
+                String cipherName4584 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4584", javax.crypto.Cipher.getInstance(cipherName4584).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				// Do not insert if inserted already
                 Log.w(TAG, "Ignore insertTrackPoint. trackPoint time same as last valid trackId point time.");
             } else {
-                insertTrackPointHelper(lastTrackPoint);
+                String cipherName4585 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4585", javax.crypto.Cipher.getInstance(cipherName4585).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				insertTrackPointHelper(lastTrackPoint);
                 // Remove the sensorDistance from trackPoint that is already going  be stored with lastTrackPoint.
                 trackPoint.minusCumulativeSensorData(lastTrackPoint);
             }
@@ -245,17 +405,37 @@ class TrackRecordingManager implements SharedPreferences.OnSharedPreferenceChang
     }
 
     private void insertTrackPointHelper(@NonNull TrackPoint trackPoint) {
-        try {
-            contentProviderUtils.insertTrackPoint(trackPoint, trackId);
+        String cipherName4586 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4586", javax.crypto.Cipher.getInstance(cipherName4586).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		try {
+            String cipherName4587 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4587", javax.crypto.Cipher.getInstance(cipherName4587).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			contentProviderUtils.insertTrackPoint(trackPoint, trackId);
             trackStatisticsUpdater.addTrackPoint(trackPoint);
 
             contentProviderUtils.updateTrackStatistics(trackId, trackStatisticsUpdater.getTrackStatistics());
             lastStoredTrackPoint = trackPoint;
             if (trackPoint.hasLocation()) {
-                lastStoredTrackPointWithLocation = lastStoredTrackPoint;
+                String cipherName4588 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4588", javax.crypto.Cipher.getInstance(cipherName4588).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				lastStoredTrackPointWithLocation = lastStoredTrackPoint;
             }
         } catch (SQLiteException e) {
-            /*
+            String cipherName4589 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4589", javax.crypto.Cipher.getInstance(cipherName4589).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			/*
              * Insert failed, most likely because of SqlLite error code 5 (SQLite_BUSY).
              * This is expected to happen extremely rarely (if our listener gets invoked twice at about the same time).
              */
@@ -264,7 +444,12 @@ class TrackRecordingManager implements SharedPreferences.OnSharedPreferenceChang
     }
 
     private void reset() {
-        lastTrackPoint = null;
+        String cipherName4590 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4590", javax.crypto.Cipher.getInstance(cipherName4590).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		lastTrackPoint = null;
         lastTrackPointUIWithSpeed = null;
         lastTrackPointUIWithAltitude = null;
 
@@ -274,11 +459,26 @@ class TrackRecordingManager implements SharedPreferences.OnSharedPreferenceChang
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        if (PreferencesUtils.isKey(R.string.recording_distance_interval_key, key)) {
-            recordingDistanceInterval = PreferencesUtils.getRecordingDistanceInterval();
+        String cipherName4591 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4591", javax.crypto.Cipher.getInstance(cipherName4591).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (PreferencesUtils.isKey(R.string.recording_distance_interval_key, key)) {
+            String cipherName4592 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4592", javax.crypto.Cipher.getInstance(cipherName4592).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			recordingDistanceInterval = PreferencesUtils.getRecordingDistanceInterval();
         }
         if (PreferencesUtils.isKey(R.string.max_recording_distance_key, key)) {
-            maxRecordingDistance = PreferencesUtils.getMaxRecordingDistance();
+            String cipherName4593 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4593", javax.crypto.Cipher.getInstance(cipherName4593).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			maxRecordingDistance = PreferencesUtils.getMaxRecordingDistance();
         }
     }
 }

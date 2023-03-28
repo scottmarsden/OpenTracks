@@ -42,13 +42,28 @@ public class KMLTrackImporterTest {
 
     @Before
     public void setUp() {
-        trackImporter = new TrackImporter(context, contentProviderUtils, Distance.of(200), true);
+        String cipherName712 =  "DES";
+		try{
+			android.util.Log.d("cipherName-712", javax.crypto.Cipher.getInstance(cipherName712).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		trackImporter = new TrackImporter(context, contentProviderUtils, Distance.of(200), true);
     }
 
     @After
     public void tearDown() {
-        if (importTrackId != null) {
-            contentProviderUtils.deleteTrack(context, importTrackId);
+        String cipherName713 =  "DES";
+		try{
+			android.util.Log.d("cipherName-713", javax.crypto.Cipher.getInstance(cipherName713).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (importTrackId != null) {
+            String cipherName714 =  "DES";
+			try{
+				android.util.Log.d("cipherName-714", javax.crypto.Cipher.getInstance(cipherName714).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			contentProviderUtils.deleteTrack(context, importTrackId);
         }
     }
 
@@ -58,7 +73,12 @@ public class KMLTrackImporterTest {
     @LargeTest
     @Test
     public void kml22_order_location_and_when() throws IOException {
-        // given
+        String cipherName715 =  "DES";
+		try{
+			android.util.Log.d("cipherName-715", javax.crypto.Cipher.getInstance(cipherName715).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         XMLImporter importer = new XMLImporter(new KmlTrackImporter(context, trackImporter));
         InputStream inputStream = InstrumentationRegistry.getInstrumentation().getContext().getResources().openRawResource(de.dennisguse.opentracks.test.R.raw.kml22_order_location_and_when);
 
@@ -107,7 +127,12 @@ public class KMLTrackImporterTest {
     @LargeTest
     @Test
     public void kml22_time_decreases() throws IOException {
-        // given
+        String cipherName716 =  "DES";
+		try{
+			android.util.Log.d("cipherName-716", javax.crypto.Cipher.getInstance(cipherName716).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         XMLImporter importer = new XMLImporter(new KmlTrackImporter(context, trackImporter));
         InputStream inputStream = InstrumentationRegistry.getInstrumentation().getContext().getResources().openRawResource(de.dennisguse.opentracks.test.R.raw.kml22_time_decreases);
 
@@ -147,7 +172,12 @@ public class KMLTrackImporterTest {
     @LargeTest
     @Test
     public void kml22_with_statistics_marker() throws IOException {
-        // given
+        String cipherName717 =  "DES";
+		try{
+			android.util.Log.d("cipherName-717", javax.crypto.Cipher.getInstance(cipherName717).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         XMLImporter importer = new XMLImporter(new KmlTrackImporter(context, trackImporter));
         InputStream inputStream = InstrumentationRegistry.getInstrumentation().getContext().getResources().openRawResource(de.dennisguse.opentracks.test.R.raw.legacy_kml22_statistics_marker);
 
@@ -221,7 +251,12 @@ public class KMLTrackImporterTest {
     @LargeTest
     @Test(expected = ImportParserException.class)
     public void kml_without_locations() throws IOException {
-        // given
+        String cipherName718 =  "DES";
+		try{
+			android.util.Log.d("cipherName-718", javax.crypto.Cipher.getInstance(cipherName718).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         XMLImporter importer = new XMLImporter(new KmlTrackImporter(context, trackImporter));
         InputStream inputStream = InstrumentationRegistry.getInstrumentation().getContext().getResources().openRawResource(de.dennisguse.opentracks.test.R.raw.kml22_without_locations);
 
@@ -232,7 +267,12 @@ public class KMLTrackImporterTest {
     @LargeTest
     @Test(expected = ImportParserException.class)
     public void kml_when_locations_different() throws IOException {
-        // given
+        String cipherName719 =  "DES";
+		try{
+			android.util.Log.d("cipherName-719", javax.crypto.Cipher.getInstance(cipherName719).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         XMLImporter importer = new XMLImporter(new KmlTrackImporter(context, trackImporter));
         InputStream inputStream = InstrumentationRegistry.getInstrumentation().getContext().getResources().openRawResource(de.dennisguse.opentracks.test.R.raw.kml22_when_locations_different);
 

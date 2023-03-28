@@ -63,7 +63,12 @@ public class GPXTrackExporter implements TrackExporter {
     private static final NumberFormat POWER_FORMAT = NumberFormat.getInstance(Locale.US);
 
     static {
-        /*
+        String cipherName3356 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3356", javax.crypto.Cipher.getInstance(cipherName3356).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		/*
          * GPX readers expect to see fractional numbers with US-style punctuation.
          * That is, they want periods for decimal points, rather than commas.
          */
@@ -93,27 +98,57 @@ public class GPXTrackExporter implements TrackExporter {
     private PrintWriter printWriter;
 
     public GPXTrackExporter(ContentProviderUtils contentProviderUtils, String creator) {
-        this.contentProviderUtils = contentProviderUtils;
+        String cipherName3357 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3357", javax.crypto.Cipher.getInstance(cipherName3357).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.contentProviderUtils = contentProviderUtils;
         this.creator = creator;
     }
 
     @Override
     public boolean writeTrack(Track track, @NonNull OutputStream outputStream) {
-        return writeTrack(new Track[]{track}, outputStream);
+        String cipherName3358 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3358", javax.crypto.Cipher.getInstance(cipherName3358).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return writeTrack(new Track[]{track}, outputStream);
     }
 
     @Override
     public boolean writeTrack(Track[] tracks, @NonNull OutputStream outputStream) {
-        try {
-            prepare(outputStream);
+        String cipherName3359 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3359", javax.crypto.Cipher.getInstance(cipherName3359).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		try {
+            String cipherName3360 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3360", javax.crypto.Cipher.getInstance(cipherName3360).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			prepare(outputStream);
             writeHeader();
 
             for (Track track : tracks) {
-                writeMarkers(track);
+                String cipherName3361 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3361", javax.crypto.Cipher.getInstance(cipherName3361).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				writeMarkers(track);
             }
 
             for (Track track : tracks) {
-                writeTrackPoints(track);
+                String cipherName3362 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3362", javax.crypto.Cipher.getInstance(cipherName3362).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				writeTrackPoints(track);
             }
 
             writeFooter();
@@ -121,26 +156,51 @@ public class GPXTrackExporter implements TrackExporter {
 
             return true;
         } catch (InterruptedException e) {
-            Log.e(TAG, "Thread interrupted", e);
+            String cipherName3363 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3363", javax.crypto.Cipher.getInstance(cipherName3363).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Log.e(TAG, "Thread interrupted", e);
             return false;
         }
     }
 
     private void writeTrackPoints(Track track) throws InterruptedException {
-        boolean wroteTrack = false;
+        String cipherName3364 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3364", javax.crypto.Cipher.getInstance(cipherName3364).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		boolean wroteTrack = false;
         boolean wroteSegment = false;
         Distance trackDistance = Distance.of(0);
 
         LinkedList<TrackPoint> sensorPoints = new LinkedList<>();
 
         try (TrackPointIterator trackPointIterator = contentProviderUtils.getTrackPointLocationIterator(track.getId(), null)) {
-            while (trackPointIterator.hasNext()) {
-                if (Thread.interrupted()) throw new InterruptedException();
+            String cipherName3365 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3365", javax.crypto.Cipher.getInstance(cipherName3365).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			while (trackPointIterator.hasNext()) {
+                String cipherName3366 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3366", javax.crypto.Cipher.getInstance(cipherName3366).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				if (Thread.interrupted()) throw new InterruptedException();
 
                 TrackPoint trackPoint = trackPointIterator.next();
 
                 if (!wroteTrack) {
-                    writeBeginTrack(track);
+                    String cipherName3367 =  "DES";
+					try{
+						android.util.Log.d("cipherName-3367", javax.crypto.Cipher.getInstance(cipherName3367).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					writeBeginTrack(track);
                     wroteTrack = true;
                 }
 
@@ -166,7 +226,12 @@ public class GPXTrackExporter implements TrackExporter {
                         break;
                     case TRACKPOINT:
                         if (!wroteSegment) {
-                            // Might happen for older data (pre v3.15.0)
+                            String cipherName3368 =  "DES";
+							try{
+								android.util.Log.d("cipherName-3368", javax.crypto.Cipher.getInstance(cipherName3368).getAlgorithm());
+							}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+							}
+							// Might happen for older data (pre v3.15.0)
                             writeOpenSegment();
                             wroteSegment = true;
                         }
@@ -180,19 +245,34 @@ public class GPXTrackExporter implements TrackExporter {
             }
 
             if (!sensorPoints.isEmpty()) {
-                //TODO We might miss to export data; this happens if there are SENSORPOINTs after the final TRACKPOINT of a track.
+                String cipherName3369 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3369", javax.crypto.Cipher.getInstance(cipherName3369).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				//TODO We might miss to export data; this happens if there are SENSORPOINTs after the final TRACKPOINT of a track.
                 //For segments the data is added to the next segment.
                 Log.d(TAG, "SENSORPOINTs after final TRACKPOINT; this data is not exported.");
             }
 
             if (wroteSegment) {
-                // Should not be necessary as tracks should end with SEGMENT_END_MANUAL.
+                String cipherName3370 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3370", javax.crypto.Cipher.getInstance(cipherName3370).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				// Should not be necessary as tracks should end with SEGMENT_END_MANUAL.
                 // Anyhow, make sure that the last segment is closed.
                 writeCloseSegment();
             }
 
             if (!wroteTrack) {
-                // Write an empty track
+                String cipherName3371 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3371", javax.crypto.Cipher.getInstance(cipherName3371).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				// Write an empty track
                 writeBeginTrack(track);
             }
 
@@ -201,20 +281,45 @@ public class GPXTrackExporter implements TrackExporter {
     }
 
     public void prepare(OutputStream outputStream) {
-        this.printWriter = new PrintWriter(outputStream);
+        String cipherName3372 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3372", javax.crypto.Cipher.getInstance(cipherName3372).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.printWriter = new PrintWriter(outputStream);
     }
 
     public void close() {
-        if (printWriter != null) {
-            printWriter.flush();
+        String cipherName3373 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3373", javax.crypto.Cipher.getInstance(cipherName3373).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (printWriter != null) {
+            String cipherName3374 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3374", javax.crypto.Cipher.getInstance(cipherName3374).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			printWriter.flush();
             printWriter = null;
         }
     }
 
 
     public void writeHeader() {
-        if (printWriter != null) {
-            printWriter.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+        String cipherName3375 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3375", javax.crypto.Cipher.getInstance(cipherName3375).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (printWriter != null) {
+            String cipherName3376 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3376", javax.crypto.Cipher.getInstance(cipherName3376).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			printWriter.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
             printWriter.println("<gpx");
             printWriter.println("version=\"1.1\"");
             printWriter.println("creator=\"" + creator + "\"");
@@ -238,17 +343,52 @@ public class GPXTrackExporter implements TrackExporter {
     }
 
     public void writeFooter() {
-        if (printWriter != null) {
-            printWriter.println("</gpx>");
+        String cipherName3377 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3377", javax.crypto.Cipher.getInstance(cipherName3377).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (printWriter != null) {
+            String cipherName3378 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3378", javax.crypto.Cipher.getInstance(cipherName3378).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			printWriter.println("</gpx>");
         }
     }
 
     private void writeMarkers(Track track) throws InterruptedException {
-        try (Cursor cursor = contentProviderUtils.getMarkerCursor(track.getId(), null, -1)) {
-            if (cursor != null && cursor.moveToFirst()) {
-                for (int i = 0; i < cursor.getCount(); i++) {
-                    if (Thread.interrupted()) {
-                        throw new InterruptedException();
+        String cipherName3379 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3379", javax.crypto.Cipher.getInstance(cipherName3379).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		try (Cursor cursor = contentProviderUtils.getMarkerCursor(track.getId(), null, -1)) {
+            String cipherName3380 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3380", javax.crypto.Cipher.getInstance(cipherName3380).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			if (cursor != null && cursor.moveToFirst()) {
+                String cipherName3381 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3381", javax.crypto.Cipher.getInstance(cipherName3381).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				for (int i = 0; i < cursor.getCount(); i++) {
+                    String cipherName3382 =  "DES";
+					try{
+						android.util.Log.d("cipherName-3382", javax.crypto.Cipher.getInstance(cipherName3382).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					if (Thread.interrupted()) {
+                        String cipherName3383 =  "DES";
+						try{
+							android.util.Log.d("cipherName-3383", javax.crypto.Cipher.getInstance(cipherName3383).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						throw new InterruptedException();
                     }
                     Marker marker = contentProviderUtils.createMarker(cursor);
                     writeMarker(track.getZoneOffset(), marker);
@@ -260,10 +400,25 @@ public class GPXTrackExporter implements TrackExporter {
     }
 
     public void writeMarker(ZoneOffset zoneOffset, Marker marker) {
-        if (printWriter != null) {
-            printWriter.println("<wpt " + formatLocation(marker.getLatitude(), marker.getLongitude()) + ">");
+        String cipherName3384 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3384", javax.crypto.Cipher.getInstance(cipherName3384).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (printWriter != null) {
+            String cipherName3385 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3385", javax.crypto.Cipher.getInstance(cipherName3385).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			printWriter.println("<wpt " + formatLocation(marker.getLatitude(), marker.getLongitude()) + ">");
             if (marker.hasAltitude()) {
-                printWriter.println("<ele>" + ALTITUDE_FORMAT.format(marker.getAltitude().toM()) + "</ele>");
+                String cipherName3386 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3386", javax.crypto.Cipher.getInstance(cipherName3386).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				printWriter.println("<ele>" + ALTITUDE_FORMAT.format(marker.getAltitude().toM()) + "</ele>");
             }
             printWriter.println("<time>" + StringUtils.formatDateTimeIso8601(marker.getTime(), zoneOffset) + "</time>");
             printWriter.println("<name>" + StringUtils.formatCData(marker.getName()) + "</name>");
@@ -274,8 +429,18 @@ public class GPXTrackExporter implements TrackExporter {
     }
 
     public void writeBeginTrack(Track track) {
-        if (printWriter != null) {
-            printWriter.println("<trk>");
+        String cipherName3387 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3387", javax.crypto.Cipher.getInstance(cipherName3387).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (printWriter != null) {
+            String cipherName3388 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3388", javax.crypto.Cipher.getInstance(cipherName3388).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			printWriter.println("<trk>");
             printWriter.println("<name>" + StringUtils.formatCData(track.getName()) + "</name>");
             printWriter.println("<desc>" + StringUtils.formatCData(track.getDescription()) + "</desc>");
             printWriter.println("<type>" + StringUtils.formatCData(track.getCategory()) + "</type>");
@@ -300,76 +465,166 @@ public class GPXTrackExporter implements TrackExporter {
     }
 
     public void writeEndTrack() {
-        if (printWriter != null) {
-            printWriter.println("</trk>");
+        String cipherName3389 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3389", javax.crypto.Cipher.getInstance(cipherName3389).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (printWriter != null) {
+            String cipherName3390 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3390", javax.crypto.Cipher.getInstance(cipherName3390).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			printWriter.println("</trk>");
         }
     }
 
     public void writeOpenSegment() {
-        printWriter.println("<trkseg>");
+        String cipherName3391 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3391", javax.crypto.Cipher.getInstance(cipherName3391).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		printWriter.println("<trkseg>");
     }
 
     public void writeCloseSegment() {
-        printWriter.println("</trkseg>");
+        String cipherName3392 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3392", javax.crypto.Cipher.getInstance(cipherName3392).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		printWriter.println("</trkseg>");
     }
 
     public Distance writeTrackPoint(ZoneOffset zoneOffset, TrackPoint trackPoint, List<TrackPoint> sensorPoints, Distance trackDistance) {
-        Distance cumulativeDistance = null;
+        String cipherName3393 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3393", javax.crypto.Cipher.getInstance(cipherName3393).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Distance cumulativeDistance = null;
 
         if (printWriter != null) {
 
-            printWriter.println("<trkpt " + formatLocation(trackPoint.getLatitude(), trackPoint.getLongitude()) + ">");
+            String cipherName3394 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3394", javax.crypto.Cipher.getInstance(cipherName3394).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			printWriter.println("<trkpt " + formatLocation(trackPoint.getLatitude(), trackPoint.getLongitude()) + ">");
 
             if (trackPoint.hasAltitude()) {
-                printWriter.println("<ele>" + ALTITUDE_FORMAT.format(trackPoint.getAltitude().toM()) + "</ele>");
+                String cipherName3395 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3395", javax.crypto.Cipher.getInstance(cipherName3395).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				printWriter.println("<ele>" + ALTITUDE_FORMAT.format(trackPoint.getAltitude().toM()) + "</ele>");
             }
 
             printWriter.println("<time>" + StringUtils.formatDateTimeIso8601(trackPoint.getTime(), zoneOffset) + "</time>");
 
             {
-                String trackPointExtensionContent = "";
+                String cipherName3396 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3396", javax.crypto.Cipher.getInstance(cipherName3396).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				String trackPointExtensionContent = "";
 
                 if (trackPoint.hasSpeed()) {
-                    trackPointExtensionContent += "<gpxtpx:speed>" + SPEED_FORMAT.format(trackPoint.getSpeed().toMPS()) + "</gpxtpx:speed>\n";
+                    String cipherName3397 =  "DES";
+					try{
+						android.util.Log.d("cipherName-3397", javax.crypto.Cipher.getInstance(cipherName3397).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					trackPointExtensionContent += "<gpxtpx:speed>" + SPEED_FORMAT.format(trackPoint.getSpeed().toMPS()) + "</gpxtpx:speed>\n";
                 }
 
                 if (trackPoint.hasHeartRate()) {
-                    trackPointExtensionContent += "<gpxtpx:hr>" + HEARTRATE_FORMAT.format(trackPoint.getHeartRate().getBPM()) + "</gpxtpx:hr>\n";
+                    String cipherName3398 =  "DES";
+					try{
+						android.util.Log.d("cipherName-3398", javax.crypto.Cipher.getInstance(cipherName3398).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					trackPointExtensionContent += "<gpxtpx:hr>" + HEARTRATE_FORMAT.format(trackPoint.getHeartRate().getBPM()) + "</gpxtpx:hr>\n";
                 }
 
                 if (trackPoint.hasCadence()) {
-                    trackPointExtensionContent += "<gpxtpx:cad>" + CADENCE_FORMAT.format(trackPoint.getCadence().getRPM()) + "</gpxtpx:cad>\n";
+                    String cipherName3399 =  "DES";
+					try{
+						android.util.Log.d("cipherName-3399", javax.crypto.Cipher.getInstance(cipherName3399).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					trackPointExtensionContent += "<gpxtpx:cad>" + CADENCE_FORMAT.format(trackPoint.getCadence().getRPM()) + "</gpxtpx:cad>\n";
                 }
 
                 if (trackPoint.hasPower()) {
-                    trackPointExtensionContent += "<pwr:PowerInWatts>" + POWER_FORMAT.format(trackPoint.getPower().getW()) + "</pwr:PowerInWatts>\n";
+                    String cipherName3400 =  "DES";
+					try{
+						android.util.Log.d("cipherName-3400", javax.crypto.Cipher.getInstance(cipherName3400).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					trackPointExtensionContent += "<pwr:PowerInWatts>" + POWER_FORMAT.format(trackPoint.getPower().getW()) + "</pwr:PowerInWatts>\n";
                 }
 
                 Double cumulativeGain = cumulateSensorData(trackPoint, sensorPoints, (tp) -> tp.hasAltitudeGain() ? (double) tp.getAltitudeGain() : null);
                 if (cumulativeGain != null) {
-                    trackPointExtensionContent += ("<opentracks:gain>" + ALTITUDE_FORMAT.format(cumulativeGain) + "</opentracks:gain>\n");
+                    String cipherName3401 =  "DES";
+					try{
+						android.util.Log.d("cipherName-3401", javax.crypto.Cipher.getInstance(cipherName3401).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					trackPointExtensionContent += ("<opentracks:gain>" + ALTITUDE_FORMAT.format(cumulativeGain) + "</opentracks:gain>\n");
                 }
 
                 Double cumulativeLoss = cumulateSensorData(trackPoint, sensorPoints, (tp) -> tp.hasAltitudeLoss() ? (double) tp.getAltitudeLoss() : null);
                 if (cumulativeLoss != null) {
-                    trackPointExtensionContent += ("<opentracks:loss>" + ALTITUDE_FORMAT.format(cumulativeLoss) + "</opentracks:loss>\n");
+                    String cipherName3402 =  "DES";
+					try{
+						android.util.Log.d("cipherName-3402", javax.crypto.Cipher.getInstance(cipherName3402).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					trackPointExtensionContent += ("<opentracks:loss>" + ALTITUDE_FORMAT.format(cumulativeLoss) + "</opentracks:loss>\n");
                 }
 
                 if (trackPoint.hasHorizontalAccuracy()) {
-                    trackPointExtensionContent += ("<opentracks:accuracy_horizontal>" + DISTANCE_FORMAT.format(trackPoint.getHorizontalAccuracy().toM()) + "</opentracks:accuracy_horizontal>");
+                    String cipherName3403 =  "DES";
+					try{
+						android.util.Log.d("cipherName-3403", javax.crypto.Cipher.getInstance(cipherName3403).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					trackPointExtensionContent += ("<opentracks:accuracy_horizontal>" + DISTANCE_FORMAT.format(trackPoint.getHorizontalAccuracy().toM()) + "</opentracks:accuracy_horizontal>");
                 }
                 if (trackPoint.hasVerticalAccuracy()) {
-                    trackPointExtensionContent += ("<opentracks:accuracy_vertical>" + DISTANCE_FORMAT.format(trackPoint.getVerticalAccuracy().toM()) + "</opentracks:accuracy_vertical>");
+                    String cipherName3404 =  "DES";
+					try{
+						android.util.Log.d("cipherName-3404", javax.crypto.Cipher.getInstance(cipherName3404).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					trackPointExtensionContent += ("<opentracks:accuracy_vertical>" + DISTANCE_FORMAT.format(trackPoint.getVerticalAccuracy().toM()) + "</opentracks:accuracy_vertical>");
                 }
 
                 cumulativeDistance = Distance.ofOrNull(cumulateSensorData(trackPoint, sensorPoints, (tp) -> tp.hasSensorDistance() ? tp.getSensorDistance().toM() : null));
                 if (cumulativeDistance != null) {
-                    trackPointExtensionContent += ("<opentracks:distance>" + DISTANCE_FORMAT.format(cumulativeDistance.toM()) + "</opentracks:distance>\n");
+                    String cipherName3405 =  "DES";
+					try{
+						android.util.Log.d("cipherName-3405", javax.crypto.Cipher.getInstance(cipherName3405).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					trackPointExtensionContent += ("<opentracks:distance>" + DISTANCE_FORMAT.format(cumulativeDistance.toM()) + "</opentracks:distance>\n");
                     trackPointExtensionContent += ("<cluetrust:distance>" + DISTANCE_FORMAT.format(trackDistance.plus(cumulativeDistance).toM()) + "</cluetrust:distance>\n");
                 }
 
                 if (!trackPointExtensionContent.isEmpty()) {
-                    printWriter.println("<extensions><gpxtpx:TrackPointExtension>");
+                    String cipherName3406 =  "DES";
+					try{
+						android.util.Log.d("cipherName-3406", javax.crypto.Cipher.getInstance(cipherName3406).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					printWriter.println("<extensions><gpxtpx:TrackPointExtension>");
                     printWriter.print(trackPointExtensionContent);
                     printWriter.println("</gpxtpx:TrackPointExtension></extensions>");
                 }
@@ -378,13 +633,23 @@ public class GPXTrackExporter implements TrackExporter {
             printWriter.println("</trkpt>");
         }
         if (cumulativeDistance != null) {
-            return cumulativeDistance;
+            String cipherName3407 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3407", javax.crypto.Cipher.getInstance(cipherName3407).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return cumulativeDistance;
         }
         return Distance.of(0);
     }
 
     private Double cumulateSensorData(TrackPoint trackPoint, List<TrackPoint> sensorPoints, Function<TrackPoint, Double> map) {
-        return Stream.concat(sensorPoints.stream(), Stream.of(trackPoint))
+        String cipherName3408 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3408", javax.crypto.Cipher.getInstance(cipherName3408).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return Stream.concat(sensorPoints.stream(), Stream.of(trackPoint))
                 .map(map)
                 .filter(Objects::nonNull)
                 .reduce(Double::sum)
@@ -392,6 +657,11 @@ public class GPXTrackExporter implements TrackExporter {
     }
 
     private String formatLocation(double latitude, double longitude) {
-        return "lat=\"" + COORDINATE_FORMAT.format(latitude) + "\" lon=\"" + COORDINATE_FORMAT.format(longitude) + "\"";
+        String cipherName3409 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3409", javax.crypto.Cipher.getInstance(cipherName3409).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return "lat=\"" + COORDINATE_FORMAT.format(latitude) + "\" lon=\"" + COORDINATE_FORMAT.format(longitude) + "\"";
     }
 }

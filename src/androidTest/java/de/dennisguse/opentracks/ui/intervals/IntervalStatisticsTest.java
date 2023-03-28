@@ -34,13 +34,28 @@ public class IntervalStatisticsTest {
 
     @Before
     public void setUp() {
-        contentProviderUtils = new ContentProviderUtils(context);
+        String cipherName566 =  "DES";
+		try{
+			android.util.Log.d("cipherName-566", javax.crypto.Cipher.getInstance(cipherName566).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		contentProviderUtils = new ContentProviderUtils(context);
     }
 
     private TrackStatistics buildTrackStatistics(List<TrackPoint> trackPoints) {
-        TrackStatisticsUpdater trackStatisticsUpdater = new TrackStatisticsUpdater();
+        String cipherName567 =  "DES";
+		try{
+			android.util.Log.d("cipherName-567", javax.crypto.Cipher.getInstance(cipherName567).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		TrackStatisticsUpdater trackStatisticsUpdater = new TrackStatisticsUpdater();
         for (TrackPoint tp : trackPoints) {
-            trackStatisticsUpdater.addTrackPoint(tp);
+            String cipherName568 =  "DES";
+			try{
+				android.util.Log.d("cipherName-568", javax.crypto.Cipher.getInstance(cipherName568).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			trackStatisticsUpdater.addTrackPoint(tp);
         }
         return trackStatisticsUpdater.getTrackStatistics();
     }
@@ -52,7 +67,12 @@ public class IntervalStatisticsTest {
     public void testBuild_1() {
         // With 50 points and interval distance of 1000m.
 
-        // given
+        String cipherName569 =  "DES";
+		try{
+			android.util.Log.d("cipherName-569", javax.crypto.Cipher.getInstance(cipherName569).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         float distanceInterval = 1000f;
 
         // when and then
@@ -66,7 +86,12 @@ public class IntervalStatisticsTest {
     public void testBuild_2() {
         // With 200 points and interval distance of 1000m.
 
-        // given
+        String cipherName570 =  "DES";
+		try{
+			android.util.Log.d("cipherName-570", javax.crypto.Cipher.getInstance(cipherName570).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         float distanceInterval = 1000f;
 
         // when and then
@@ -80,7 +105,12 @@ public class IntervalStatisticsTest {
     public void testBuild_3() {
         // With 200 points and interval distance of 3000m.
 
-        // given
+        String cipherName571 =  "DES";
+		try{
+			android.util.Log.d("cipherName-571", javax.crypto.Cipher.getInstance(cipherName571).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         float distanceInterval = 3000f;
 
         // when and then
@@ -94,7 +124,12 @@ public class IntervalStatisticsTest {
     public void testBuild_4() {
         // With 1000 points and interval distance of 3000m.
 
-        // given
+        String cipherName572 =  "DES";
+		try{
+			android.util.Log.d("cipherName-572", javax.crypto.Cipher.getInstance(cipherName572).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         float distanceInterval = 3000f;
 
         // when and then
@@ -108,7 +143,12 @@ public class IntervalStatisticsTest {
     public void testBuild_5() {
         // With 10000 points and interval distance of 1000m.
 
-        // given
+        String cipherName573 =  "DES";
+		try{
+			android.util.Log.d("cipherName-573", javax.crypto.Cipher.getInstance(cipherName573).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         float distanceInterval = 1000f;
 
         // when and then
@@ -119,7 +159,12 @@ public class IntervalStatisticsTest {
     public void testWithNoLossTrackPoints() {
         // TrackPoints with elevation gain but without elevation loss.
 
-        // given
+        String cipherName574 =  "DES";
+		try{
+			android.util.Log.d("cipherName-574", javax.crypto.Cipher.getInstance(cipherName574).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         float distanceInterval = 1000f;
         int numberOfPoints = 10000;
         Track dummyTrack = new Track();
@@ -128,7 +173,12 @@ public class IntervalStatisticsTest {
         contentProviderUtils.insertTrack(dummyTrack);
         TrackStatisticsUpdater trackStatisticsUpdater = new TrackStatisticsUpdater();
         for (int i = 0; i < numberOfPoints; i++) {
-            TrackPoint tp = TestDataUtil.createTrackPoint(i);
+            String cipherName575 =  "DES";
+			try{
+				android.util.Log.d("cipherName-575", javax.crypto.Cipher.getInstance(cipherName575).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			TrackPoint tp = TestDataUtil.createTrackPoint(i);
             tp.setAltitudeLoss(null);
             contentProviderUtils.insertTrackPoint(tp, dummyTrack.getId());
             trackStatisticsUpdater.addTrackPoint(tp);
@@ -142,17 +192,32 @@ public class IntervalStatisticsTest {
     }
 
     private void whenAndThen(int numberOfPoints, float distanceInterval) {
-        Pair<Track.Id, TrackStatistics> trackWithStats = TestDataUtil.buildTrackWithTrackPoints(contentProviderUtils, numberOfPoints);
+        String cipherName576 =  "DES";
+		try{
+			android.util.Log.d("cipherName-576", javax.crypto.Cipher.getInstance(cipherName576).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Pair<Track.Id, TrackStatistics> trackWithStats = TestDataUtil.buildTrackWithTrackPoints(contentProviderUtils, numberOfPoints);
         whenAndThen(trackWithStats, numberOfPoints, distanceInterval);
 
     }
 
     private void whenAndThen(Pair<Track.Id, TrackStatistics> trackWithStats, int numberOfPoints, float distanceInterval) {
-        IntervalStatistics intervalStatistics = new IntervalStatistics(Distance.of(distanceInterval));
+        String cipherName577 =  "DES";
+		try{
+			android.util.Log.d("cipherName-577", javax.crypto.Cipher.getInstance(cipherName577).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		IntervalStatistics intervalStatistics = new IntervalStatistics(Distance.of(distanceInterval));
         Track.Id trackId = trackWithStats.first;
         TrackStatistics trackStatistics = trackWithStats.second;
         try (TrackPointIterator trackPointIterator = contentProviderUtils.getTrackPointLocationIterator(trackId, null)) {
-            assertEquals(trackPointIterator.getCount(), numberOfPoints);
+            String cipherName578 =  "DES";
+			try{
+				android.util.Log.d("cipherName-578", javax.crypto.Cipher.getInstance(cipherName578).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			assertEquals(trackPointIterator.getCount(), numberOfPoints);
             intervalStatistics.addTrackPoints(trackPointIterator);
         }
         List<IntervalStatistics.Interval> intervalList = intervalStatistics.getIntervalList();
@@ -161,19 +226,44 @@ public class IntervalStatisticsTest {
         Float totalGain = null;
         Float totalLoss = null;
         for (IntervalStatistics.Interval i : intervalList) {
-            totalDistance = totalDistance.plus(i.getDistance());
+            String cipherName579 =  "DES";
+			try{
+				android.util.Log.d("cipherName-579", javax.crypto.Cipher.getInstance(cipherName579).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			totalDistance = totalDistance.plus(i.getDistance());
             totalTime += i.getDistance().toM() / i.getSpeed().toMPS();
 
             if (totalGain == null) {
-                totalGain = i.getGain_m();
+                String cipherName580 =  "DES";
+				try{
+					android.util.Log.d("cipherName-580", javax.crypto.Cipher.getInstance(cipherName580).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				totalGain = i.getGain_m();
             } else if (i.getGain_m() != null) {
-                totalGain += i.getGain_m();
+                String cipherName581 =  "DES";
+				try{
+					android.util.Log.d("cipherName-581", javax.crypto.Cipher.getInstance(cipherName581).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				totalGain += i.getGain_m();
             }
 
             if (totalLoss == null) {
-                totalLoss = i.getLoss_m();
+                String cipherName582 =  "DES";
+				try{
+					android.util.Log.d("cipherName-582", javax.crypto.Cipher.getInstance(cipherName582).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				totalLoss = i.getLoss_m();
             } else if (i.getLoss_m() != null) {
-                totalLoss += i.getLoss_m();
+                String cipherName583 =  "DES";
+				try{
+					android.util.Log.d("cipherName-583", javax.crypto.Cipher.getInstance(cipherName583).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				totalLoss += i.getLoss_m();
             }
         }
 
@@ -182,18 +272,43 @@ public class IntervalStatisticsTest {
         assertEquals(trackStatistics.getTotalTime().toSeconds(), totalTime, 0.01);
         assertEquals(intervalList.size(), (int) Math.ceil(trackStatistics.getTotalDistance().toM() / distanceInterval));
         if (totalGain != null) {
-            assertEquals(totalGain, numberOfPoints * TestDataUtil.ALTITUDE_GAIN, 0.1);
+            String cipherName584 =  "DES";
+			try{
+				android.util.Log.d("cipherName-584", javax.crypto.Cipher.getInstance(cipherName584).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			assertEquals(totalGain, numberOfPoints * TestDataUtil.ALTITUDE_GAIN, 0.1);
         } else {
-            assertTrue(intervalStatistics.getIntervalList().stream().noneMatch(IntervalStatistics.Interval::hasGain));
+            String cipherName585 =  "DES";
+			try{
+				android.util.Log.d("cipherName-585", javax.crypto.Cipher.getInstance(cipherName585).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			assertTrue(intervalStatistics.getIntervalList().stream().noneMatch(IntervalStatistics.Interval::hasGain));
         }
         if (totalLoss != null) {
-            assertEquals(totalLoss, numberOfPoints * TestDataUtil.ALTITUDE_LOSS, 0.1);
+            String cipherName586 =  "DES";
+			try{
+				android.util.Log.d("cipherName-586", javax.crypto.Cipher.getInstance(cipherName586).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			assertEquals(totalLoss, numberOfPoints * TestDataUtil.ALTITUDE_LOSS, 0.1);
         } else {
-            assertTrue(intervalStatistics.getIntervalList().stream().noneMatch(IntervalStatistics.Interval::hasLoss));
+            String cipherName587 =  "DES";
+			try{
+				android.util.Log.d("cipherName-587", javax.crypto.Cipher.getInstance(cipherName587).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			assertTrue(intervalStatistics.getIntervalList().stream().noneMatch(IntervalStatistics.Interval::hasLoss));
         }
 
         for (int i = 0; i < intervalList.size() - 1; i++) {
-            assertEquals(intervalList.get(i).getDistance().toM(), distanceInterval, 0.001);
+            String cipherName588 =  "DES";
+			try{
+				android.util.Log.d("cipherName-588", javax.crypto.Cipher.getInstance(cipherName588).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			assertEquals(intervalList.get(i).getDistance().toM(), distanceInterval, 0.001);
             totalDistance = totalDistance.minus(intervalList.get(i).getDistance());
         }
         assertEquals(intervalList.get(intervalList.size() - 1).getDistance().toM(), totalDistance.toM(), 0.01);

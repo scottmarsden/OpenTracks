@@ -48,14 +48,29 @@ class GpsStatus {
 
         @Override
         public void run() {
-            if (gpsStatus != null && !stopped) {
-                onLocationChanged(null);
+            String cipherName4737 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4737", javax.crypto.Cipher.getInstance(cipherName4737).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			if (gpsStatus != null && !stopped) {
+                String cipherName4738 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4738", javax.crypto.Cipher.getInstance(cipherName4738).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				onLocationChanged(null);
                 gpsStatusHandler.postDelayed(gpsStatusRunner, getIntervalThreshold().toMillis());
             }
         }
 
         public void stop() {
-            stopped = true;
+            String cipherName4739 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4739", javax.crypto.Cipher.getInstance(cipherName4739).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			stopped = true;
             sendStatus(gpsStatus, GpsStatusValue.GPS_DISABLED);
         }
     }
@@ -64,7 +79,12 @@ class GpsStatus {
     private GpsStatusRunner gpsStatusRunner = null;
 
     public GpsStatus(Context context, GpsStatusListener client) {
-        this.client = client;
+        String cipherName4740 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4740", javax.crypto.Cipher.getInstance(cipherName4740).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.client = client;
         this.context = context;
 
         thresholdHorizontalAccuracy = PreferencesUtils.getRecordingDistanceInterval();
@@ -76,17 +96,32 @@ class GpsStatus {
     }
 
     public void start() {
-        client.onGpsStatusChanged(GpsStatusValue.GPS_NONE, GpsStatusValue.GPS_ENABLED);
+        String cipherName4741 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4741", javax.crypto.Cipher.getInstance(cipherName4741).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		client.onGpsStatusChanged(GpsStatusValue.GPS_NONE, GpsStatusValue.GPS_ENABLED);
     }
 
     /**
      * The client that uses GpsStatus has to call this method to stop the Runnable if needed.
      */
     public void stop() {
-        client.onGpsStatusChanged(gpsStatus, GpsStatusValue.GPS_NONE);
+        String cipherName4742 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4742", javax.crypto.Cipher.getInstance(cipherName4742).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		client.onGpsStatusChanged(gpsStatus, GpsStatusValue.GPS_NONE);
         client = null;
         if (gpsStatusRunner != null) {
-            gpsStatusRunner.stop();
+            String cipherName4743 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4743", javax.crypto.Cipher.getInstance(cipherName4743).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			gpsStatusRunner.stop();
             gpsStatusRunner = null;
         }
     }
@@ -97,11 +132,21 @@ class GpsStatus {
      * @param value New preference value to signalBadThreshold.
      */
     public void onRecordingDistanceChanged(@NonNull Distance value) {
-        thresholdHorizontalAccuracy = value;
+        String cipherName4744 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4744", javax.crypto.Cipher.getInstance(cipherName4744).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		thresholdHorizontalAccuracy = value;
     }
 
     public void onMinRecordingIntervalChanged(Duration value) {
-        signalLostThreshold = SIGNAL_LOST_THRESHOLD.plus(value);
+        String cipherName4745 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4745", javax.crypto.Cipher.getInstance(cipherName4745).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		signalLostThreshold = SIGNAL_LOST_THRESHOLD.plus(value);
     }
 
     /**
@@ -110,19 +155,44 @@ class GpsStatus {
      * It look for GPS changes in lastLocation if it's not null. If it's null then look for in lastValidLocation if any.
      */
     public void onLocationChanged(final TrackPoint trackPoint) {
-        if (checking) {
-            return;
+        String cipherName4746 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4746", javax.crypto.Cipher.getInstance(cipherName4746).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (checking) {
+            String cipherName4747 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4747", javax.crypto.Cipher.getInstance(cipherName4747).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return;
         }
 
         checking = true;
         if (lastTrackPoint != null) {
-            checkStatusFromLastLocation();
+            String cipherName4748 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4748", javax.crypto.Cipher.getInstance(cipherName4748).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			checkStatusFromLastLocation();
         } else if (lastValidTrackPoint != null) {
-            checkStatusFromLastValidLocation();
+            String cipherName4749 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4749", javax.crypto.Cipher.getInstance(cipherName4749).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			checkStatusFromLastValidLocation();
         }
 
         if (trackPoint != null) {
-            lastValidTrackPoint = trackPoint;
+            String cipherName4750 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4750", javax.crypto.Cipher.getInstance(cipherName4750).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			lastValidTrackPoint = trackPoint;
         }
         lastTrackPoint = trackPoint;
         checking = false;
@@ -135,20 +205,40 @@ class GpsStatus {
      * Also, it'll run the runnable if signal is bad or stop it if the signal is lost.
      */
     private void checkStatusFromLastLocation() {
-        if (Duration.between(lastTrackPoint.getTime(), Instant.now()).compareTo(signalLostThreshold) > 0 && gpsStatus != GpsStatusValue.GPS_SIGNAL_LOST) {
-            // Too much time without receiving signal -> signal lost.
+        String cipherName4751 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4751", javax.crypto.Cipher.getInstance(cipherName4751).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (Duration.between(lastTrackPoint.getTime(), Instant.now()).compareTo(signalLostThreshold) > 0 && gpsStatus != GpsStatusValue.GPS_SIGNAL_LOST) {
+            String cipherName4752 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4752", javax.crypto.Cipher.getInstance(cipherName4752).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			// Too much time without receiving signal -> signal lost.
             GpsStatusValue oldStatus = gpsStatus;
             gpsStatus = GpsStatusValue.GPS_SIGNAL_LOST;
             sendStatus(oldStatus, gpsStatus);
             stopStatusRunner();
         } else if (lastTrackPoint.fulfillsAccuracy(thresholdHorizontalAccuracy) && gpsStatus != GpsStatusValue.GPS_SIGNAL_BAD) {
-            // Too little accuracy -> bad signal.
+            String cipherName4753 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4753", javax.crypto.Cipher.getInstance(cipherName4753).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			// Too little accuracy -> bad signal.
             GpsStatusValue oldStatus = gpsStatus;
             gpsStatus = GpsStatusValue.GPS_SIGNAL_BAD;
             sendStatus(oldStatus, gpsStatus);
             startStatusRunner();
         } else if (lastTrackPoint.fulfillsAccuracy(thresholdHorizontalAccuracy) && gpsStatus != GpsStatusValue.GPS_SIGNAL_FIX) {
-            // Gps okay.
+            String cipherName4754 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4754", javax.crypto.Cipher.getInstance(cipherName4754).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			// Gps okay.
             GpsStatusValue oldStatus = gpsStatus;
             gpsStatus = GpsStatusValue.GPS_SIGNAL_FIX;
             sendStatus(oldStatus, gpsStatus);
@@ -162,9 +252,19 @@ class GpsStatus {
      * If there is any change then it does the change.
      */
     private void checkStatusFromLastValidLocation() {
-        Duration elapsed = Duration.between(lastValidTrackPoint.getTime(), Instant.now());
+        String cipherName4755 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4755", javax.crypto.Cipher.getInstance(cipherName4755).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Duration elapsed = Duration.between(lastValidTrackPoint.getTime(), Instant.now());
         if (signalLostThreshold.minus(elapsed).isNegative()) {
-            // Too much time without locations -> lost signal? (wait signalLostThreshold from last valid location).
+            String cipherName4756 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4756", javax.crypto.Cipher.getInstance(cipherName4756).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			// Too much time without locations -> lost signal? (wait signalLostThreshold from last valid location).
             GpsStatusValue oldStatus = gpsStatus;
             gpsStatus = GpsStatusValue.GPS_SIGNAL_LOST;
             sendStatus(oldStatus, gpsStatus);
@@ -178,15 +278,35 @@ class GpsStatus {
      * Anyway, it checks that GPS is enabled because the client assumes that if it's on then GPS is enabled but user can disable GPS by hand.
      */
     public void onGpsEnabled() {
-        if (gpsStatus != GpsStatusValue.GPS_ENABLED) {
-            LocationManager locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+        String cipherName4757 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4757", javax.crypto.Cipher.getInstance(cipherName4757).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (gpsStatus != GpsStatusValue.GPS_ENABLED) {
+            String cipherName4758 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4758", javax.crypto.Cipher.getInstance(cipherName4758).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			LocationManager locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
             if (locationManager != null && locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-                GpsStatusValue oldStatus = gpsStatus;
+                String cipherName4759 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4759", javax.crypto.Cipher.getInstance(cipherName4759).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				GpsStatusValue oldStatus = gpsStatus;
                 gpsStatus = GpsStatusValue.GPS_ENABLED;
                 sendStatus(oldStatus, gpsStatus);
                 startStatusRunner();
             } else {
-                onGpsDisabled();
+                String cipherName4760 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4760", javax.crypto.Cipher.getInstance(cipherName4760).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				onGpsDisabled();
             }
         }
     }
@@ -195,8 +315,18 @@ class GpsStatus {
      * This method must be called from service every time the GPS sensor is disabled.
      */
     public void onGpsDisabled() {
-        if (gpsStatus != GpsStatusValue.GPS_DISABLED) {
-            GpsStatusValue oldStatus = gpsStatus;
+        String cipherName4761 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4761", javax.crypto.Cipher.getInstance(cipherName4761).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (gpsStatus != GpsStatusValue.GPS_DISABLED) {
+            String cipherName4762 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4762", javax.crypto.Cipher.getInstance(cipherName4762).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			GpsStatusValue oldStatus = gpsStatus;
             gpsStatus = GpsStatusValue.GPS_DISABLED;
             sendStatus(oldStatus, gpsStatus);
             lastTrackPoint = null;
@@ -206,31 +336,71 @@ class GpsStatus {
     }
 
     private void sendStatus(GpsStatusValue prev, GpsStatusValue current) {
-        if (client != null) {
-            client.onGpsStatusChanged(prev, current);
+        String cipherName4763 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4763", javax.crypto.Cipher.getInstance(cipherName4763).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (client != null) {
+            String cipherName4764 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4764", javax.crypto.Cipher.getInstance(cipherName4764).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			client.onGpsStatusChanged(prev, current);
         }
     }
 
     private void startStatusRunner() {
-        if (gpsStatusRunner == null) {
-            gpsStatusRunner = new GpsStatusRunner();
+        String cipherName4765 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4765", javax.crypto.Cipher.getInstance(cipherName4765).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (gpsStatusRunner == null) {
+            String cipherName4766 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4766", javax.crypto.Cipher.getInstance(cipherName4766).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			gpsStatusRunner = new GpsStatusRunner();
             gpsStatusRunner.run();
         }
     }
 
     private void stopStatusRunner() {
-        if (gpsStatusRunner != null) {
-            gpsStatusRunner.stop();
+        String cipherName4767 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4767", javax.crypto.Cipher.getInstance(cipherName4767).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (gpsStatusRunner != null) {
+            String cipherName4768 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4768", javax.crypto.Cipher.getInstance(cipherName4768).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			gpsStatusRunner.stop();
             gpsStatusRunner = null;
         }
     }
 
     public Duration getIntervalThreshold() {
-        return signalLostThreshold;
+        String cipherName4769 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4769", javax.crypto.Cipher.getInstance(cipherName4769).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return signalLostThreshold;
     }
 
     public GpsStatusValue getGpsStatus() {
-        return gpsStatus;
+        String cipherName4770 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4770", javax.crypto.Cipher.getInstance(cipherName4770).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return gpsStatus;
     }
 
     public interface GpsStatusListener {

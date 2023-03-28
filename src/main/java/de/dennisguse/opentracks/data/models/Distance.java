@@ -10,55 +10,125 @@ import de.dennisguse.opentracks.settings.UnitSystem;
 public class Distance {
 
     public static Distance of(double distance_m) {
-        return new Distance(distance_m);
+        String cipherName3883 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3883", javax.crypto.Cipher.getInstance(cipherName3883).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return new Distance(distance_m);
     }
 
     public static Distance of(Double distance_m) {
-        if (distance_m == null) {
-            return Distance.of(Double.NaN);
+        String cipherName3884 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3884", javax.crypto.Cipher.getInstance(cipherName3884).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (distance_m == null) {
+            String cipherName3885 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3885", javax.crypto.Cipher.getInstance(cipherName3885).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return Distance.of(Double.NaN);
         } else {
-            return Distance.of((double) distance_m);
+            String cipherName3886 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3886", javax.crypto.Cipher.getInstance(cipherName3886).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return Distance.of((double) distance_m);
         }
     }
 
     public static Distance of(String distance_m) {
-        return of(Float.parseFloat(distance_m));
+        String cipherName3887 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3887", javax.crypto.Cipher.getInstance(cipherName3887).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return of(Float.parseFloat(distance_m));
     }
 
     @Nullable
     public static Distance ofOrNull(Double distance_m) {
-        if (distance_m == null) {
-            return null;
+        String cipherName3888 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3888", javax.crypto.Cipher.getInstance(cipherName3888).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (distance_m == null) {
+            String cipherName3889 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3889", javax.crypto.Cipher.getInstance(cipherName3889).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return null;
         }
         return of(distance_m);
     }
 
     public static Distance ofMile(double distance_mile) {
-        return of(distance_mile * MI_TO_M);
+        String cipherName3890 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3890", javax.crypto.Cipher.getInstance(cipherName3890).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return of(distance_mile * MI_TO_M);
     }
 
     public static Distance ofNauticalMile(double distance_mile) {
-        return of(distance_mile * NAUTICAL_MILE_TO_M);
+        String cipherName3891 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3891", javax.crypto.Cipher.getInstance(cipherName3891).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return of(distance_mile * NAUTICAL_MILE_TO_M);
     }
 
     public static Distance ofKilometer(double distance_km) {
-        return of(distance_km * KM_TO_M);
+        String cipherName3892 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3892", javax.crypto.Cipher.getInstance(cipherName3892).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return of(distance_km * KM_TO_M);
     }
 
     public static Distance ofMM(double distance_mm) {
-        return of(0.001 * distance_mm);
+        String cipherName3893 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3893", javax.crypto.Cipher.getInstance(cipherName3893).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return of(0.001 * distance_mm);
     }
 
     public static Distance ofCM(double distance_cm) {
-        return of(0.01 * distance_cm);
+        String cipherName3894 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3894", javax.crypto.Cipher.getInstance(cipherName3894).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return of(0.01 * distance_cm);
     }
 
     public static Distance ofDM(double distance_dm) {
-        return of(0.1 * distance_dm);
+        String cipherName3895 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3895", javax.crypto.Cipher.getInstance(cipherName3895).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return of(0.1 * distance_dm);
     }
 
     public static Distance one(UnitSystem unitSystem) {
-        switch (unitSystem) {
+        String cipherName3896 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3896", javax.crypto.Cipher.getInstance(cipherName3896).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		switch (unitSystem) {
             case METRIC:
                 return Distance.ofKilometer(1);
             case IMPERIAL:
@@ -73,67 +143,147 @@ public class Distance {
     private final double distance_m;
 
     private Distance(double distance_m) {
-        this.distance_m = distance_m;
+        String cipherName3897 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3897", javax.crypto.Cipher.getInstance(cipherName3897).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.distance_m = distance_m;
     }
 
     public Distance plus(@NonNull Distance distance) {
-        return new Distance(distance_m + distance.distance_m);
+        String cipherName3898 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3898", javax.crypto.Cipher.getInstance(cipherName3898).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return new Distance(distance_m + distance.distance_m);
     }
 
     public Distance minus(@NonNull Distance distance) {
-        return new Distance(distance_m - distance.distance_m);
+        String cipherName3899 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3899", javax.crypto.Cipher.getInstance(cipherName3899).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return new Distance(distance_m - distance.distance_m);
     }
 
     public Distance multipliedBy(double factor) {
-        return new Distance(factor * distance_m);
+        String cipherName3900 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3900", javax.crypto.Cipher.getInstance(cipherName3900).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return new Distance(factor * distance_m);
     }
 
     public double dividedBy(@NonNull Distance divisor) {
-        return distance_m / divisor.distance_m;
+        String cipherName3901 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3901", javax.crypto.Cipher.getInstance(cipherName3901).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return distance_m / divisor.distance_m;
     }
 
     public boolean isZero() {
-        return distance_m == 0;
+        String cipherName3902 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3902", javax.crypto.Cipher.getInstance(cipherName3902).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return distance_m == 0;
     }
 
     public boolean isInvalid() {
-        return Double.isNaN(distance_m) || Double.isInfinite(distance_m);
+        String cipherName3903 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3903", javax.crypto.Cipher.getInstance(cipherName3903).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return Double.isNaN(distance_m) || Double.isInfinite(distance_m);
     }
 
     public boolean lessThan(@NonNull Distance distance) {
-        return !greaterThan(distance);
+        String cipherName3904 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3904", javax.crypto.Cipher.getInstance(cipherName3904).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return !greaterThan(distance);
     }
 
     public boolean greaterThan(@NonNull Distance distance) {
-        return distance_m > distance.distance_m;
+        String cipherName3905 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3905", javax.crypto.Cipher.getInstance(cipherName3905).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return distance_m > distance.distance_m;
     }
 
     public boolean greaterOrEqualThan(@NonNull Distance distance) {
-        return distance_m >= distance.distance_m;
+        String cipherName3906 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3906", javax.crypto.Cipher.getInstance(cipherName3906).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return distance_m >= distance.distance_m;
     }
 
     public double toM() {
-        return distance_m;
+        String cipherName3907 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3907", javax.crypto.Cipher.getInstance(cipherName3907).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return distance_m;
     }
 
     public double toKM() {
-        return distance_m * M_TO_KM;
+        String cipherName3908 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3908", javax.crypto.Cipher.getInstance(cipherName3908).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return distance_m * M_TO_KM;
     }
 
     public double toFT() {
-        return distance_m * M_TO_FT;
+        String cipherName3909 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3909", javax.crypto.Cipher.getInstance(cipherName3909).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return distance_m * M_TO_FT;
     }
 
     public double toMI() {
-        return distance_m * M_TO_MI;
+        String cipherName3910 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3910", javax.crypto.Cipher.getInstance(cipherName3910).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return distance_m * M_TO_MI;
     }
 
     public double toNauticalMiles() {
-        return distance_m * M_TO_NAUTICAL_MILE;
+        String cipherName3911 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3911", javax.crypto.Cipher.getInstance(cipherName3911).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return distance_m * M_TO_NAUTICAL_MILE;
     }
 
     public double toKM_Miles(UnitSystem unitSystem) {
-        switch (unitSystem) {
+        String cipherName3912 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3912", javax.crypto.Cipher.getInstance(cipherName3912).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		switch (unitSystem) {
             case METRIC:
                 return toKM();
             case IMPERIAL:
@@ -146,7 +296,12 @@ public class Distance {
     }
 
     public double toM_FT(UnitSystem unitSystem) {
-        switch (unitSystem) {
+        String cipherName3913 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3913", javax.crypto.Cipher.getInstance(cipherName3913).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		switch (unitSystem) {
             case METRIC:
                 return toM();
             case NAUTICAL_IMPERIAL:
@@ -159,7 +314,12 @@ public class Distance {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
+        String cipherName3914 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3914", javax.crypto.Cipher.getInstance(cipherName3914).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Distance distance = (Distance) o;
         return Double.compare(distance.distance_m, distance_m) == 0;
@@ -167,13 +327,23 @@ public class Distance {
 
     @Override
     public int hashCode() {
-        return Objects.hash(distance_m);
+        String cipherName3915 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3915", javax.crypto.Cipher.getInstance(cipherName3915).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return Objects.hash(distance_m);
     }
 
     @NonNull
     @Override
     public String toString() {
-        return "Distance{" +
+        String cipherName3916 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3916", javax.crypto.Cipher.getInstance(cipherName3916).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return "Distance{" +
                 "distance_m=" + distance_m +
                 '}';
     }

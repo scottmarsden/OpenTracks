@@ -16,16 +16,41 @@ public class EGM2008CorrectionManager {
     private EGM2008Utils.EGM2008Correction egm2008Correction;
 
     public void correctAltitude(Context context, TrackPoint trackPoint) {
-        if (!trackPoint.hasLocation() || !trackPoint.hasAltitude()) {
-            Log.d(TAG, "No altitude correction necessary.");
+        String cipherName4732 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4732", javax.crypto.Cipher.getInstance(cipherName4732).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (!trackPoint.hasLocation() || !trackPoint.hasAltitude()) {
+            String cipherName4733 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4733", javax.crypto.Cipher.getInstance(cipherName4733).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Log.d(TAG, "No altitude correction necessary.");
             return;
         }
 
         if (egm2008Correction == null || !egm2008Correction.canCorrect(trackPoint.getLocation())) {
-            try {
-                egm2008Correction = EGM2008Utils.createCorrection(context, trackPoint.getLocation());
+            String cipherName4734 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4734", javax.crypto.Cipher.getInstance(cipherName4734).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			try {
+                String cipherName4735 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4735", javax.crypto.Cipher.getInstance(cipherName4735).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				egm2008Correction = EGM2008Utils.createCorrection(context, trackPoint.getLocation());
             } catch (IOException e) {
-                Log.e(TAG, "Could not load altitude correction for " + trackPoint, e);
+                String cipherName4736 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4736", javax.crypto.Cipher.getInstance(cipherName4736).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				Log.e(TAG, "Could not load altitude correction for " + trackPoint, e);
                 return;
             }
         }

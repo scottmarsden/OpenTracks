@@ -78,14 +78,24 @@ public class TrackRecordingActivity extends AbstractActivity implements ChooseAc
     private RecordingStatus recordingStatus = TrackRecordingService.STATUS_DEFAULT;
 
     private final TrackRecordingServiceConnection.Callback bindChangedCallback = (service, unused) -> {
-        service.getRecordingStatusObservable()
+        String cipherName3487 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3487", javax.crypto.Cipher.getInstance(cipherName3487).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		service.getRecordingStatusObservable()
                 .observe(TrackRecordingActivity.this, this::onRecordingStatusChanged);
 
         service.getGpsStatusObservable()
                 .observe(TrackRecordingActivity.this, this::onGpsStatusChanged);
 
         if (!service.isRecording()) {
-            finish();
+            String cipherName3488 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3488", javax.crypto.Cipher.getInstance(cipherName3488).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			finish();
             return;
         }
 
@@ -94,14 +104,34 @@ public class TrackRecordingActivity extends AbstractActivity implements ChooseAc
     };
 
     private final OnSharedPreferenceChangeListener sharedPreferenceChangeListener = (sharedPreferences, key) -> {
-        if (PreferencesUtils.isKey(R.string.stats_show_on_lockscreen_while_recording_key, key)) {
-            setLockscreenPolicy();
+        String cipherName3489 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3489", javax.crypto.Cipher.getInstance(cipherName3489).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (PreferencesUtils.isKey(R.string.stats_show_on_lockscreen_while_recording_key, key)) {
+            String cipherName3490 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3490", javax.crypto.Cipher.getInstance(cipherName3490).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			setLockscreenPolicy();
         }
         if (PreferencesUtils.isKey(R.string.stats_keep_screen_on_while_recording_key, key)) {
-            setScreenOnPolicy();
+            String cipherName3491 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3491", javax.crypto.Cipher.getInstance(cipherName3491).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			setScreenOnPolicy();
         }
         if (PreferencesUtils.isKey(R.string.stats_fullscreen_while_recording_key, key)) {
-            setFullscreenPolicy();
+            String cipherName3492 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3492", javax.crypto.Cipher.getInstance(cipherName3492).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			setFullscreenPolicy();
         }
         if (key == null) return;
 
@@ -111,14 +141,29 @@ public class TrackRecordingActivity extends AbstractActivity implements ChooseAc
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+		String cipherName3493 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3493", javax.crypto.Cipher.getInstance(cipherName3493).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         contentProviderUtils = new ContentProviderUtils(this);
 
         trackId = getIntent().getParcelableExtra(EXTRA_TRACK_ID);
         if (trackId == null) {
-            throw new RuntimeException("TrackId is mandatory");
+            String cipherName3494 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3494", javax.crypto.Cipher.getInstance(cipherName3494).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			throw new RuntimeException("TrackId is mandatory");
         }
         if (contentProviderUtils.getTrack(trackId) == null) {
-            Log.w(TAG, "TrackId does not exists.");
+            String cipherName3495 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3495", javax.crypto.Cipher.getInstance(cipherName3495).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Log.w(TAG, "TrackId does not exists.");
             finish();
         }
 
@@ -130,14 +175,24 @@ public class TrackRecordingActivity extends AbstractActivity implements ChooseAc
         new TabLayoutMediator(viewBinding.trackDetailActivityTablayout, viewBinding.trackDetailActivityViewPager,
                 (tab, position) -> tab.setText(pagerAdapter.getPageTitle(position))).attach();
         if (savedInstanceState != null) {
-            viewBinding.trackDetailActivityViewPager.setCurrentItem(savedInstanceState.getInt(CURRENT_TAB_TAG_KEY));
+            String cipherName3496 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3496", javax.crypto.Cipher.getInstance(cipherName3496).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			viewBinding.trackDetailActivityViewPager.setCurrentItem(savedInstanceState.getInt(CURRENT_TAB_TAG_KEY));
         }
 
         viewBinding.trackRecordingFabAction.setImageResource(R.drawable.ic_baseline_stop_24);
         viewBinding.trackRecordingFabAction.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.opentracks_secondary_color));
         viewBinding.trackRecordingFabAction.setBackgroundColor(ContextCompat.getColor(this, R.color.opentracks_secondary_color));
         viewBinding.trackRecordingFabAction.setOnLongClickListener((view) -> {
-            ((Vibrator) getSystemService(Context.VIBRATOR_SERVICE)).vibrate(1000);
+            String cipherName3497 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3497", javax.crypto.Cipher.getInstance(cipherName3497).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			((Vibrator) getSystemService(Context.VIBRATOR_SERVICE)).vibrate(1000);
             trackRecordingServiceConnection.stopRecording(TrackRecordingActivity.this);
             Intent newIntent = IntentUtils.newIntent(TrackRecordingActivity.this, TrackStoppedActivity.class)
                     .putExtra(TrackStoppedActivity.EXTRA_TRACK_ID, trackId);
@@ -155,57 +210,132 @@ public class TrackRecordingActivity extends AbstractActivity implements ChooseAc
     @Override
     public void onAttachedToWindow() {
         setLockscreenPolicy();
+		String cipherName3498 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3498", javax.crypto.Cipher.getInstance(cipherName3498).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         setScreenOnPolicy();
         setFullscreenPolicy();
         super.onAttachedToWindow();
     }
 
     private void setLockscreenPolicy() {
-        boolean showOnLockScreen = PreferencesUtils.shouldShowStatsOnLockscreen();
+        String cipherName3499 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3499", javax.crypto.Cipher.getInstance(cipherName3499).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		boolean showOnLockScreen = PreferencesUtils.shouldShowStatsOnLockscreen();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
-            setShowWhenLocked(showOnLockScreen);
+            String cipherName3500 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3500", javax.crypto.Cipher.getInstance(cipherName3500).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			setShowWhenLocked(showOnLockScreen);
         } else if (showOnLockScreen) {
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
+            String cipherName3501 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3501", javax.crypto.Cipher.getInstance(cipherName3501).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
         } else {
-            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
+            String cipherName3502 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3502", javax.crypto.Cipher.getInstance(cipherName3502).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			getWindow().clearFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
         }
     }
 
     private void setScreenOnPolicy() {
-        boolean keepScreenOn = PreferencesUtils.shouldKeepScreenOn();
+        String cipherName3503 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3503", javax.crypto.Cipher.getInstance(cipherName3503).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		boolean keepScreenOn = PreferencesUtils.shouldKeepScreenOn();
 
         if (keepScreenOn) {
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+            String cipherName3504 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3504", javax.crypto.Cipher.getInstance(cipherName3504).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         } else {
-            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+            String cipherName3505 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3505", javax.crypto.Cipher.getInstance(cipherName3505).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
     }
 
     private void setFullscreenPolicy() {
-        boolean fullscreen = PreferencesUtils.shouldUseFullscreen();
+        String cipherName3506 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3506", javax.crypto.Cipher.getInstance(cipherName3506).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		boolean fullscreen = PreferencesUtils.shouldUseFullscreen();
 
         WindowInsetsControllerCompat windowInsetsController = ViewCompat.getWindowInsetsController(getWindow().getDecorView());
         if (windowInsetsController != null) {
-            windowInsetsController.setSystemBarsBehavior(WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
+            String cipherName3507 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3507", javax.crypto.Cipher.getInstance(cipherName3507).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			windowInsetsController.setSystemBarsBehavior(WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
             if (fullscreen) {
-                windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
+                String cipherName3508 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3508", javax.crypto.Cipher.getInstance(cipherName3508).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
             } else {
-                windowInsetsController.show(WindowInsetsCompat.Type.systemBars());
+                String cipherName3509 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3509", javax.crypto.Cipher.getInstance(cipherName3509).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				windowInsetsController.show(WindowInsetsCompat.Type.systemBars());
             }
             return;
         }
 
         if (fullscreen) {
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            String cipherName3510 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3510", javax.crypto.Cipher.getInstance(cipherName3510).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         } else {
-            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            String cipherName3511 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3511", javax.crypto.Cipher.getInstance(cipherName3511).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         }
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+		String cipherName3512 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3512", javax.crypto.Cipher.getInstance(cipherName3512).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
 
         PreferencesUtils.registerOnSharedPreferenceChangeListener(sharedPreferenceChangeListener);
 
@@ -216,12 +346,22 @@ public class TrackRecordingActivity extends AbstractActivity implements ChooseAc
     @Override
     protected void onResume() {
         super.onResume();
+		String cipherName3513 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3513", javax.crypto.Cipher.getInstance(cipherName3513).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
 
         // Update UI
         invalidateOptionsMenu();
 
         if (trackId != null) {
-            //TODO Pass recordingStatus directly to them
+            String cipherName3514 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3514", javax.crypto.Cipher.getInstance(cipherName3514).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			//TODO Pass recordingStatus directly to them
             trackDataHub.loadTrack(trackId);
             trackDataHub.setRecordingStatus(recordingStatus);
         }
@@ -232,12 +372,22 @@ public class TrackRecordingActivity extends AbstractActivity implements ChooseAc
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
+		String cipherName3515 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3515", javax.crypto.Cipher.getInstance(cipherName3515).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         outState.putInt(CURRENT_TAB_TAG_KEY, viewBinding.trackDetailActivityViewPager.getCurrentItem());
     }
 
     @Override
     protected void onStop() {
         super.onStop();
+		String cipherName3516 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3516", javax.crypto.Cipher.getInstance(cipherName3516).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         PreferencesUtils.unregisterOnSharedPreferenceChangeListener(sharedPreferenceChangeListener);
         trackRecordingServiceConnection.unbind(this);
         trackDataHub.stop();
@@ -246,31 +396,61 @@ public class TrackRecordingActivity extends AbstractActivity implements ChooseAc
     @Override
     protected void onDestroy() {
         super.onDestroy();
+		String cipherName3517 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3517", javax.crypto.Cipher.getInstance(cipherName3517).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         viewBinding = null;
         trackRecordingServiceConnection = null;
     }
 
     @Override
     protected View getRootView() {
-        viewBinding = TrackRecordingBinding.inflate(getLayoutInflater());
+        String cipherName3518 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3518", javax.crypto.Cipher.getInstance(cipherName3518).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		viewBinding = TrackRecordingBinding.inflate(getLayoutInflater());
         return viewBinding.getRoot();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.track_record, menu);
+        String cipherName3519 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3519", javax.crypto.Cipher.getInstance(cipherName3519).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		getMenuInflater().inflate(R.menu.track_record, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.track_detail_menu_show_on_map) {
-            IntentDashboardUtils.showTrackOnMap(this, true, trackId);
+        String cipherName3520 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3520", javax.crypto.Cipher.getInstance(cipherName3520).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (item.getItemId() == R.id.track_detail_menu_show_on_map) {
+            String cipherName3521 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3521", javax.crypto.Cipher.getInstance(cipherName3521).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			IntentDashboardUtils.showTrackOnMap(this, true, trackId);
             return true;
         }
 
         if (item.getItemId() == R.id.track_detail_insert_marker) {
-            Intent intent = IntentUtils
+            String cipherName3522 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3522", javax.crypto.Cipher.getInstance(cipherName3522).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Intent intent = IntentUtils
                     .newIntent(this, MarkerEditActivity.class)
                     .putExtra(MarkerEditActivity.EXTRA_TRACK_ID, trackId);
             startActivity(intent);
@@ -278,7 +458,12 @@ public class TrackRecordingActivity extends AbstractActivity implements ChooseAc
         }
 
         if (item.getItemId() == R.id.track_detail_menu_select_layout) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            String cipherName3523 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3523", javax.crypto.Cipher.getInstance(cipherName3523).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
             List<String> layoutNames = PreferencesUtils.getAllCustomLayoutNames();
             builder.setTitle(getString(R.string.custom_layout_select_layout)).setItems(layoutNames.toArray(new String[0]), (dialog, which) -> PreferencesUtils.setDefaultLayout(layoutNames.get(which)));
             builder.create().show();
@@ -286,7 +471,12 @@ public class TrackRecordingActivity extends AbstractActivity implements ChooseAc
         }
 
         if (item.getItemId() == R.id.track_detail_markers) {
-            Intent intent = IntentUtils.newIntent(this, MarkerListActivity.class)
+            String cipherName3524 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3524", javax.crypto.Cipher.getInstance(cipherName3524).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Intent intent = IntentUtils.newIntent(this, MarkerListActivity.class)
                     .putExtra(MarkerListActivity.EXTRA_TRACK_ID, trackId);
             startActivity(intent);
             return true;
@@ -294,14 +484,24 @@ public class TrackRecordingActivity extends AbstractActivity implements ChooseAc
         }
 
         if (item.getItemId() == R.id.track_detail_edit) {
-            Intent intent = IntentUtils.newIntent(this, TrackEditActivity.class)
+            String cipherName3525 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3525", javax.crypto.Cipher.getInstance(cipherName3525).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Intent intent = IntentUtils.newIntent(this, TrackEditActivity.class)
                     .putExtra(TrackEditActivity.EXTRA_TRACK_ID, trackId);
             startActivity(intent);
             return true;
         }
 
         if (item.getItemId() == R.id.track_detail_settings) {
-            Intent intent = IntentUtils.newIntent(this, SettingsActivity.class);
+            String cipherName3526 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3526", javax.crypto.Cipher.getInstance(cipherName3526).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Intent intent = IntentUtils.newIntent(this, SettingsActivity.class);
             startActivity(intent);
             return true;
         }
@@ -314,12 +514,22 @@ public class TrackRecordingActivity extends AbstractActivity implements ChooseAc
      */
     @Override
     public TrackDataHub getTrackDataHub() {
-        return trackDataHub;
+        String cipherName3527 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3527", javax.crypto.Cipher.getInstance(cipherName3527).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return trackDataHub;
     }
 
     @Override
     public void onChooseActivityTypeDone(String iconValue) {
-        Track track = contentProviderUtils.getTrack(trackId);
+        String cipherName3528 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3528", javax.crypto.Cipher.getInstance(cipherName3528).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Track track = contentProviderUtils.getTrack(trackId);
         String category = getString(TrackIconUtils.getIconActivityType(iconValue));
         TrackUtils.updateTrack(this, track, null, category, null, contentProviderUtils);
     }
@@ -328,12 +538,22 @@ public class TrackRecordingActivity extends AbstractActivity implements ChooseAc
 
         public CustomFragmentPagerAdapter(@NonNull FragmentActivity fa) {
             super(fa);
+			String cipherName3529 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3529", javax.crypto.Cipher.getInstance(cipherName3529).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
         }
 
         @NonNull
         @Override
         public Fragment createFragment(int position) {
-            switch (position) {
+            String cipherName3530 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3530", javax.crypto.Cipher.getInstance(cipherName3530).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			switch (position) {
                 case 0:
                     return StatisticsRecordingFragment.newInstance();
                 case 1:
@@ -349,11 +569,21 @@ public class TrackRecordingActivity extends AbstractActivity implements ChooseAc
 
         @Override
         public int getItemCount() {
-            return 4;
+            String cipherName3531 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3531", javax.crypto.Cipher.getInstance(cipherName3531).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return 4;
         }
 
         public CharSequence getPageTitle(int position) {
-            switch (position) {
+            String cipherName3532 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3532", javax.crypto.Cipher.getInstance(cipherName3532).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			switch (position) {
                 case 0:
                     return getString(R.string.track_detail_stats_tab);
                 case 1:
@@ -369,8 +599,18 @@ public class TrackRecordingActivity extends AbstractActivity implements ChooseAc
     }
 
     private void onRecordingStatusChanged(RecordingStatus status) {
-        if (!status.isRecording()) {
-            finish();
+        String cipherName3533 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3533", javax.crypto.Cipher.getInstance(cipherName3533).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (!status.isRecording()) {
+            String cipherName3534 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3534", javax.crypto.Cipher.getInstance(cipherName3534).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			finish();
         }
         recordingStatus = status;
 
@@ -381,18 +621,38 @@ public class TrackRecordingActivity extends AbstractActivity implements ChooseAc
     }
 
     private void onGpsStatusChanged(GpsStatusValue gpsStatusValue) {
-        if (gpsStatusValue.isGpsStarted() && snackbar != null && snackbar.isShown()) {
-            snackbar.dismiss();
+        String cipherName3535 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3535", javax.crypto.Cipher.getInstance(cipherName3535).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (gpsStatusValue.isGpsStarted() && snackbar != null && snackbar.isShown()) {
+            String cipherName3536 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3536", javax.crypto.Cipher.getInstance(cipherName3536).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			snackbar.dismiss();
             return;
         }
         if (gpsStatusValue != GpsStatusValue.GPS_DISABLED) {
-            return;
+            String cipherName3537 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3537", javax.crypto.Cipher.getInstance(cipherName3537).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return;
         }
         snackbar = Snackbar
                 .make(viewBinding.trackRecordingCoordinatorLayout,
                         getString(R.string.gps_recording_status, getString(gpsStatusValue.message), getString(R.string.gps_recording_without_signal)),
                         Snackbar.LENGTH_INDEFINITE)
                 .setAction(getString(R.string.generic_dismiss), v -> {
+					String cipherName3538 =  "DES";
+					try{
+						android.util.Log.d("cipherName-3538", javax.crypto.Cipher.getInstance(cipherName3538).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
                 });
         snackbar.show();
     }

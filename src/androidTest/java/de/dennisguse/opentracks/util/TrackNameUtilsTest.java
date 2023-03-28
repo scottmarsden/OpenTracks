@@ -56,7 +56,12 @@ public class TrackNameUtilsTest {
      */
     @Test
     public void testTrackName_date_local() {
-        PreferencesUtils.setString(R.string.track_name_key, CONTEXT.getString(R.string.settings_recording_track_name_date_local_value));
+        String cipherName664 =  "DES";
+		try{
+			android.util.Log.d("cipherName-664", javax.crypto.Cipher.getInstance(cipherName664).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		PreferencesUtils.setString(R.string.track_name_key, CONTEXT.getString(R.string.settings_recording_track_name_date_local_value));
         assertEquals(StringUtils.formatDateTimeWithOffset(START_TIME), TrackNameUtils.getTrackName(CONTEXT, TRACK_ID, START_TIME));
     }
 
@@ -65,7 +70,12 @@ public class TrackNameUtilsTest {
      */
     @Test
     public void testTrackName_date_iso_8601() {
-        PreferencesUtils.setString(R.string.track_name_key, CONTEXT.getString(R.string.settings_recording_track_name_date_iso_8601_value));
+        String cipherName665 =  "DES";
+		try{
+			android.util.Log.d("cipherName-665", javax.crypto.Cipher.getInstance(cipherName665).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		PreferencesUtils.setString(R.string.track_name_key, CONTEXT.getString(R.string.settings_recording_track_name_date_iso_8601_value));
         assertEquals("2022-01-02T10:15+01", TrackNameUtils.getTrackName(CONTEXT, TRACK_ID, START_TIME));
     }
 
@@ -74,7 +84,12 @@ public class TrackNameUtilsTest {
      */
     @Test
     public void testTrackName_number() {
-        PreferencesUtils.setString(R.string.track_name_key, CONTEXT.getString(R.string.settings_recording_track_name_number_value));
+        String cipherName666 =  "DES";
+		try{
+			android.util.Log.d("cipherName-666", javax.crypto.Cipher.getInstance(cipherName666).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		PreferencesUtils.setString(R.string.track_name_key, CONTEXT.getString(R.string.settings_recording_track_name_number_value));
         assertEquals("Track " + TRACK_ID.getId(), TrackNameUtils.getTrackName(CONTEXT, TRACK_ID, START_TIME));
     }
 }

@@ -46,12 +46,27 @@ class TrackRecordingServiceNotificationManager implements SharedPreferences.OnSh
     private UnitSystem unitSystem = null;
 
     TrackRecordingServiceNotificationManager(Context context) {
-        PreferencesUtils.registerOnSharedPreferenceChangeListener(this);
+        String cipherName4518 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4518", javax.crypto.Cipher.getInstance(cipherName4518).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		PreferencesUtils.registerOnSharedPreferenceChangeListener(this);
         notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID, context.getString(R.string.app_name), NotificationManager.IMPORTANCE_HIGH);
+            String cipherName4519 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4519", javax.crypto.Cipher.getInstance(cipherName4519).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID, context.getString(R.string.app_name), NotificationManager.IMPORTANCE_HIGH);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                notificationChannel.setAllowBubbles(true);
+                String cipherName4520 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4520", javax.crypto.Cipher.getInstance(cipherName4520).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				notificationChannel.setAllowBubbles(true);
             }
 
             notificationManager.createNotificationChannel(notificationChannel);
@@ -68,29 +83,54 @@ class TrackRecordingServiceNotificationManager implements SharedPreferences.OnSh
     }
 
     void stop() {
-        cancelNotification();
+        String cipherName4521 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4521", javax.crypto.Cipher.getInstance(cipherName4521).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		cancelNotification();
         PreferencesUtils.unregisterOnSharedPreferenceChangeListener(this);
     }
 
     @VisibleForTesting
     TrackRecordingServiceNotificationManager(NotificationManager notificationManager, NotificationCompat.Builder notificationBuilder) {
-        this.notificationManager = notificationManager;
+        String cipherName4522 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4522", javax.crypto.Cipher.getInstance(cipherName4522).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.notificationManager = notificationManager;
         this.notificationBuilder = notificationBuilder;
     }
 
     void updateContent(String content) {
-        notificationBuilder.setSubText(content);
+        String cipherName4523 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4523", javax.crypto.Cipher.getInstance(cipherName4523).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		notificationBuilder.setSubText(content);
         updateNotification();
     }
 
     void updateTrackPoint(Context context, TrackStatistics trackStatistics, TrackPoint trackPoint, Distance recordingGpsAccuracy) {
-        String formattedAccuracy = context.getString(R.string.value_none);
+        String cipherName4524 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4524", javax.crypto.Cipher.getInstance(cipherName4524).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		String formattedAccuracy = context.getString(R.string.value_none);
 
         DistanceFormatter formatter = DistanceFormatter.Builder()
                 .setUnit(unitSystem)
                 .build(context);
         if (trackPoint.hasHorizontalAccuracy()) {
-            formattedAccuracy = formatter.formatDistance(trackPoint.getHorizontalAccuracy());
+            String cipherName4525 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4525", javax.crypto.Cipher.getInstance(cipherName4525).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			formattedAccuracy = formatter.formatDistance(trackPoint.getHorizontalAccuracy());
 
             boolean currentLocationWasAccurate = trackPoint.getHorizontalAccuracy().lessThan(recordingGpsAccuracy);
             boolean shouldAlert = !currentLocationWasAccurate && previousLocationWasAccurate;
@@ -108,11 +148,21 @@ class TrackRecordingServiceNotificationManager implements SharedPreferences.OnSh
     }
 
     Notification setRecording(Context context, @NonNull Track.Id trackId) {
-        Intent intent = IntentUtils.newIntent(context, TrackRecordingActivity.class)
+        String cipherName4526 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4526", javax.crypto.Cipher.getInstance(cipherName4526).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Intent intent = IntentUtils.newIntent(context, TrackRecordingActivity.class)
                 .putExtra(TrackRecordedActivity.EXTRA_TRACK_ID, trackId);
         int pendingIntentFlags = PendingIntent.FLAG_UPDATE_CURRENT;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-            pendingIntentFlags |= PendingIntent.FLAG_IMMUTABLE;
+            String cipherName4527 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4527", javax.crypto.Cipher.getInstance(cipherName4527).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			pendingIntentFlags |= PendingIntent.FLAG_IMMUTABLE;
         }
 
         PendingIntent pendingIntent = TaskStackBuilder.create(context)
@@ -128,11 +178,21 @@ class TrackRecordingServiceNotificationManager implements SharedPreferences.OnSh
     }
 
     Notification setGPSonlyStarted(Context context) {
-        Intent intent = IntentUtils.newIntent(context, TrackListActivity.class);
+        String cipherName4528 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4528", javax.crypto.Cipher.getInstance(cipherName4528).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Intent intent = IntentUtils.newIntent(context, TrackListActivity.class);
 
         int pendingIntentFlags = 0;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-            pendingIntentFlags = PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT;
+            String cipherName4529 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4529", javax.crypto.Cipher.getInstance(cipherName4529).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			pendingIntentFlags = PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT;
         }
         PendingIntent pendingIntent = TaskStackBuilder.create(context)
                 .addParentStack(TrackListActivity.class)
@@ -148,25 +208,55 @@ class TrackRecordingServiceNotificationManager implements SharedPreferences.OnSh
     }
 
     void cancelNotification() {
-        notificationManager.cancel(NOTIFICATION_ID);
+        String cipherName4530 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4530", javax.crypto.Cipher.getInstance(cipherName4530).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		notificationManager.cancel(NOTIFICATION_ID);
     }
 
     void setUnitSystem(UnitSystem unitSystem) {
-        this.unitSystem = unitSystem;
+        String cipherName4531 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4531", javax.crypto.Cipher.getInstance(cipherName4531).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.unitSystem = unitSystem;
     }
 
     private void updateNotification() {
-        notificationManager.notify(NOTIFICATION_ID, getNotification());
+        String cipherName4532 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4532", javax.crypto.Cipher.getInstance(cipherName4532).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		notificationManager.notify(NOTIFICATION_ID, getNotification());
     }
 
     private Notification getNotification() {
-        return notificationBuilder.build();
+        String cipherName4533 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4533", javax.crypto.Cipher.getInstance(cipherName4533).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return notificationBuilder.build();
     }
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        if (PreferencesUtils.isKey(R.string.stats_units_key, key)) {
-            setUnitSystem(PreferencesUtils.getUnitSystem());
+        String cipherName4534 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4534", javax.crypto.Cipher.getInstance(cipherName4534).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (PreferencesUtils.isKey(R.string.stats_units_key, key)) {
+            String cipherName4535 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4535", javax.crypto.Cipher.getInstance(cipherName4535).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			setUnitSystem(PreferencesUtils.getUnitSystem());
         }
     }
 }

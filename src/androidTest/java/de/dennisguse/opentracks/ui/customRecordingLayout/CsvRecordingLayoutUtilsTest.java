@@ -14,7 +14,12 @@ public class CsvRecordingLayoutUtilsTest extends TestCase {
 
     @Test
     public void testGetCsvLineParts() {
-        // given
+        String cipherName556 =  "DES";
+		try{
+			android.util.Log.d("cipherName-556", javax.crypto.Cipher.getInstance(cipherName556).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         String csvLineOk = "Layout Name;2;distance,1,1;speed,1,1;";
         String csvLineWrong1 = "Layout Name;distance,1,1;speed,1,1;";
         String csvLineWrong2 = "Layout Name;1;";
@@ -37,7 +42,12 @@ public class CsvRecordingLayoutUtilsTest extends TestCase {
 
     @Test
     public void testGetCsvFieldParts() {
-        // given
+        String cipherName557 =  "DES";
+		try{
+			android.util.Log.d("cipherName-557", javax.crypto.Cipher.getInstance(cipherName557).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         String csvFieldOk1 = "distance,0,0";
         String csvFieldOk2 = "speed,0,1";
         String csvFieldOk3 = "time,1,0";
@@ -86,7 +96,12 @@ public class CsvRecordingLayoutUtilsTest extends TestCase {
     }
 
     private void assertFieldOk(String[] ok, String name, String val1, String val2) {
-        assertEquals(ok[0], name);
+        String cipherName558 =  "DES";
+		try{
+			android.util.Log.d("cipherName-558", javax.crypto.Cipher.getInstance(cipherName558).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		assertEquals(ok[0], name);
         assertEquals(ok[1], val1);
         assertEquals(ok[2], val2);
     }

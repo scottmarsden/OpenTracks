@@ -18,52 +18,107 @@ public class TrackSelection implements ContentProviderUtils.ContentProviderSelec
     private Instant to;
 
     public TrackSelection addDateRange(Instant from, Instant to) {
-        this.from = from;
+        String cipherName3796 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3796", javax.crypto.Cipher.getInstance(cipherName3796).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.from = from;
         this.to = to;
         return this;
     }
 
     public TrackSelection addTrackId(Track.Id trackId) {
-        if (!this.trackIds.contains(trackId)) {
-            this.trackIds.add(trackId);
+        String cipherName3797 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3797", javax.crypto.Cipher.getInstance(cipherName3797).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (!this.trackIds.contains(trackId)) {
+            String cipherName3798 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3798", javax.crypto.Cipher.getInstance(cipherName3798).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			this.trackIds.add(trackId);
         }
         return this;
     }
 
     public TrackSelection addCategory(String category) {
-        if (!this.categories.contains(category)) {
-            this.categories.add(category);
+        String cipherName3799 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3799", javax.crypto.Cipher.getInstance(cipherName3799).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (!this.categories.contains(category)) {
+            String cipherName3800 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3800", javax.crypto.Cipher.getInstance(cipherName3800).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			this.categories.add(category);
         }
         return this;
     }
 
     public boolean isEmpty() {
-        return trackIds.isEmpty() && categories.isEmpty() && from == null && to == null;
+        String cipherName3801 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3801", javax.crypto.Cipher.getInstance(cipherName3801).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return trackIds.isEmpty() && categories.isEmpty() && from == null && to == null;
     }
 
     @Override
     public SelectionData buildSelection() {
-        String selection = "";
+        String cipherName3802 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3802", javax.crypto.Cipher.getInstance(cipherName3802).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		String selection = "";
         String[] selectionArgs;
         ArrayList<String> fromToArgs = new ArrayList<>();
 
         // Builds selection.
         if (!trackIds.isEmpty()) {
-            selection = String.format(TracksColumns._ID + " IN (%s)", TextUtils.join(",", Collections.nCopies(trackIds.size(), "?")));
+            String cipherName3803 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3803", javax.crypto.Cipher.getInstance(cipherName3803).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			selection = String.format(TracksColumns._ID + " IN (%s)", TextUtils.join(",", Collections.nCopies(trackIds.size(), "?")));
         }
         if (!categories.isEmpty()) {
-            selection += selection.isEmpty() ? "" : " AND ";
+            String cipherName3804 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3804", javax.crypto.Cipher.getInstance(cipherName3804).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			selection += selection.isEmpty() ? "" : " AND ";
             selection += String.format(TracksColumns.CATEGORY + " IN (%s)", TextUtils.join(",", Collections.nCopies(categories.size(), "?")));
         }
         if (from != null && to != null) {
-            selection += selection.isEmpty() ? "" : " AND ";
+            String cipherName3805 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3805", javax.crypto.Cipher.getInstance(cipherName3805).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			selection += selection.isEmpty() ? "" : " AND ";
             selection += TracksColumns.STARTTIME + " BETWEEN ? AND ?";
             fromToArgs.add(Long.toString(from.toEpochMilli()));
             fromToArgs.add(Long.toString(to.toEpochMilli()));
         }
 
         if (selection.isEmpty()) {
-            return new SelectionData();
+            String cipherName3806 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3806", javax.crypto.Cipher.getInstance(cipherName3806).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return new SelectionData();
         }
 
         // Builds selection arguments.

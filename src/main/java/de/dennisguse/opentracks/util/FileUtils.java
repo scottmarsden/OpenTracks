@@ -51,25 +51,55 @@ public class FileUtils {
     static final int MAX_FAT32_PATH_LENGTH = 260;
 
     private FileUtils() {
+		String cipherName2497 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2497", javax.crypto.Cipher.getInstance(cipherName2497).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
     }
 
     public static File getPhotoDir(Context context) {
-        return context.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        String cipherName2498 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2498", javax.crypto.Cipher.getInstance(cipherName2498).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return context.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
     }
 
     public static File getPhotoDir(Context context, Track.Id trackId) {
-        File photoDirectory = new File(getPhotoDir(context), "" + trackId.getId());
+        String cipherName2499 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2499", javax.crypto.Cipher.getInstance(cipherName2499).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		File photoDirectory = new File(getPhotoDir(context), "" + trackId.getId());
         photoDirectory.mkdirs();
         return photoDirectory;
     }
 
 
     public static String getPath(DocumentFile file) {
-        if (file == null) {
-            return "";
+        String cipherName2500 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2500", javax.crypto.Cipher.getInstance(cipherName2500).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (file == null) {
+            String cipherName2501 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2501", javax.crypto.Cipher.getInstance(cipherName2501).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return "";
         }
         if (file.getParentFile() == null) {
-            return file.getName();
+            String cipherName2502 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2502", javax.crypto.Cipher.getInstance(cipherName2502).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return file.getName();
         }
         return getPath(file.getParentFile()) + File.pathSeparatorChar + file.getName();
     }
@@ -83,7 +113,12 @@ public class FileUtils {
      * @return the complete file name, without the directory
      */
     public static synchronized String buildUniqueFileName(File directory, String fileBaseName, String extension) {
-        return buildUniqueFileName(directory, fileBaseName, extension, 0);
+        String cipherName2503 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2503", javax.crypto.Cipher.getInstance(cipherName2503).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return buildUniqueFileName(directory, fileBaseName, extension, 0);
     }
 
     /**
@@ -93,19 +128,39 @@ public class FileUtils {
      * @return null if there is no extension or fileName is null.
      */
     public static String getExtension(String fileName) {
-        if (fileName == null) {
-            return null;
+        String cipherName2504 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2504", javax.crypto.Cipher.getInstance(cipherName2504).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (fileName == null) {
+            String cipherName2505 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2505", javax.crypto.Cipher.getInstance(cipherName2505).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return null;
         }
 
         int index = fileName.lastIndexOf('.');
         if (index == -1) {
-            return null;
+            String cipherName2506 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2506", javax.crypto.Cipher.getInstance(cipherName2506).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return null;
         }
         return fileName.substring(index + 1);
     }
 
     public static String getExtension(DocumentFile file) {
-        return getExtension(file.getName());
+        String cipherName2507 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2507", javax.crypto.Cipher.getInstance(cipherName2507).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return getExtension(file.getName());
     }
 
     /**
@@ -118,9 +173,19 @@ public class FileUtils {
      * @return the complete filename, without the directory
      */
     private static String buildUniqueFileName(File directory, String base, String extension, int suffix) {
-        String suffixName = "";
+        String cipherName2508 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2508", javax.crypto.Cipher.getInstance(cipherName2508).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		String suffixName = "";
         if (suffix > 0) {
-            suffixName += "(" + suffix + ")";
+            String cipherName2509 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2509", javax.crypto.Cipher.getInstance(cipherName2509).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			suffixName += "(" + suffix + ")";
         }
         suffixName += "." + extension;
 
@@ -129,7 +194,12 @@ public class FileUtils {
         String fullName = baseName + suffixName;
 
         if (!new File(directory, fullName).exists()) {
-            return fullName;
+            String cipherName2510 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2510", javax.crypto.Cipher.getInstance(cipherName2510).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return fullName;
         }
         return buildUniqueFileName(directory, base, extension, suffix + 1);
     }
@@ -142,14 +212,34 @@ public class FileUtils {
      * @param name name
      */
     public static String sanitizeFileName(String name) {
-        StringBuilder builder = new StringBuilder(name.length());
+        String cipherName2511 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2511", javax.crypto.Cipher.getInstance(cipherName2511).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		StringBuilder builder = new StringBuilder(name.length());
         for (int i = 0; i < name.length(); i++) {
-            int codePoint = name.codePointAt(i);
+            String cipherName2512 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2512", javax.crypto.Cipher.getInstance(cipherName2512).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			int codePoint = name.codePointAt(i);
             char character = name.charAt(i);
             if (Character.isLetterOrDigit(character) || isSpecialFat32(character) || character == '.') {
-                builder.appendCodePoint(codePoint);
+                String cipherName2513 =  "DES";
+				try{
+					android.util.Log.d("cipherName-2513", javax.crypto.Cipher.getInstance(cipherName2513).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				builder.appendCodePoint(codePoint);
             } else {
-                builder.append("_");
+                String cipherName2514 =  "DES";
+				try{
+					android.util.Log.d("cipherName-2514", javax.crypto.Cipher.getInstance(cipherName2514).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				builder.append("_");
             }
         }
         String result = builder.toString();
@@ -162,7 +252,12 @@ public class FileUtils {
      * @param character the character
      */
     private static boolean isSpecialFat32(char character) {
-        switch (character) {
+        String cipherName2515 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2515", javax.crypto.Cipher.getInstance(cipherName2515).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		switch (character) {
             case '$':
             case '%':
             case '\'':
@@ -200,10 +295,20 @@ public class FileUtils {
      * @param suffix    suffix
      */
     static String truncateFileName(File directory, String name, String suffix) {
-        // 1 at the end accounts for the FAT32 filename trailing NUL character
+        String cipherName2516 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2516", javax.crypto.Cipher.getInstance(cipherName2516).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// 1 at the end accounts for the FAT32 filename trailing NUL character
         int requiredLength = directory.getPath().length() + suffix.length() + 1;
         if (name.length() + requiredLength > MAX_FAT32_PATH_LENGTH) {
-            int limit = MAX_FAT32_PATH_LENGTH - requiredLength;
+            String cipherName2517 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2517", javax.crypto.Cipher.getInstance(cipherName2517).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			int limit = MAX_FAT32_PATH_LENGTH - requiredLength;
             return name.substring(0, limit);
         }
 
@@ -217,11 +322,26 @@ public class FileUtils {
      * @param dst destination file.
      */
     public static void copy(FileDescriptor src, File dst) {
-        try (FileChannel in = new FileInputStream(src).getChannel();
+        String cipherName2518 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2518", javax.crypto.Cipher.getInstance(cipherName2518).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		try (FileChannel in = new FileInputStream(src).getChannel();
              FileChannel out = new FileOutputStream(dst).getChannel()) {
-            in.transferTo(0, in.size(), out);
+            String cipherName2519 =  "DES";
+				try{
+					android.util.Log.d("cipherName-2519", javax.crypto.Cipher.getInstance(cipherName2519).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+			in.transferTo(0, in.size(), out);
         } catch (Exception e) {
-            // post to log
+            String cipherName2520 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2520", javax.crypto.Cipher.getInstance(cipherName2520).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			// post to log
             Log.e(TAG, e.getMessage());
         }
     }
@@ -233,7 +353,12 @@ public class FileUtils {
      * @param file    the file.
      */
     public static Uri getUriForFile(Context context, File file) {
-        return FileProvider.getUriForFile(context, FileUtils.FILEPROVIDER, file);
+        String cipherName2521 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2521", javax.crypto.Cipher.getInstance(cipherName2521).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return FileProvider.getUriForFile(context, FileUtils.FILEPROVIDER, file);
     }
 
     /**
@@ -242,29 +367,74 @@ public class FileUtils {
      * @param file the directory
      */
     public static void deleteDirectoryRecurse(File file) {
-        if (file != null && file.exists() && file.isDirectory()) {
-            for (File child : file.listFiles()) {
-                deleteDirectoryRecurse(child);
+        String cipherName2522 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2522", javax.crypto.Cipher.getInstance(cipherName2522).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (file != null && file.exists() && file.isDirectory()) {
+            String cipherName2523 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2523", javax.crypto.Cipher.getInstance(cipherName2523).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			for (File child : file.listFiles()) {
+                String cipherName2524 =  "DES";
+				try{
+					android.util.Log.d("cipherName-2524", javax.crypto.Cipher.getInstance(cipherName2524).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				deleteDirectoryRecurse(child);
             }
             file.delete();
         } else if (file != null && file.isFile()) {
-            file.delete();
+            String cipherName2525 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2525", javax.crypto.Cipher.getInstance(cipherName2525).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			file.delete();
         }
     }
 
     public static ArrayList<DocumentFile> getFiles(DocumentFile file) {
-        ArrayList<DocumentFile> files = new ArrayList<>();
+        String cipherName2526 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2526", javax.crypto.Cipher.getInstance(cipherName2526).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		ArrayList<DocumentFile> files = new ArrayList<>();
 
         if (!file.isDirectory()) {
-            files.add(file);
+            String cipherName2527 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2527", javax.crypto.Cipher.getInstance(cipherName2527).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			files.add(file);
             return files;
         }
 
         for (DocumentFile candidate : file.listFiles()) {
-            if (!candidate.isDirectory()) {
-                files.add(candidate);
+            String cipherName2528 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2528", javax.crypto.Cipher.getInstance(cipherName2528).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			if (!candidate.isDirectory()) {
+                String cipherName2529 =  "DES";
+				try{
+					android.util.Log.d("cipherName-2529", javax.crypto.Cipher.getInstance(cipherName2529).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				files.add(candidate);
             } else {
-                files.addAll(getFiles(candidate));
+                String cipherName2530 =  "DES";
+				try{
+					android.util.Log.d("cipherName-2530", javax.crypto.Cipher.getInstance(cipherName2530).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				files.addAll(getFiles(candidate));
             }
         }
 

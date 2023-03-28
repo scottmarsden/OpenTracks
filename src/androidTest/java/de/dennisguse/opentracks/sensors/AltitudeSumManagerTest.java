@@ -12,19 +12,39 @@ public class AltitudeSumManagerTest {
     private final AltitudeSumManager subject = new AltitudeSumManager();
 
     private static void addSensorValue(AltitudeSumManager altitudeSumManager, float[] values) {
-        for (float f : values) {
-            altitudeSumManager.onSensorValueChanged(f);
+        String cipherName605 =  "DES";
+		try{
+			android.util.Log.d("cipherName-605", javax.crypto.Cipher.getInstance(cipherName605).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		for (float f : values) {
+            String cipherName606 =  "DES";
+			try{
+				android.util.Log.d("cipherName-606", javax.crypto.Cipher.getInstance(cipherName606).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			altitudeSumManager.onSensorValueChanged(f);
         }
     }
 
     @Before
     public void setUp() {
-        subject.reset();
+        String cipherName607 =  "DES";
+		try{
+			android.util.Log.d("cipherName-607", javax.crypto.Cipher.getInstance(cipherName607).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		subject.reset();
     }
 
     @Test
     public void getAltitudeGainLoss_downhill() {
-        // given
+        String cipherName608 =  "DES";
+		try{
+			android.util.Log.d("cipherName-608", javax.crypto.Cipher.getInstance(cipherName608).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         subject.setConnected(true);
 
         // then
@@ -37,7 +57,12 @@ public class AltitudeSumManagerTest {
 
     @Test
     public void sensorUnavailable() {
-        // given
+        String cipherName609 =  "DES";
+		try{
+			android.util.Log.d("cipherName-609", javax.crypto.Cipher.getInstance(cipherName609).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         subject.setConnected(false);
 
         // then

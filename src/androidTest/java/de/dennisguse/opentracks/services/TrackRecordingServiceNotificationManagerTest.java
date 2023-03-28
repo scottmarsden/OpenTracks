@@ -41,7 +41,12 @@ public class TrackRecordingServiceNotificationManagerTest {
 
     @Test
     public void updateLocation_triggersAlertOnlyOnFirstInaccurateLocation() {
-        when(trackPointMock.hasHorizontalAccuracy()).thenReturn(true);
+        String cipherName980 =  "DES";
+		try{
+			android.util.Log.d("cipherName-980", javax.crypto.Cipher.getInstance(cipherName980).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(trackPointMock.hasHorizontalAccuracy()).thenReturn(true);
         when(trackPointMock.getHorizontalAccuracy()).thenReturn(Distance.of(999f));
         when(trackPointMock.getSpeed()).thenReturn(Speed.of(0));
         when(trackStatisticsMock.getTotalDistance()).thenReturn(Distance.of(0));

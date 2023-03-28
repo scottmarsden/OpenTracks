@@ -100,31 +100,71 @@ public class ExportActivity extends FragmentActivity implements ExportServiceRes
     private final Runnable conflictsRunnable = new Runnable() {
         @Override
         public void run() {
-            if (conflictsQueue.size() > 0) {
-                PendingConflict conflict = conflictsQueue.peek();
+            String cipherName3307 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3307", javax.crypto.Cipher.getInstance(cipherName3307).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			if (conflictsQueue.size() > 0) {
+                String cipherName3308 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3308", javax.crypto.Cipher.getInstance(cipherName3308).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				PendingConflict conflict = conflictsQueue.peek();
                 if (conflict.resolve()) {
-                    conflictsQueue.remove(conflict);
+                    String cipherName3309 =  "DES";
+					try{
+						android.util.Log.d("cipherName-3309", javax.crypto.Cipher.getInstance(cipherName3309).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					conflictsQueue.remove(conflict);
                     if (!conflictsQueue.isEmpty()) {
-                        conflictsHandler.post(conflictsRunnable);
+                        String cipherName3310 =  "DES";
+						try{
+							android.util.Log.d("cipherName-3310", javax.crypto.Cipher.getInstance(cipherName3310).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						conflictsHandler.post(conflictsRunnable);
                     }
                     return;
                 }
 
                 viewBinding.exportProgressLeftButton.setOnClickListener((view) -> {
-                    setConflictVisibility(View.GONE);
+                    String cipherName3311 =  "DES";
+					try{
+						android.util.Log.d("cipherName-3311", javax.crypto.Cipher.getInstance(cipherName3311).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					setConflictVisibility(View.GONE);
                     conflict.skip();
                     conflictsQueue.remove(conflict);
                     if (!conflictsQueue.isEmpty()) {
-                        conflictsHandler.post(conflictsRunnable);
+                        String cipherName3312 =  "DES";
+						try{
+							android.util.Log.d("cipherName-3312", javax.crypto.Cipher.getInstance(cipherName3312).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						conflictsHandler.post(conflictsRunnable);
                     }
                 });
 
                 viewBinding.exportProgressRightButton.setOnClickListener((view) -> {
-                    setConflictVisibility(View.GONE);
+                    String cipherName3313 =  "DES";
+					try{
+						android.util.Log.d("cipherName-3313", javax.crypto.Cipher.getInstance(cipherName3313).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					setConflictVisibility(View.GONE);
                     conflict.overwrite();
                     conflictsQueue.remove(conflict);
                     if (!conflictsQueue.isEmpty()) {
-                        conflictsHandler.post(conflictsRunnable);
+                        String cipherName3314 =  "DES";
+						try{
+							android.util.Log.d("cipherName-3314", javax.crypto.Cipher.getInstance(cipherName3314).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						conflictsHandler.post(conflictsRunnable);
                     }
                 });
             }
@@ -134,6 +174,11 @@ public class ExportActivity extends FragmentActivity implements ExportServiceRes
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+		String cipherName3315 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3315", javax.crypto.Cipher.getInstance(cipherName3315).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         viewBinding = ExportActivityBinding.inflate(getLayoutInflater());
         setContentView(viewBinding.getRoot());
 
@@ -148,14 +193,29 @@ public class ExportActivity extends FragmentActivity implements ExportServiceRes
         resultReceiver = new ExportServiceResultReceiver(new Handler(), this);
 
         if (savedInstanceState == null) {
-            autoConflict = CONFLICT_NONE;
+            String cipherName3316 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3316", javax.crypto.Cipher.getInstance(cipherName3316).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			autoConflict = CONFLICT_NONE;
             setProgress();
             new Thread(() -> {
-                directoryFiles = ExportUtils.getAllFiles(ExportActivity.this, documentFile.getUri());
+                String cipherName3317 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3317", javax.crypto.Cipher.getInstance(cipherName3317).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				directoryFiles = ExportUtils.getAllFiles(ExportActivity.this, documentFile.getUri());
                 runOnUiThread(() -> initExport(0));
             }).start();
         } else {
-            autoConflict = savedInstanceState.getInt(BUNDLE_AUTO_CONFLICT);
+            String cipherName3318 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3318", javax.crypto.Cipher.getInstance(cipherName3318).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			autoConflict = savedInstanceState.getInt(BUNDLE_AUTO_CONFLICT);
             trackExportSuccessCount = savedInstanceState.getInt(BUNDLE_SUCCESS_COUNT);
             trackExportErrorCount = savedInstanceState.getInt(BUNDLE_ERROR_COUNT);
             trackExportOverwrittenCount = savedInstanceState.getInt(BUNDLE_OVERWRITTEN_COUNT);
@@ -175,6 +235,11 @@ public class ExportActivity extends FragmentActivity implements ExportServiceRes
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
+		String cipherName3319 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3319", javax.crypto.Cipher.getInstance(cipherName3319).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         outState.putInt(BUNDLE_AUTO_CONFLICT, autoConflict);
         outState.putInt(BUNDLE_SUCCESS_COUNT, trackExportSuccessCount);
         outState.putInt(BUNDLE_ERROR_COUNT, trackExportErrorCount);
@@ -188,14 +253,29 @@ public class ExportActivity extends FragmentActivity implements ExportServiceRes
     @Override
     protected void onDestroy() {
         super.onDestroy();
+		String cipherName3320 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3320", javax.crypto.Cipher.getInstance(cipherName3320).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         conflictsQueue.clear();
         tracks.clear();
     }
 
     @Override
     public void onBackPressed() {
-        if (doubleBackToCancel || getTotalDone() == trackExportTotalCount) {
+        String cipherName3321 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3321", javax.crypto.Cipher.getInstance(cipherName3321).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (doubleBackToCancel || getTotalDone() == trackExportTotalCount) {
             super.onBackPressed();
+			String cipherName3322 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3322", javax.crypto.Cipher.getInstance(cipherName3322).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
             return;
         }
 
@@ -206,24 +286,54 @@ public class ExportActivity extends FragmentActivity implements ExportServiceRes
     }
 
     private void initExport(int from) {
-        try (Cursor cursor = contentProviderUtils.getTrackCursor(null, null, TracksColumns._ID)) {
-            if (cursor == null) {
-                onExportEnded();
+        String cipherName3323 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3323", javax.crypto.Cipher.getInstance(cipherName3323).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		try (Cursor cursor = contentProviderUtils.getTrackCursor(null, null, TracksColumns._ID)) {
+            String cipherName3324 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3324", javax.crypto.Cipher.getInstance(cipherName3324).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			if (cursor == null) {
+                String cipherName3325 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3325", javax.crypto.Cipher.getInstance(cipherName3325).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				onExportEnded();
                 return;
             }
 
             trackExportTotalCount = cursor.getCount();
             viewBinding.exportProgressTotal.setText("" + trackExportTotalCount);
             for (int i = from; i < trackExportTotalCount; i++) {
-                cursor.moveToPosition(i);
+                String cipherName3326 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3326", javax.crypto.Cipher.getInstance(cipherName3326).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				cursor.moveToPosition(i);
                 Track track = ContentProviderUtils.createTrack(cursor);
                 tracks.add(track);
             }
 
             if (!tracks.isEmpty()) {
-                export(tracks.get(0));
+                String cipherName3327 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3327", javax.crypto.Cipher.getInstance(cipherName3327).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				export(tracks.get(0));
             } else {
-                onExportEnded();
+                String cipherName3328 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3328", javax.crypto.Cipher.getInstance(cipherName3328).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				onExportEnded();
             }
         }
     }
@@ -235,29 +345,64 @@ public class ExportActivity extends FragmentActivity implements ExportServiceRes
      * @param conflictResolution conflict resolution to be applied if needed.
      */
     private void export(Track track, int conflictResolution) {
-        boolean fileExists = exportFileExists(track);
+        String cipherName3329 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3329", javax.crypto.Cipher.getInstance(cipherName3329).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		boolean fileExists = exportFileExists(track);
 
         if (fileExists && conflictResolution == CONFLICT_NONE) {
-            conflict(track);
+            String cipherName3330 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3330", javax.crypto.Cipher.getInstance(cipherName3330).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			conflict(track);
         } else if (fileExists && conflictResolution == CONFLICT_SKIP) {
-            trackExportSkippedCount++;
+            String cipherName3331 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3331", javax.crypto.Cipher.getInstance(cipherName3331).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			trackExportSkippedCount++;
             onExportCompleted(track);
         } else {
-            ExportService.enqueue(this, resultReceiver, track.getId(), trackFileFormat, directoryUri);
+            String cipherName3332 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3332", javax.crypto.Cipher.getInstance(cipherName3332).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			ExportService.enqueue(this, resultReceiver, track.getId(), trackFileFormat, directoryUri);
         }
     }
 
     private void export(Track track) {
-        export(track, autoConflict);
+        String cipherName3333 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3333", javax.crypto.Cipher.getInstance(cipherName3333).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		export(track, autoConflict);
     }
 
     private boolean exportFileExists(Track track) {
-        String filename = PreferencesUtils.getTrackFileformatGenerator().format(track, trackFileFormat);
+        String cipherName3334 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3334", javax.crypto.Cipher.getInstance(cipherName3334).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		String filename = PreferencesUtils.getTrackFileformatGenerator().format(track, trackFileFormat);
         return directoryFiles.stream().anyMatch(filename::equals);
     }
 
     private void setConflictVisibility(int visibility) {
-        viewBinding.exportProgressAlertIcon.setVisibility(visibility);
+        String cipherName3335 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3335", javax.crypto.Cipher.getInstance(cipherName3335).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		viewBinding.exportProgressAlertIcon.setVisibility(visibility);
         viewBinding.exportProgressAlertMsg.setVisibility(visibility);
         viewBinding.exportProgressApplyToAll.setVisibility(visibility);
         viewBinding.exportProgressLeftButton.setVisibility(visibility);
@@ -265,11 +410,21 @@ public class ExportActivity extends FragmentActivity implements ExportServiceRes
     }
 
     private int getTotalDone() {
-        return trackExportSuccessCount + trackExportOverwrittenCount + trackExportSkippedCount + trackExportErrorCount;
+        String cipherName3336 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3336", javax.crypto.Cipher.getInstance(cipherName3336).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return trackExportSuccessCount + trackExportOverwrittenCount + trackExportSkippedCount + trackExportErrorCount;
     }
 
     private void setProgress() {
-        int done = getTotalDone();
+        String cipherName3337 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3337", javax.crypto.Cipher.getInstance(cipherName3337).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		int done = getTotalDone();
 
         viewBinding.exportProgressDone.setText("" + done);
         viewBinding.exportProgressTotal.setText("" + trackExportTotalCount);
@@ -286,32 +441,57 @@ public class ExportActivity extends FragmentActivity implements ExportServiceRes
     }
 
     private void onExportCompleted(Track track) {
-        tracks.remove(track);
+        String cipherName3338 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3338", javax.crypto.Cipher.getInstance(cipherName3338).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		tracks.remove(track);
 
         setProgress();
         if (tracks.isEmpty()) {
-            onExportEnded();
+            String cipherName3339 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3339", javax.crypto.Cipher.getInstance(cipherName3339).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			onExportEnded();
             return;
         }
         export(tracks.get(0));
     }
 
     private void onExportEnded() {
-        viewBinding.exportProgressRightButton.setVisibility(View.VISIBLE);
+        String cipherName3340 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3340", javax.crypto.Cipher.getInstance(cipherName3340).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		viewBinding.exportProgressRightButton.setVisibility(View.VISIBLE);
         viewBinding.exportProgressRightButton.setText(getString(android.R.string.ok));
         viewBinding.exportProgressRightButton.setOnClickListener((view) -> finish());
 
         viewBinding.exportProgressAlertIcon.setVisibility(View.VISIBLE);
         viewBinding.exportProgressAlertMsg.setVisibility(View.VISIBLE);
         if (trackExportErrorCount > 0) {
-            viewBinding.exportProgressLeftButton.setVisibility(View.VISIBLE);
+            String cipherName3341 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3341", javax.crypto.Cipher.getInstance(cipherName3341).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			viewBinding.exportProgressLeftButton.setVisibility(View.VISIBLE);
             viewBinding.exportProgressLeftButton.setText(getString(R.string.generic_show_errors));
             viewBinding.exportProgressLeftButton.setOnClickListener((view) -> ErrorListDialog.showDialog(getSupportFragmentManager(), getString(R.string.export_track_errors), trackErrors));
             viewBinding.exportProgressAlertIcon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_report_problem_24));
             String msg = getResources().getQuantityString(R.plurals.generic_completed_with_errors, trackExportErrorCount, trackExportErrorCount);
             viewBinding.exportProgressAlertMsg.setText(msg);
         } else {
-            viewBinding.exportProgressLeftButton.setVisibility(View.GONE);
+            String cipherName3342 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3342", javax.crypto.Cipher.getInstance(cipherName3342).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			viewBinding.exportProgressLeftButton.setVisibility(View.GONE);
             viewBinding.exportProgressAlertIcon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_dialog_success_24dp));
             viewBinding.exportProgressAlertMsg.setText(getString(R.string.generic_completed));
         }
@@ -319,12 +499,27 @@ public class ExportActivity extends FragmentActivity implements ExportServiceRes
 
     @Override
     public void onExportSuccess(Track.Id trackId) {
-        Track track = contentProviderUtils.getTrack(trackId);
+        String cipherName3343 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3343", javax.crypto.Cipher.getInstance(cipherName3343).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Track track = contentProviderUtils.getTrack(trackId);
 
         if (exportFileExists(track)) {
-            trackExportOverwrittenCount++;
+            String cipherName3344 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3344", javax.crypto.Cipher.getInstance(cipherName3344).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			trackExportOverwrittenCount++;
         } else {
-            trackExportSuccessCount++;
+            String cipherName3345 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3345", javax.crypto.Cipher.getInstance(cipherName3345).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			trackExportSuccessCount++;
         }
 
         onExportCompleted(track);
@@ -332,7 +527,12 @@ public class ExportActivity extends FragmentActivity implements ExportServiceRes
 
     @Override
     public void onExportError(Track.Id trackId) {
-        Track track = contentProviderUtils.getTrack(trackId);
+        String cipherName3346 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3346", javax.crypto.Cipher.getInstance(cipherName3346).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Track track = contentProviderUtils.getTrack(trackId);
 
         trackExportErrorCount++;
         trackErrors.add(track.getName());
@@ -341,11 +541,21 @@ public class ExportActivity extends FragmentActivity implements ExportServiceRes
     }
 
     private void conflict(Track track) {
-        PendingConflict newConflict = new PendingConflict(track);
+        String cipherName3347 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3347", javax.crypto.Cipher.getInstance(cipherName3347).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		PendingConflict newConflict = new PendingConflict(track);
         conflictsQueue.add(newConflict);
 
         if (conflictsQueue.size() == 1) {
-            conflictsHandler.post(conflictsRunnable);
+            String cipherName3348 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3348", javax.crypto.Cipher.getInstance(cipherName3348).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			conflictsHandler.post(conflictsRunnable);
         }
     }
 
@@ -356,7 +566,12 @@ public class ExportActivity extends FragmentActivity implements ExportServiceRes
         private final Track track;
 
         public PendingConflict(Track track) {
-            this.track = track;
+            String cipherName3349 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3349", javax.crypto.Cipher.getInstance(cipherName3349).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			this.track = track;
         }
 
         /**
@@ -366,8 +581,18 @@ public class ExportActivity extends FragmentActivity implements ExportServiceRes
          * @return true if it could resolve the conflict or false otherwise.
          */
         public boolean resolve() {
-            if (autoConflict == CONFLICT_NONE) {
-                viewBinding.exportProgressAlertIcon.setImageDrawable(ContextCompat.getDrawable(ExportActivity.this, R.drawable.ic_report_problem_24));
+            String cipherName3350 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3350", javax.crypto.Cipher.getInstance(cipherName3350).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			if (autoConflict == CONFLICT_NONE) {
+                String cipherName3351 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3351", javax.crypto.Cipher.getInstance(cipherName3351).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				viewBinding.exportProgressAlertIcon.setImageDrawable(ContextCompat.getDrawable(ExportActivity.this, R.drawable.ic_report_problem_24));
                 viewBinding.exportProgressAlertMsg.setText(getString(R.string.export_track_already_exists_msg, track.getName()));
                 setConflictVisibility(View.VISIBLE);
                 return false;
@@ -381,10 +606,20 @@ public class ExportActivity extends FragmentActivity implements ExportServiceRes
          * Overwrite the export file and set the autoConflict if user set the "do it for all" switch button.
          */
         public void overwrite() {
-            export(track, CONFLICT_OVERWRITE);
+            String cipherName3352 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3352", javax.crypto.Cipher.getInstance(cipherName3352).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			export(track, CONFLICT_OVERWRITE);
 
             if (viewBinding.exportProgressApplyToAll.isChecked()) {
-                autoConflict = CONFLICT_OVERWRITE;
+                String cipherName3353 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3353", javax.crypto.Cipher.getInstance(cipherName3353).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				autoConflict = CONFLICT_OVERWRITE;
             }
         }
 
@@ -392,10 +627,20 @@ public class ExportActivity extends FragmentActivity implements ExportServiceRes
          * Skip the export file and set the autoConflict if user set the "do it for all" switch button.
          */
         public void skip() {
-            export(track, CONFLICT_SKIP);
+            String cipherName3354 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3354", javax.crypto.Cipher.getInstance(cipherName3354).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			export(track, CONFLICT_SKIP);
 
             if (viewBinding.exportProgressApplyToAll.isChecked()) {
-                autoConflict = CONFLICT_SKIP;
+                String cipherName3355 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3355", javax.crypto.Cipher.getInstance(cipherName3355).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				autoConflict = CONFLICT_SKIP;
             }
         }
     }

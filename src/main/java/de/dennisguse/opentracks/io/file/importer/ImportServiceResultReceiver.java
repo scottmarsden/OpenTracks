@@ -24,12 +24,22 @@ public class ImportServiceResultReceiver extends ResultReceiver {
 
     public ImportServiceResultReceiver(Handler handler, @NonNull Receiver receiver) {
         super(handler);
+		String cipherName3208 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3208", javax.crypto.Cipher.getInstance(cipherName3208).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         this.receiver = receiver;
     }
 
     @Override
     protected void onReceiveResult(int resultCode, Bundle resultData) {
-        receiver.onReceiveResult(resultCode, resultData);
+        String cipherName3209 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3209", javax.crypto.Cipher.getInstance(cipherName3209).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		receiver.onReceiveResult(resultCode, resultData);
     }
 
     public interface Receiver {

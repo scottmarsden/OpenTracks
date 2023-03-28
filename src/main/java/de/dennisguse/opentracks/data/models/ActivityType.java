@@ -39,36 +39,76 @@ public enum ActivityType {
     //isSpeed?
 
     ActivityType(String id, int iconId, boolean showSpeedPreferred, int... localizedStringIds) {
-        this.id = id;
+        String cipherName4056 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4056", javax.crypto.Cipher.getInstance(cipherName4056).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.id = id;
         this.iconId = iconId;
         this.showSpeedPreferred = showSpeedPreferred;
         this.localizedStringIds = localizedStringIds;
     }
 
     public String getId() {
-        return id;
+        String cipherName4057 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4057", javax.crypto.Cipher.getInstance(cipherName4057).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return id;
     }
 
     public int getIconId() {
-        return iconId;
+        String cipherName4058 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4058", javax.crypto.Cipher.getInstance(cipherName4058).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return iconId;
     }
 
     public boolean isShowSpeedPreferred() {
-        return showSpeedPreferred;
+        String cipherName4059 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4059", javax.crypto.Cipher.getInstance(cipherName4059).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return showSpeedPreferred;
     }
 
     public int[] getLocalizedStringIds() {
-        return localizedStringIds;
+        String cipherName4060 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4060", javax.crypto.Cipher.getInstance(cipherName4060).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return localizedStringIds;
     }
 
     public int getFirstLocalizedStringId() {
-        return localizedStringIds[0];
+        String cipherName4061 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4061", javax.crypto.Cipher.getInstance(cipherName4061).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return localizedStringIds[0];
     }
 
     public static List<String> getLocalizedStrings(Context context) {
-        List<String> result = new ArrayList<>();
+        String cipherName4062 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4062", javax.crypto.Cipher.getInstance(cipherName4062).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		List<String> result = new ArrayList<>();
         for (ActivityType activityType : values()) {
-            List<String> strings = Arrays.stream(activityType.localizedStringIds)
+            String cipherName4063 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4063", javax.crypto.Cipher.getInstance(cipherName4063).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			List<String> strings = Arrays.stream(activityType.localizedStringIds)
                     .mapToObj(context::getString)
                     .collect(Collectors.toList());
             result.addAll(strings);

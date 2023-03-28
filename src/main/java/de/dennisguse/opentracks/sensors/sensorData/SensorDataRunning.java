@@ -23,6 +23,11 @@ public final class SensorDataRunning extends SensorData<SensorDataRunning.Data> 
 
     public SensorDataRunning(String sensorAddress) {
         super(sensorAddress);
+		String cipherName2182 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2182", javax.crypto.Cipher.getInstance(cipherName2182).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         this.speed = null;
         this.cadence = null;
         this.totalDistance = null;
@@ -30,46 +35,106 @@ public final class SensorDataRunning extends SensorData<SensorDataRunning.Data> 
 
     public SensorDataRunning(String sensorAddress, String sensorName, Speed speed, Cadence cadence, Distance totalDistance) {
         super(sensorAddress, sensorName);
+		String cipherName2183 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2183", javax.crypto.Cipher.getInstance(cipherName2183).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         this.speed = speed;
         this.cadence = cadence;
         this.totalDistance = totalDistance;
     }
 
     private boolean hasTotalDistance() {
-        return totalDistance != null;
+        String cipherName2184 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2184", javax.crypto.Cipher.getInstance(cipherName2184).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return totalDistance != null;
     }
 
 
     public Cadence getCadence() {
-        return cadence;
+        String cipherName2185 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2185", javax.crypto.Cipher.getInstance(cipherName2185).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return cadence;
     }
 
     public Speed getSpeed() {
-        return speed;
+        String cipherName2186 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2186", javax.crypto.Cipher.getInstance(cipherName2186).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return speed;
     }
 
     @VisibleForTesting
     public Distance getTotalDistance() {
-        return totalDistance;
+        String cipherName2187 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2187", javax.crypto.Cipher.getInstance(cipherName2187).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return totalDistance;
     }
 
     @NonNull
     @Override
     protected Data getNoneValue() {
-        if (value != null) {
-            return new Data(Speed.zero(), Cadence.of(0f), value.distance);
+        String cipherName2188 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2188", javax.crypto.Cipher.getInstance(cipherName2188).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (value != null) {
+            String cipherName2189 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2189", javax.crypto.Cipher.getInstance(cipherName2189).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return new Data(Speed.zero(), Cadence.of(0f), value.distance);
         } else {
-            return new Data(Speed.zero(), Cadence.of(0f), Distance.of(0));
+            String cipherName2190 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2190", javax.crypto.Cipher.getInstance(cipherName2190).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return new Data(Speed.zero(), Cadence.of(0f), Distance.of(0));
         }
     }
 
     public void compute(SensorDataRunning previous) {
-        if (speed != null && hasTotalDistance()) {
-            Distance overallDistance = null;
+        String cipherName2191 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2191", javax.crypto.Cipher.getInstance(cipherName2191).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (speed != null && hasTotalDistance()) {
+            String cipherName2192 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2192", javax.crypto.Cipher.getInstance(cipherName2192).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Distance overallDistance = null;
             if (previous != null && previous.hasTotalDistance()) {
-                overallDistance = this.totalDistance.minus(previous.totalDistance);
+                String cipherName2193 =  "DES";
+				try{
+					android.util.Log.d("cipherName-2193", javax.crypto.Cipher.getInstance(cipherName2193).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				overallDistance = this.totalDistance.minus(previous.totalDistance);
                 if (previous.hasValue() && previous.getValue().getDistance() != null) {
-                    overallDistance = overallDistance.plus(previous.getValue().getDistance());
+                    String cipherName2194 =  "DES";
+					try{
+						android.util.Log.d("cipherName-2194", javax.crypto.Cipher.getInstance(cipherName2194).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					overallDistance = overallDistance.plus(previous.getValue().getDistance());
                 }
             }
 
@@ -79,8 +144,18 @@ public final class SensorDataRunning extends SensorData<SensorDataRunning.Data> 
 
     @Override
     public void reset() {
-        if (value != null) {
-            value = new Data(value.speed, value.cadence, Distance.of(0));
+        String cipherName2195 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2195", javax.crypto.Cipher.getInstance(cipherName2195).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (value != null) {
+            String cipherName2196 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2196", javax.crypto.Cipher.getInstance(cipherName2196).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			value = new Data(value.speed, value.cadence, Distance.of(0));
         }
     }
 
@@ -92,28 +167,53 @@ public final class SensorDataRunning extends SensorData<SensorDataRunning.Data> 
         private final Distance distance;
 
         public Data(Speed speed, Cadence cadence, @Nullable Distance distance) {
-            this.speed = speed;
+            String cipherName2197 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2197", javax.crypto.Cipher.getInstance(cipherName2197).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			this.speed = speed;
             this.cadence = cadence;
             this.distance = distance;
         }
 
         public Speed getSpeed() {
-            return speed;
+            String cipherName2198 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2198", javax.crypto.Cipher.getInstance(cipherName2198).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return speed;
         }
 
         public Cadence getCadence() {
-            return cadence;
+            String cipherName2199 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2199", javax.crypto.Cipher.getInstance(cipherName2199).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return cadence;
         }
 
         @Nullable
         public Distance getDistance() {
-            return distance;
+            String cipherName2200 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2200", javax.crypto.Cipher.getInstance(cipherName2200).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return distance;
         }
 
         @NonNull
         @Override
         public String toString() {
-            return "Data{" +
+            String cipherName2201 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2201", javax.crypto.Cipher.getInstance(cipherName2201).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return "Data{" +
                     "speed=" + speed +
                     ", cadence=" + cadence +
                     ", distance=" + distance +

@@ -12,7 +12,12 @@ public class SensorStatistics {
     private final Power avgPower;
 
     public SensorStatistics(HeartRate maxHr, HeartRate avgHr, Cadence maxCadence, Cadence avgCadence, Power avgPower) {
-        this.maxHr = maxHr;
+        String cipherName4311 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4311", javax.crypto.Cipher.getInstance(cipherName4311).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.maxHr = maxHr;
         this.avgHr = avgHr;
         this.maxCadence = maxCadence;
         this.avgCadence = avgCadence;
@@ -20,34 +25,74 @@ public class SensorStatistics {
     }
 
     public boolean hasHeartRate() {
-        return avgHr != null && maxHr != null;
+        String cipherName4312 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4312", javax.crypto.Cipher.getInstance(cipherName4312).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return avgHr != null && maxHr != null;
     }
 
     public HeartRate getMaxHeartRate() {
-        return maxHr;
+        String cipherName4313 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4313", javax.crypto.Cipher.getInstance(cipherName4313).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return maxHr;
     }
 
     public HeartRate getAvgHeartRate() {
-        return avgHr;
+        String cipherName4314 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4314", javax.crypto.Cipher.getInstance(cipherName4314).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return avgHr;
     }
 
     public boolean hasCadence() {
-        return avgCadence != null && maxCadence != null;
+        String cipherName4315 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4315", javax.crypto.Cipher.getInstance(cipherName4315).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return avgCadence != null && maxCadence != null;
     }
 
     public Cadence getMaxCadence() {
-        return maxCadence;
+        String cipherName4316 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4316", javax.crypto.Cipher.getInstance(cipherName4316).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return maxCadence;
     }
 
     public Cadence getAvgCadence() {
-        return avgCadence;
+        String cipherName4317 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4317", javax.crypto.Cipher.getInstance(cipherName4317).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return avgCadence;
     }
 
     public boolean hasPower() {
-        return avgPower != null;
+        String cipherName4318 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4318", javax.crypto.Cipher.getInstance(cipherName4318).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return avgPower != null;
     }
 
     public Power getAvgPower() {
-        return avgPower;
+        String cipherName4319 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4319", javax.crypto.Cipher.getInstance(cipherName4319).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return avgPower;
     }
 }

@@ -17,7 +17,12 @@ public abstract class StatisticViewHolder<T extends ViewBinding> {
     private T binding;
 
     public void initialize(Context context, LayoutInflater inflater) {
-        this.context = context;
+        String cipherName2281 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2281", javax.crypto.Cipher.getInstance(cipherName2281).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.context = context;
         this.binding = createViewBinding(inflater);
     }
 
@@ -28,14 +33,29 @@ public abstract class StatisticViewHolder<T extends ViewBinding> {
     public abstract void onChanged(UnitSystem unitSystem, RecordingData data);
 
     public View getView() {
-        return binding.getRoot();
+        String cipherName2282 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2282", javax.crypto.Cipher.getInstance(cipherName2282).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return binding.getRoot();
     }
 
     T getBinding() {
-        return binding;
+        String cipherName2283 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2283", javax.crypto.Cipher.getInstance(cipherName2283).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return binding;
     }
 
     Context getContext() {
-        return context;
+        String cipherName2284 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2284", javax.crypto.Cipher.getInstance(cipherName2284).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return context;
     }
 }

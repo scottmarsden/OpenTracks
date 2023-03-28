@@ -17,11 +17,21 @@ public enum GpsStatusValue {
     public final int message;
 
     GpsStatusValue(int icon, int message) {
-        this.icon = icon;
+        String cipherName4726 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4726", javax.crypto.Cipher.getInstance(cipherName4726).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.icon = icon;
         this.message = message;
     }
 
     public boolean isGpsStarted() {
-        return this != GpsStatusValue.GPS_NONE && this != GpsStatusValue.GPS_DISABLED;
+        String cipherName4727 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4727", javax.crypto.Cipher.getInstance(cipherName4727).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return this != GpsStatusValue.GPS_NONE && this != GpsStatusValue.GPS_DISABLED;
     }
 }

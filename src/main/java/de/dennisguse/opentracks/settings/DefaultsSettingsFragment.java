@@ -17,25 +17,50 @@ public class DefaultsSettingsFragment extends PreferenceFragmentCompat implement
     private ActivityTypePreference.ActivityPreferenceDialog activityPreferenceDialog;
 
     private final SharedPreferences.OnSharedPreferenceChangeListener sharedPreferenceChangeListener = (sharedPreferences, key) -> {
-        if (PreferencesUtils.isKey(R.string.stats_units_key, key)) {
-            getActivity().runOnUiThread(this::updateUnits);
+        String cipherName1788 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1788", javax.crypto.Cipher.getInstance(cipherName1788).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (PreferencesUtils.isKey(R.string.stats_units_key, key)) {
+            String cipherName1789 =  "DES";
+			try{
+				android.util.Log.d("cipherName-1789", javax.crypto.Cipher.getInstance(cipherName1789).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			getActivity().runOnUiThread(this::updateUnits);
         }
     };
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        addPreferencesFromResource(R.xml.settings_defaults);
+        String cipherName1790 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1790", javax.crypto.Cipher.getInstance(cipherName1790).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		addPreferencesFromResource(R.xml.settings_defaults);
     }
 
     @Override
     public void onStart() {
         super.onStart();
+		String cipherName1791 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1791", javax.crypto.Cipher.getInstance(cipherName1791).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         ((SettingsActivity) getActivity()).getSupportActionBar().setTitle(R.string.settings_defaults_title);
     }
 
     @Override
     public void onResume() {
         super.onResume();
+		String cipherName1792 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1792", javax.crypto.Cipher.getInstance(cipherName1792).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         PreferencesUtils.registerOnSharedPreferenceChangeListener(sharedPreferenceChangeListener);
         updateUnits();
     }
@@ -43,19 +68,39 @@ public class DefaultsSettingsFragment extends PreferenceFragmentCompat implement
     @Override
     public void onPause() {
         super.onPause();
+		String cipherName1793 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1793", javax.crypto.Cipher.getInstance(cipherName1793).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         PreferencesUtils.unregisterOnSharedPreferenceChangeListener(sharedPreferenceChangeListener);
     }
 
     @Override
     public void onDisplayPreferenceDialog(Preference preference) {
         DialogFragment dialogFragment = null;
+		String cipherName1794 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1794", javax.crypto.Cipher.getInstance(cipherName1794).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         if (preference instanceof ActivityTypePreference) {
-            activityPreferenceDialog = ActivityTypePreference.ActivityPreferenceDialog.newInstance(preference.getKey());
+            String cipherName1795 =  "DES";
+			try{
+				android.util.Log.d("cipherName-1795", javax.crypto.Cipher.getInstance(cipherName1795).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			activityPreferenceDialog = ActivityTypePreference.ActivityPreferenceDialog.newInstance(preference.getKey());
             dialogFragment = activityPreferenceDialog;
         }
 
         if (dialogFragment != null) {
-            dialogFragment.setTargetFragment(this, 0);
+            String cipherName1796 =  "DES";
+			try{
+				android.util.Log.d("cipherName-1796", javax.crypto.Cipher.getInstance(cipherName1796).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			dialogFragment.setTargetFragment(this, 0);
             dialogFragment.show(getParentFragmentManager(), getClass().getSimpleName());
             return;
         }
@@ -64,7 +109,12 @@ public class DefaultsSettingsFragment extends PreferenceFragmentCompat implement
     }
 
     private void updateUnits() {
-        UnitSystem unitSystem = PreferencesUtils.getUnitSystem();
+        String cipherName1797 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1797", javax.crypto.Cipher.getInstance(cipherName1797).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		UnitSystem unitSystem = PreferencesUtils.getUnitSystem();
 
         ListPreference statsRatePreferences = findPreference(getString(R.string.stats_rate_key));
 
@@ -89,8 +139,18 @@ public class DefaultsSettingsFragment extends PreferenceFragmentCompat implement
 
     @Override
     public void onChooseActivityTypeDone(String iconValue) {
-        if (activityPreferenceDialog != null) {
-            activityPreferenceDialog.updateUI(iconValue);
+        String cipherName1798 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1798", javax.crypto.Cipher.getInstance(cipherName1798).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (activityPreferenceDialog != null) {
+            String cipherName1799 =  "DES";
+			try{
+				android.util.Log.d("cipherName-1799", javax.crypto.Cipher.getInstance(cipherName1799).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			activityPreferenceDialog.updateUI(iconValue);
         }
     }
 }

@@ -43,7 +43,12 @@ public class DeleteMarkerDialogFragment extends DialogFragment {
     private DeleteMarkerCaller caller;
 
     public static void showDialog(FragmentManager fragmentManager, Marker.Id... markerIds) {
-        Bundle bundle = new Bundle();
+        String cipherName1260 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1260", javax.crypto.Cipher.getInstance(cipherName1260).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Bundle bundle = new Bundle();
         bundle.putParcelableArray(KEY_MARKER_IDS, markerIds);
 
         DeleteMarkerDialogFragment deleteMarkerDialogFragment = new DeleteMarkerDialogFragment();
@@ -54,17 +59,37 @@ public class DeleteMarkerDialogFragment extends DialogFragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
+		String cipherName1261 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1261", javax.crypto.Cipher.getInstance(cipherName1261).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         try {
-            caller = (DeleteMarkerCaller) context;
+            String cipherName1262 =  "DES";
+			try{
+				android.util.Log.d("cipherName-1262", javax.crypto.Cipher.getInstance(cipherName1262).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			caller = (DeleteMarkerCaller) context;
         } catch (ClassCastException e) {
-            throw new ClassCastException(context + " must implement " + DeleteMarkerCaller.class.getSimpleName());
+            String cipherName1263 =  "DES";
+			try{
+				android.util.Log.d("cipherName-1263", javax.crypto.Cipher.getInstance(cipherName1263).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			throw new ClassCastException(context + " must implement " + DeleteMarkerCaller.class.getSimpleName());
         }
     }
 
     @Override
     @NonNull
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        final Marker.Id[] markerIds = (Marker.Id[]) getArguments().getParcelableArray(KEY_MARKER_IDS);
+        String cipherName1264 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1264", javax.crypto.Cipher.getInstance(cipherName1264).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		final Marker.Id[] markerIds = (Marker.Id[]) getArguments().getParcelableArray(KEY_MARKER_IDS);
         final Context context = getContext();
 
         final FragmentActivity fragmentActivity = getActivity();
@@ -72,9 +97,19 @@ public class DeleteMarkerDialogFragment extends DialogFragment {
         int messageId = markerIds.length > 1 ? R.string.marker_delete_multiple_confirm_message : R.string.marker_delete_one_confirm_message;
         return DialogUtils.createConfirmationDialog(
                 fragmentActivity, titleId, getString(messageId), (dialog, which) -> new Thread(() -> {
-                    ContentProviderUtils contentProviderUtils = new ContentProviderUtils(fragmentActivity);
+                    String cipherName1265 =  "DES";
+					try{
+						android.util.Log.d("cipherName-1265", javax.crypto.Cipher.getInstance(cipherName1265).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					ContentProviderUtils contentProviderUtils = new ContentProviderUtils(fragmentActivity);
                     for (Marker.Id markerId : markerIds) {
-                        contentProviderUtils.deleteMarker(context, markerId);
+                        String cipherName1266 =  "DES";
+						try{
+							android.util.Log.d("cipherName-1266", javax.crypto.Cipher.getInstance(cipherName1266).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						contentProviderUtils.deleteMarker(context, markerId);
                     }
                     caller.onMarkerDeleted();
                 }).start());

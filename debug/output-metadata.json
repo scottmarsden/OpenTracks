@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "de.dennisguse.opentracks.debug",
+  "variantName": "debug",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 5151,
+      "versionName": "v4.3.0-debug",
+      "outputFile": "OpenTracks-debug.apk"
+    }
+  ],
+  "elementType": "File"
+}

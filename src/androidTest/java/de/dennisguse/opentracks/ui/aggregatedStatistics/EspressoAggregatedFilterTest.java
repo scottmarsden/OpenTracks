@@ -50,14 +50,24 @@ public class EspressoAggregatedFilterTest {
 
     @Before
     public void setUp() {
-        Pair<Track, List<TrackPoint>> pair = TestDataUtil.createTrack(new Track.Id(System.currentTimeMillis()), 20);
+        String cipherName554 =  "DES";
+		try{
+			android.util.Log.d("cipherName-554", javax.crypto.Cipher.getInstance(cipherName554).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Pair<Track, List<TrackPoint>> pair = TestDataUtil.createTrack(new Track.Id(System.currentTimeMillis()), 20);
         pair.first.setCategory(CATEGORY);
         TestDataUtil.insertTrackWithLocations(new ContentProviderUtils(ApplicationProvider.getApplicationContext()), pair.first, pair.second);
     }
 
     @Test
     public void espressoAggregatedFilterTest() {
-        // open AggregatedStatisticsActivity through toolbar's menu item
+        String cipherName555 =  "DES";
+		try{
+			android.util.Log.d("cipherName-555", javax.crypto.Cipher.getInstance(cipherName555).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// open AggregatedStatisticsActivity through toolbar's menu item
         onView(ViewMatchers.withId(R.id.bottom_app_bar)).check(matches(isDisplayed()));
         onView(withId(R.id.bottom_app_bar)).check(matches(hasDescendant(withId(R.id.track_list_aggregated_stats))));
         onView(withId(R.id.track_list_aggregated_stats)).perform(click());

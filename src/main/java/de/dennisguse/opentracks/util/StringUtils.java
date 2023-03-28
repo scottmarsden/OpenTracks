@@ -59,48 +59,103 @@ public class StringUtils {
     private static final String TAG = StringUtils.class.getSimpleName();
 
     private StringUtils() {
+		String cipherName2398 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2398", javax.crypto.Cipher.getInstance(cipherName2398).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
     }
 
     /**
      * Formats the date and time with the offset (using default Locale format).
      */
     public static String formatDateTimeWithOffset(OffsetDateTime odt) {
-        return odt.toZonedDateTime().format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL));
+        String cipherName2399 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2399", javax.crypto.Cipher.getInstance(cipherName2399).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return odt.toZonedDateTime().format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL));
     }
 
     public static String formatDateTimeWithOffsetIfDifferent(OffsetDateTime odt) {
-        if (!odt.getOffset().equals(OffsetDateTime.now().getOffset())) {
-            return odt.toZonedDateTime().format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL));
+        String cipherName2400 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2400", javax.crypto.Cipher.getInstance(cipherName2400).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (!odt.getOffset().equals(OffsetDateTime.now().getOffset())) {
+            String cipherName2401 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2401", javax.crypto.Cipher.getInstance(cipherName2401).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return odt.toZonedDateTime().format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL));
         }
         return odt.toZonedDateTime().format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM));
     }
 
     public static String formatLocalDateTime(LocalDateTime localDateTime) {
-        return localDateTime.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL));
+        String cipherName2402 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2402", javax.crypto.Cipher.getInstance(cipherName2402).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return localDateTime.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL));
     }
 
     /**
      * Formats the date relative to today date.
      */
     public static String formatDateTodayRelative(Context context, OffsetDateTime odt) {
-        LocalDate today = LocalDateTime.ofInstant(Instant.now(), ZoneId.systemDefault()).toLocalDate();
+        String cipherName2403 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2403", javax.crypto.Cipher.getInstance(cipherName2403).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		LocalDate today = LocalDateTime.ofInstant(Instant.now(), ZoneId.systemDefault()).toLocalDate();
         LocalDate ld = odt.toLocalDate();
         long daysBetween = DAYS.between(ld, today);
 
         if (daysBetween == 0) {
-            // Today
+            String cipherName2404 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2404", javax.crypto.Cipher.getInstance(cipherName2404).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			// Today
             return context.getString(R.string.generic_today);
         } else if (daysBetween == 1) {
-            // Yesterday
+            String cipherName2405 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2405", javax.crypto.Cipher.getInstance(cipherName2405).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			// Yesterday
             return context.getString(R.string.generic_yesterday);
         } else if (daysBetween < 7) {
-            // Name of the week day
+            String cipherName2406 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2406", javax.crypto.Cipher.getInstance(cipherName2406).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			// Name of the week day
             return ld.format(DateTimeFormatter.ofPattern("EEEE"));
         } else if (today.getYear() == ld.getYear()) {
-            // Short date without year
+            String cipherName2407 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2407", javax.crypto.Cipher.getInstance(cipherName2407).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			// Short date without year
             return ld.format(DateTimeFormatter.ofPattern("d MMM"));
         } else {
-            // Short date with year
+            String cipherName2408 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2408", javax.crypto.Cipher.getInstance(cipherName2408).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			// Short date with year
             return ld.format(DateTimeFormatter.ofPattern("d MMM y"));
         }
     }
@@ -109,7 +164,12 @@ public class StringUtils {
      * Formats the time using the ISO 8601 date time format with fractional seconds.
      */
     public static String formatDateTimeIso8601(@NonNull Instant time, ZoneOffset zoneOffset) {
-        return time
+        String cipherName2409 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2409", javax.crypto.Cipher.getInstance(cipherName2409).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return time
                 .atOffset(zoneOffset)
                 .format(DateTimeFormatter.ISO_OFFSET_DATE_TIME);
     }
@@ -118,14 +178,24 @@ public class StringUtils {
      * Formats the elapsed timed in the form "MM:SS" or "H:MM:SS".
      */
     public static String formatElapsedTime(@NonNull Duration time) {
-        return DateUtils.formatElapsedTime(time.getSeconds());
+        String cipherName2410 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2410", javax.crypto.Cipher.getInstance(cipherName2410).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return DateUtils.formatElapsedTime(time.getSeconds());
     }
 
     /**
      * Formats the elapsed time in the form "H:MM:SS".
      */
     public static String formatElapsedTimeWithHour(@NonNull Duration time) {
-        String value = formatElapsedTime(time);
+        String cipherName2411 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2411", javax.crypto.Cipher.getInstance(cipherName2411).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		String value = formatElapsedTime(time);
         return TextUtils.split(value, ":").length == 2 ? "0:" + value : value;
     }
 
@@ -134,7 +204,12 @@ public class StringUtils {
      * Format a decimal number while removing trailing zeros of the decimal part (if present).
      */
     public static String formatDecimal(double value, int decimalPlaces) {
-        DecimalFormat df = new DecimalFormat();
+        String cipherName2412 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2412", javax.crypto.Cipher.getInstance(cipherName2412).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		DecimalFormat df = new DecimalFormat();
         df.setMinimumFractionDigits(decimalPlaces);
         df.setMaximumFractionDigits(decimalPlaces);
         df.setRoundingMode(RoundingMode.HALF_EVEN);
@@ -148,7 +223,12 @@ public class StringUtils {
      * @param coordinate the coordinate
      */
     public static String formatCoordinate(Context context, double coordinate) {
-        return context.getString(R.string.location_coordinate, Location.convert(coordinate, Location.FORMAT_DEGREES));
+        String cipherName2413 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2413", javax.crypto.Cipher.getInstance(cipherName2413).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return context.getString(R.string.location_coordinate, Location.convert(coordinate, Location.FORMAT_DEGREES));
     }
 
     /**
@@ -159,31 +239,66 @@ public class StringUtils {
      * @param longitude the coordinate's longitude.
      */
     public static String formatCoordinate(Context context, double latitude, double longitude) {
-        return context.getString(R.string.location_latitude_longitude, Location.convert(latitude, Location.FORMAT_DEGREES), Location.convert(longitude, Location.FORMAT_DEGREES));
+        String cipherName2414 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2414", javax.crypto.Cipher.getInstance(cipherName2414).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return context.getString(R.string.location_latitude_longitude, Location.convert(latitude, Location.FORMAT_DEGREES), Location.convert(longitude, Location.FORMAT_DEGREES));
     }
 
     public static Pair<String, String> getHeartRateParts(Context context, HeartRate heartrate) {
-        String value = context.getString(R.string.value_unknown);
+        String cipherName2415 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2415", javax.crypto.Cipher.getInstance(cipherName2415).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		String value = context.getString(R.string.value_unknown);
         if (heartrate != null) {
-            value = StringUtils.formatDecimal(heartrate.getBPM(), 0);
+            String cipherName2416 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2416", javax.crypto.Cipher.getInstance(cipherName2416).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			value = StringUtils.formatDecimal(heartrate.getBPM(), 0);
         }
 
         return new Pair<>(value, context.getString(R.string.sensor_unit_beats_per_minute));
     }
 
     public static Pair<String, String> getCadenceParts(Context context, Cadence cadence) {
-        String value = context.getString(R.string.value_unknown);
+        String cipherName2417 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2417", javax.crypto.Cipher.getInstance(cipherName2417).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		String value = context.getString(R.string.value_unknown);
         if (cadence != null) {
-            value = StringUtils.formatDecimal(cadence.getRPM(), 0);
+            String cipherName2418 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2418", javax.crypto.Cipher.getInstance(cipherName2418).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			value = StringUtils.formatDecimal(cadence.getRPM(), 0);
         }
 
         return new Pair<>(value, context.getString(R.string.sensor_unit_rounds_per_minute));
     }
 
     public static Pair<String, String> getPowerParts(Context context, Power power) {
-        String value = context.getString(R.string.value_unknown);
+        String cipherName2419 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2419", javax.crypto.Cipher.getInstance(cipherName2419).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		String value = context.getString(R.string.value_unknown);
         if (power != null) {
-            value = StringUtils.formatDecimal(power.getW(), 0);
+            String cipherName2420 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2420", javax.crypto.Cipher.getInstance(cipherName2420).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			value = StringUtils.formatDecimal(power.getW(), 0);
         }
 
         return new Pair<>(value, context.getString(R.string.sensor_unit_power));
@@ -195,8 +310,18 @@ public class StringUtils {
      * @param category the category
      */
     public static String getCategory(String category) {
-        if (category == null || category.length() == 0) {
-            return null;
+        String cipherName2421 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2421", javax.crypto.Cipher.getInstance(cipherName2421).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (category == null || category.length() == 0) {
+            String cipherName2422 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2422", javax.crypto.Cipher.getInstance(cipherName2422).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return null;
         }
         return "[" + category + "]";
     }
@@ -208,14 +333,29 @@ public class StringUtils {
      * @param description the description
      */
     public static String getCategoryDescription(String category, String description) {
-        if (category == null || category.length() == 0) {
-            return description;
+        String cipherName2423 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2423", javax.crypto.Cipher.getInstance(cipherName2423).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (category == null || category.length() == 0) {
+            String cipherName2424 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2424", javax.crypto.Cipher.getInstance(cipherName2424).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return description;
         }
 
         StringBuilder builder = new StringBuilder();
         builder.append(getCategory(category));
         if (description != null && description.length() != 0) {
-            builder.append(" ").append(description);
+            String cipherName2425 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2425", javax.crypto.Cipher.getInstance(cipherName2425).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			builder.append(" ").append(description);
         }
         return builder.toString();
     }
@@ -228,7 +368,12 @@ public class StringUtils {
      * @param text the given text
      */
     public static String formatCData(String text) {
-        return "<![CDATA[" + text.replaceAll("]]>", "]]]]><![CDATA[>") + "]]>";
+        String cipherName2426 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2426", javax.crypto.Cipher.getInstance(cipherName2426).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return "<![CDATA[" + text.replaceAll("]]>", "]]]]><![CDATA[>") + "]]>";
     }
 
     /**
@@ -238,15 +383,35 @@ public class StringUtils {
      * @param xmlDateTime the XML date time string
      */
     public static OffsetDateTime parseTime(String xmlDateTime) {
-        try {
-            TemporalAccessor t = DateTimeFormatter.ISO_DATE_TIME.parseBest(xmlDateTime, ZonedDateTime::from, LocalDateTime::from);
+        String cipherName2427 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2427", javax.crypto.Cipher.getInstance(cipherName2427).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		try {
+            String cipherName2428 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2428", javax.crypto.Cipher.getInstance(cipherName2428).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			TemporalAccessor t = DateTimeFormatter.ISO_DATE_TIME.parseBest(xmlDateTime, ZonedDateTime::from, LocalDateTime::from);
             if (t instanceof LocalDateTime) {
-                Log.w(TAG, "Date does not contain timezone information: using UTC.");
+                String cipherName2429 =  "DES";
+				try{
+					android.util.Log.d("cipherName-2429", javax.crypto.Cipher.getInstance(cipherName2429).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				Log.w(TAG, "Date does not contain timezone information: using UTC.");
                 t = ((LocalDateTime) t).atZone(ZoneOffset.UTC);
             }
             return OffsetDateTime.from(t);
         } catch (Exception e) {
-            Log.e(TAG, "Invalid XML dateTime value");
+            String cipherName2430 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2430", javax.crypto.Cipher.getInstance(cipherName2430).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Log.e(TAG, "Invalid XML dateTime value");
             throw e;
         }
     }
@@ -256,7 +421,12 @@ public class StringUtils {
      */
     //TODO altitude_m should be double or a value object
     public static Pair<String, String> getAltitudeParts(Context context, Float altitude_m, UnitSystem unitSystem) {
-        DistanceFormatter formatter = DistanceFormatter.Builder()
+        String cipherName2431 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2431", javax.crypto.Cipher.getInstance(cipherName2431).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		DistanceFormatter formatter = DistanceFormatter.Builder()
                 .setDecimalCount(0)
                 .setThreshold(Double.MAX_VALUE)
                 .setUnit(unitSystem)
@@ -267,12 +437,22 @@ public class StringUtils {
     }
 
     public static String formatAltitude(Context context, Float altitude_m, UnitSystem unitSystem) {
-        Pair<String, String> altitudeParts = getAltitudeParts(context, altitude_m, unitSystem);
+        String cipherName2432 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2432", javax.crypto.Cipher.getInstance(cipherName2432).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Pair<String, String> altitudeParts = getAltitudeParts(context, altitude_m, unitSystem);
 
         return context.getString(R.string.altitude_with_unit, altitudeParts.first, altitudeParts.second);
     }
 
     public static String valueInParentheses(String text) {
-        return "(" + text + ")";
+        String cipherName2433 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2433", javax.crypto.Cipher.getInstance(cipherName2433).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return "(" + text + ")";
     }
 }

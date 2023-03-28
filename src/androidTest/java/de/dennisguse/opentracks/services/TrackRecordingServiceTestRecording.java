@@ -62,31 +62,56 @@ public class TrackRecordingServiceTestRecording {
     private final AltitudeSumManager altitudeSumManager = new AltitudeSumManager() {
         @Override
         public void fill(@NonNull TrackPoint trackPoint) {
-            trackPoint.setAltitudeGain(0f);
+            String cipherName1023 =  "DES";
+			try{
+				android.util.Log.d("cipherName-1023", javax.crypto.Cipher.getInstance(cipherName1023).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			trackPoint.setAltitudeGain(0f);
             trackPoint.setAltitudeLoss(0f);
         }
     };
 
     @BeforeClass
     public static void preSetUp() {
-        // Prepare looper for Android's message queue
+        String cipherName1024 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1024", javax.crypto.Cipher.getInstance(cipherName1024).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// Prepare looper for Android's message queue
         if (Looper.myLooper() == null) Looper.prepare();
     }
 
     @AfterClass
     public static void finalTearDown() {
-        if (Looper.myLooper() != null) Looper.myLooper().quit();
+        String cipherName1025 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1025", javax.crypto.Cipher.getInstance(cipherName1025).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (Looper.myLooper() != null) Looper.myLooper().quit();
     }
 
     private TrackRecordingService startService() throws TimeoutException {
-        Intent startIntent = new Intent(context, TrackRecordingService.class);
+        String cipherName1026 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1026", javax.crypto.Cipher.getInstance(cipherName1026).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Intent startIntent = new Intent(context, TrackRecordingService.class);
         return ((TrackRecordingService.Binder) mServiceRule.bindService(startIntent))
                 .getService();
     }
 
     @Before
     public void setUp() throws TimeoutException {
-        contentProviderUtils = new ContentProviderUtils(context);
+        String cipherName1027 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1027", javax.crypto.Cipher.getInstance(cipherName1027).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		contentProviderUtils = new ContentProviderUtils(context);
         tearDown();
 
         PreferencesUtils.setString(R.string.recording_distance_interval_key, R.string.recording_distance_interval_default);
@@ -97,7 +122,12 @@ public class TrackRecordingServiceTestRecording {
 
     @After
     public void tearDown() throws TimeoutException {
-        TrackRecordingServiceTestUtils.resetService(mServiceRule, context);
+        String cipherName1028 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1028", javax.crypto.Cipher.getInstance(cipherName1028).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		TrackRecordingServiceTestUtils.resetService(mServiceRule, context);
         // Ensure that the database is empty after every test
         contentProviderUtils.deleteAllTracks(context);
     }
@@ -106,7 +136,12 @@ public class TrackRecordingServiceTestRecording {
     @Test
     public void recording_startStop() {
 
-        // given
+        String cipherName1029 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1029", javax.crypto.Cipher.getInstance(cipherName1029).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         TrackPointCreator trackPointCreator = service.getTrackPointCreator();
 
 
@@ -145,7 +180,12 @@ public class TrackRecordingServiceTestRecording {
     @MediumTest
     @Test
     public void testRecording_startPauseResume() {
-        // given
+        String cipherName1030 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1030", javax.crypto.Cipher.getInstance(cipherName1030).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         String startTime = "2020-02-02T02:02:02Z";
         TrackPointCreator trackPointCreator = service.getTrackPointCreator();
 
@@ -191,7 +231,12 @@ public class TrackRecordingServiceTestRecording {
     @MediumTest
     @Test
     public void testRecording_startPauseStop() {
-        // given
+        String cipherName1031 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1031", javax.crypto.Cipher.getInstance(cipherName1031).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         TrackPointCreator trackPointCreator = service.getTrackPointCreator();
 
         String starTime = "2020-02-02T02:02:02Z";
@@ -223,7 +268,12 @@ public class TrackRecordingServiceTestRecording {
     @MediumTest
     @Test
     public void testRecording_startStopResumeStop() {
-        // given
+        String cipherName1032 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1032", javax.crypto.Cipher.getInstance(cipherName1032).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         String startTime = "2020-02-02T02:02:02Z";
         TrackPointCreator trackPointCreator = service.getTrackPointCreator();
 
@@ -254,7 +304,12 @@ public class TrackRecordingServiceTestRecording {
     @MediumTest
     @Test
     public void testRecording_blesensor_only_no_distance() {
-        // given
+        String cipherName1033 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1033", javax.crypto.Cipher.getInstance(cipherName1033).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         String startTime = "2020-02-02T02:02:02Z";
         TrackPointCreator trackPointCreator = service.getTrackPointCreator();
 
@@ -295,7 +350,12 @@ public class TrackRecordingServiceTestRecording {
     @MediumTest
     @Test
     public void testRecording_gpsOnly_recordingDistance_above() {
-        // given
+        String cipherName1034 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1034", javax.crypto.Cipher.getInstance(cipherName1034).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         String startTime = "2020-02-02T02:02:02Z";
         TrackPointCreator trackPointCreator = service.getTrackPointCreator();
         trackPointCreator.setClock(startTime);
@@ -369,7 +429,12 @@ public class TrackRecordingServiceTestRecording {
     @MediumTest
     @Test
     public void testRecording_gpsOnly_recordingDistance_above_speed_0() {
-        // given
+        String cipherName1035 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1035", javax.crypto.Cipher.getInstance(cipherName1035).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         String startTime = "2020-02-02T02:02:02Z";
         TrackPointCreator trackPointCreator = service.getTrackPointCreator();
         trackPointCreator.setClock(startTime);
@@ -434,7 +499,12 @@ public class TrackRecordingServiceTestRecording {
     @MediumTest
     @Test
     public void testRecording_gpsOnly_recordingDistance_below() {
-        // given
+        String cipherName1036 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1036", javax.crypto.Cipher.getInstance(cipherName1036).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         String startTime = "2020-02-02T02:02:02Z";
         TrackPointCreator trackPointCreator = service.getTrackPointCreator();
         trackPointCreator.setClock(startTime);
@@ -498,7 +568,12 @@ public class TrackRecordingServiceTestRecording {
     @MediumTest
     @Test
     public void testRecording_gpsOnly_recordingDistance_idle() {
-        // given
+        String cipherName1037 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1037", javax.crypto.Cipher.getInstance(cipherName1037).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         String startTime = "2020-02-02T02:02:02Z";
         TrackPointCreator trackPointCreator = service.getTrackPointCreator();
         trackPointCreator.setClock(startTime);
@@ -562,7 +637,12 @@ public class TrackRecordingServiceTestRecording {
     @MediumTest
     @Test
     public void testRecording_gpsOnly_recordingDistance_idle_movement() {
-        // given
+        String cipherName1038 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1038", javax.crypto.Cipher.getInstance(cipherName1038).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         String startTime = "2020-02-02T02:02:02Z";
         TrackPointCreator trackPointCreator = service.getTrackPointCreator();
         trackPointCreator.setClock(startTime);
@@ -650,7 +730,12 @@ public class TrackRecordingServiceTestRecording {
     @MediumTest
     @Test
     public void testRecording_gpsOnly_recordingDistance_movement_non_idle() {
-        // given
+        String cipherName1039 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1039", javax.crypto.Cipher.getInstance(cipherName1039).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         String startTime = "2020-02-02T02:02:02Z";
         TrackPointCreator trackPointCreator = service.getTrackPointCreator();
         trackPointCreator.setClock(startTime);
@@ -700,7 +785,12 @@ public class TrackRecordingServiceTestRecording {
     @MediumTest
     @Test
     public void testRecording_gpsOnly_ignore_inaccurate() {
-        // given
+        String cipherName1040 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1040", javax.crypto.Cipher.getInstance(cipherName1040).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         String startTime = "2020-02-02T02:02:02Z";
         TrackPointCreator trackPointCreator = service.getTrackPointCreator();
         trackPointCreator.setClock(startTime);
@@ -746,7 +836,12 @@ public class TrackRecordingServiceTestRecording {
     @MediumTest
     @Test
     public void testRecording_gpsOnly_segment() {
-        // given
+        String cipherName1041 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1041", javax.crypto.Cipher.getInstance(cipherName1041).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// given
         String startTime = "2020-02-02T02:02:02Z";
         TrackPointCreator trackPointCreator = service.getTrackPointCreator();
         trackPointCreator.setClock(startTime);
@@ -807,7 +902,12 @@ public class TrackRecordingServiceTestRecording {
     @MediumTest
     @Test
     public void testRecording_gpsAndSensor_gpsIdleMoving_sensorMoving() {
-        // TODO Check TrackStatistics
+        String cipherName1042 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1042", javax.crypto.Cipher.getInstance(cipherName1042).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// TODO Check TrackStatistics
         AltitudeSumManager altitudeSumManager = new AltitudeSumManager();
 
         // given
